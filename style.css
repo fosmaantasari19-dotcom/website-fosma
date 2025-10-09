@@ -1,0 +1,1155 @@
+/* Atur ulang gaya dasar */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Background halaman */
+    color: #333;
+}
+
+/* Navigasi Bar (agar tetap di atas dan terlihat rapi) */
+header {
+    background-color: #ffffff; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky; /* Agar menempel saat scroll */
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+}
+
+nav h1 {
+    color: #004c99; /* Warna biru khas FEB UI */
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    display: block;
+}
+
+/* Hero Section (Banner Besar di Awal) */
+.hero-section {
+    background: linear-gradient(rgba(0, 76, 153, 0.7), rgba(0, 76, 153, 0.7)), url('hero-bg.jpg'); /* Anda perlu gambar background */
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Ketinggian banner */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+/* Section Konten Umum */
+.content-section, .timeline-section {
+    padding: 40px 5%;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+/* style.css */
+
+/* Gaya untuk Container Timeline */
+.timeline-container {
+    padding: 20px 0;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Garis Vertikal Utama (The Timeline itself) */
+.timeline-list {
+    list-style: none;
+    padding: 0;
+    position: relative;
+    margin: 0;
+}
+
+/* Membuat Garis Vertikal menggunakan pseudo-element */
+.timeline-list::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #004c99; /* Warna biru */
+    top: 0;
+    bottom: 0;
+    left: 50%; /* Posisikan di tengah untuk desain dua sisi */
+    margin-left: -1px;
+}
+
+/* Setiap Item Timeline */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 40%; /* Menggunakan 40% agar ada ruang di tengah */
+    margin-bottom: 50px; /* Jarak antar item */
+}
+
+/* Posisi Konten di Kiri */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    transform: translateX(0);
+}
+
+/* Posisi Konten di Kanan (Tantangan CSS Flex/Grid) */
+.timeline-item:nth-child(even) {
+    left: 60%; /* Dipindahkan ke kanan, melewati garis tengah */
+}
+
+/* Titik di Garis Timeline */
+.timeline-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: -8px; /* Posisi titik di sisi kiri item */
+    background-color: #ff9900; /* Warna aksen (oranye) */
+    border: 3px solid #004c99;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1; /* Agar berada di atas garis */
+}
+
+/* Pindahkan Titik ke Kiri untuk Item di Kanan */
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -8px; /* Posisikan titik di sisi kanan item yang berada di kanan */
+    right: auto;
+}
+
+/* Styling Konten Acara */
+.timeline-content {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.timeline-date {
+    display: block;
+    color: #004c99;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Tambahkan arrow/panah agar konten menunjuk ke garis tengah */
+.timeline-item:nth-child(odd) .timeline-content::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: -10px; /* Panah menunjuk ke kanan */
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: -10px; /* Panah menunjuk ke kiri */
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+/* style.css (Bagian paling bawah) */
+
+/* ================================== */
+/* MEDIA QUERY: Tampilan Responsif (Ponsel & Tablet) */
+/* ================================== */
+@media screen and (max-width: 768px) {
+    
+    /* Posisikan Garis Vertikal ke Kiri */
+    .timeline-list::after {
+        left: 30px; /* Pindahkan garis vertikal dari tengah ke kiri */
+    }
+
+    /* Posisikan Semua Item ke Kiri */
+    .timeline-item {
+        width: 100%; /* Lebar penuh */
+        padding-left: 60px; /* Tambahkan padding agar tidak menabrak garis */
+        padding-right: 15px;
+        left: 0% !important; /* Timpa properti 'left' sebelumnya */
+    }
+
+    /* Posisikan Titik Selalu di Kiri */
+    .timeline-dot {
+        left: 23px !important; /* Sesuaikan dengan posisi garis (30px - setengah lebar dot) */
+        right: auto !important;
+    }
+
+    /* Hilangkan panah di sisi kanan, buat panah hanya di sisi kiri */
+    .timeline-item .timeline-content::before {
+        left: -10px !important; /* Panah menunjuk ke garis yang sudah di kiri */
+        right: auto !important;
+        border-width: 10px 10px 10px 0 !important;
+        border-color: transparent white transparent transparent !important;
+    }
+    
+    /* Pastikan item 'even' (genap) juga mengikuti aturan item 'odd' (ganjil) */
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+}
+/* style.css */
+
+/* ... kode di atas ... */
+
+/* Gaya untuk Animasi Muncul (Scroll) */
+.timeline-content {
+    /* ... properti sebelumnya di sini ... */
+    
+    /* Properti baru untuk animasi */
+    opacity: 0; /* Mulai tersembunyi */
+    transform: translateY(20px); /* Mulai 20px di bawah posisi akhir */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Durasi dan jenis transisi */
+}
+
+/* Kelas yang ditambahkan oleh JS ketika item terlihat */
+.timeline-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* style.css */
+
+/* ... kode di atas ... */
+
+/* Gaya untuk Program Section menggunakan CSS Grid */
+.program-grid {
+    display: grid;
+    /* Atur kolom: minimal 250px, akan otomatis menyesuaikan ke 3 kolom jika ruang cukup */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px; /* Jarak antar kartu */
+    margin-top: 30px;
+}
+
+/* style.css */
+
+/* ... Kode untuk Program Section di atas ... */
+
+/* ================================== */
+/* GAYA UNTUK FOOTER (Poin 8.2) */
+/* ================================== */
+footer {
+    background-color: #004c99; 
+    /* ... semua properti footer di sini ... */
+}
+
+.footer-container {
+    /* ... properti footer-container di sini ... */
+}
+
+/* ... semua properti footer-col, social-icons, dan footer-bottom di sini ... */
+
+/* ================================== */
+/* MEDIA QUERY (Ponsel & Tablet) */
+/* ================================== */
+@media screen and (max-width: 768px) {
+    
+    /* ... Kode Responsif Timeline di sini ... */
+    
+    /* Tambahkan juga CSS Responsif Footer di sini: */
+    .footer-container {
+        flex-direction: column; 
+    }
+    
+    /* ... properti responsif footer lainnya ... */
+}
+
+.program-card {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border-left: 5px solid #004c99; /* Garis vertikal di kiri untuk aksen */
+}
+
+.program-card:hover {
+    transform: translateY(-5px); /* Efek melayang saat dihover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.program-card h4 {
+    color: #004c99;
+    margin-top: 0;
+}
+
+.program-card a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #ff9900; /* Warna oranye untuk link */
+    font-weight: bold;
+}
+
+/* style.css */
+
+/* ... Kode CSS yang sudah ada ... */
+
+
+/* ================================== */
+/* GAYA UNTUK ARTIKEL/BLOG LIST (article-grid) */
+/* ================================== */
+.article-grid {
+    display: grid;
+    /* Atur agar minimal 300px per kolom, responsif (2-3 kolom di desktop) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.article-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+    display: flex; 
+    flex-direction: column;
+}
+
+.article-card:hover {
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.article-image {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.article-card h3 {
+    color: #004c99;
+    font-size: 1.2em;
+    padding: 0 20px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.article-meta {
+    padding: 10px 20px 0;
+    font-size: 0.85em;
+    color: #888;
+}
+
+.article-meta .category {
+    font-weight: bold;
+    color: #ff9900; 
+}
+
+.article-card p {
+    padding: 0 20px;
+    font-size: 0.9em;
+    flex-grow: 1; /* Penting agar semua kartu memiliki tinggi yang sama */
+}
+
+.read-more {
+    display: block;
+    padding: 15px 20px;
+    background-color: #f0f0f0;
+    text-decoration: none;
+    color: #004c99;
+    font-weight: bold;
+    text-align: right;
+    border-top: 1px solid #eee;
+}
+/* style.css */
+
+/* ... kode di atas ... */
+
+/* ================================== */
+/* GAYA UNTUK HALAMAN DETAIL ARTIKEL */
+/* ================================== */
+
+.article-detail {
+    /* Batasi lebar artikel agar mudah dibaca, standar max 800px */
+    max-width: 900px; 
+    margin: 40px auto; /* Pusatkan konten artikel di tengah */
+    padding: 0 5%;
+}
+
+.article-header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
+}
+
+.breadcrumb a {
+    color: #004c99;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.article-meta-detail {
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.article-meta-detail .category-tag {
+    color: #ff9900;
+    font-weight: bold;
+}
+
+.article-detail h1 {
+    font-size: 2.2em;
+    color: #333;
+    margin-top: 5px;
+}
+
+.featured-image {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* Styling untuk Isi Artikel (Keterbacaan) */
+.article-body h3 {
+    color: #004c99;
+    margin-top: 30px;
+    border-left: 4px solid #ff9900;
+    padding-left: 15px;
+}
+
+.article-body p {
+    line-height: 1.7; /* Jarak baris yang nyaman untuk membaca */
+    margin-bottom: 20px;
+    font-size: 1.05em;
+}
+
+blockquote {
+    border-left: 5px solid #ff9900;
+    padding: 15px 20px;
+    margin: 25px 0;
+    background-color: #f9f9f9;
+    font-style: italic;
+    color: #555;
+}
+
+/* style.css */
+
+/* ... Kode CSS yang sudah ada ... */
+
+/* ================================== */
+/* GAYA UNTUK TENTANG KAMI (ABOUT) */
+/* ================================== */
+
+/* Bagian Sejarah */
+.sejarah-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: justify;
+}
+.sejarah-container h2 {
+    color: #004c99; /* Ganti dengan warna biru khas UIN Antasari jika ada */
+    text-align: center;
+    margin-bottom: 30px;
+}
+.sejarah-container p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Bagian Visi Misi */
+.visimisi-section {
+    display: flex; /* Mengaktifkan Flexbox untuk kolom */
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.vm-column {
+    flex: 1; /* Memberikan lebar yang sama pada kedua kolom */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.vm-column h2 {
+    text-align: center;
+    color: #ff9900; /* Warna aksen */
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Styling Blockquote untuk VISI */
+.vm-column blockquote {
+    border-left: 5px solid #004c99;
+    padding: 15px 20px;
+    margin: 20px 0;
+    font-style: italic;
+    background-color: #eaf3ff; /* Latar belakang biru muda */
+}
+
+/* Styling Daftar Misi */
+.misi-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+.misi-list li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border-left: 3px solid #ff9900;
+}
+
+/* Media Query untuk Responsif */
+@media screen and (max-width: 768px) {
+    .visimisi-section {
+        flex-direction: column; /* Tumpuk kolom di layar kecil */
+    }
+}
+/* style.css */
+
+/* ... Kode CSS yang sudah ada ... */
+
+/* ================================== */
+/* GAYA UNTUK STRUKTUR KEPENGURUSAN */
+/* ================================== */
+
+.struktur-section {
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+.organizational-chart {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Penataan setiap level bagan */
+.level {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    position: relative;
+    padding-top: 20px;
+}
+
+/* Gaya umum untuk setiap kotak posisi/divisi */
+.position {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer; /* Menandakan bahwa ini bisa diklik */
+    transition: background-color 0.3s, transform 0.3s;
+    flex-basis: 250px; /* Lebar maksimum untuk setiap kotak */
+    max-width: 100%;
+}
+
+.position:hover {
+    background-color: #e5e5e5;
+    transform: translateY(-2px);
+}
+
+.position h4 {
+    margin: 0 0 5px 0;
+    color: #004c99; /* Warna Utama FOSMA */
+    font-size: 1.1em;
+}
+
+/* Styling Khusus Level 3 (Divisi) */
+.level-3 {
+    margin-top: 40px; 
+}
+.level-3 .divisi-card {
+    background-color: #fff;
+    border-left: 5px solid #ff9900; /* Aksen warna */
+}
+.level-3 .divisi-card:hover {
+     background-color: #fff8e1;
+}
+
+/* Garis penghubung bisa dibuat dengan CSS pseudo-element, 
+   tapi kita sederhanakan dulu dengan layout agar lebih mudah */
+
+
+/* ================================== */
+/* GAYA UNTUK MODAL PROFIL DIVISI */
+/* ================================== */
+
+/* Awalnya sembunyikan modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; /* Harus di atas semua elemen lain */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Background gelap transparan */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Jarak dari atas dan tengah */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* Animasi untuk memunculkan modal */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* style.css */
+
+/* ... Kode CSS yang sudah ada ... */
+
+/* ================================== */
+/* GAYA UNTUK PROGRAM & TAB NAVIGASI */
+/* ================================== */
+
+.text-center {
+    text-align: center;
+}
+
+/* Styling untuk Tab Navigasi (Filter Divisi) */
+.tab-navigation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.tab-button {
+    background-color: #f4f4f4;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.tab-button:hover {
+    background-color: #ddd;
+}
+
+.tab-button.active {
+    background-color: #004c99; /* Warna Utama FOSMA */
+    color: white;
+    border-bottom: 3px solid #ff9900; /* Garis aksen aktif */
+    border-radius: 0;
+}
+
+/* Styling untuk Daftar Program Kerja (Sama seperti program-grid, tapi lebih kecil) */
+.program-grid-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.program-card-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-left: 5px solid #004c99;
+    /* Efek fade out jika disembunyikan oleh JS */
+    transition: opacity 0.3s, transform 0.3s; 
+}
+
+.program-card-item h4 {
+    color: #004c99;
+    margin-top: 0;
+}
+
+.proker-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.proker-status.ongoing {
+    background-color: #fff3e0;
+    color: #ff9900;
+}
+
+.proker-status.finished {
+    background-color: #e8f5e9;
+    color: #4caf50;
+}
+
+.proker-status.planning {
+    background-color: #e3f2fd;
+    color: #2196f3;
+}
+
+
+/* ================================== */
+/* GAYA UNTUK DOKUMENTASI */
+/* ================================== */
+.dokumentasi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.dokumentasi-card {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.dokumentasi-card:hover {
+    transform: scale(1.02);
+}
+
+.dokumentasi-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.dokumentasi-card h5 {
+    padding: 15px;
+    margin: 0;
+    background-color: #004c99;
+    color: white;
+    font-size: 1em;
+}
+
+/* style.css */
+
+/* ... Kode CSS yang sudah ada ... */
+
+/* ================================== */
+/* GAYA UNTUK KEANGGOTAAN (MEMBERSHIP) */
+/* ================================== */
+
+.pendaftaran-section h1 {
+    margin-bottom: 40px;
+}
+
+.pendaftaran-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.langkah-pendaftaran {
+    margin: 30px 0;
+    padding: 20px;
+    border: 1px dashed #ddd;
+    border-radius: 5px;
+}
+
+.langkah-pendaftaran ol {
+    padding-left: 20px;
+}
+.langkah-pendaftaran li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Styling Tombol Primary (CTA) */
+.cta-box {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #eaf3ff; /* Latar biru muda */
+    border-radius: 8px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #004c99; /* Warna Utama FOSMA */
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #003366;
+}
+
+/* ================================== */
+/* GAYA UNTUK TESTIMONI */
+/* ================================== */
+.testimoni-section {
+    background-color: #f4f4f4; /* Background abu-abu muda */
+    padding: 60px 5%;
+}
+
+.testimoni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.testimoni-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
+    text-align: center;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #ff9900;
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.anggota-name {
+    font-weight: bold;
+    color: #004c99;
+    margin: 5px 0 0 0;
+}
+
+.anggota-periode {
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* style.css */
+
+/* ... Kode CSS yang sudah ada ... */
+
+/* ================================== */
+/* GAYA UNTUK KONTAK (CONTACT) */
+/* ================================== */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dua kolom dengan lebar yang sama */
+    gap: 40px;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.contact-detail-col, .contact-form-col {
+    padding: 20px;
+}
+
+.contact-detail-col h2, .contact-form-col h2 {
+    color: #004c99;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #ff9900;
+    padding-bottom: 10px;
+}
+
+.info-item {
+    margin-bottom: 30px;
+}
+
+.info-item h3 {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.social-links a {
+    color: #ff9900;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Styling Form Kontak */
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Penting untuk lebar 100% */
+}
+
+.btn-submit {
+    background-color: #004c99;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+.btn-submit:hover {
+    background-color: #003366;
+}
+
+/* ================================== */
+/* GAYA UNTUK FAQ (Accordion) */
+/* ================================== */
+
+.faq-section {
+    background-color: #f4f4f4;
+    padding: 60px 5%;
+}
+.faq-list {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.faq-question {
+    background-color: #fff;
+    color: #004c99;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-size: 1.1em;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.faq-question:hover, .faq-question.active {
+    background-color: #eaf3ff; /* Biru muda saat hover/aktif */
+}
+
+.faq-answer {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+.faq-answer p {
+    padding: 10px 0;
+    line-height: 1.6;
+}
+
+/* Media Query untuk Mobile */
+@media screen and (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* Tumpuk kolom di layar kecil */
+    }
+}
+
+/* style.css */
+
+/* ... Kode CSS yang sudah ada ... */
+
+/* ================================== */
+/* GAYA UNTUK GALERI (FOTO & INFOGRAFIS) */
+/* ================================== */
+
+.gallery-section {
+    padding-bottom: 60px;
+}
+.section-subtitle {
+    text-align: center;
+    color: #004c99;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.gallery-description {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 1.1em;
+}
+
+/* Photo Grid (3 kolom di desktop) */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.photo-item, .info-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.photo-item img, .info-item img {
+    width: 100%;
+    height: 250px; /* Tinggi seragam */
+    object-fit: cover;
+    display: block;
+}
+
+.photo-item:hover, .info-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* Infografis Grid (2 kolom, lebih besar) */
+.infographic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+/* ================================== */
+/* GAYA UNTUK ALUMNI */
+/* ================================== */
+
+.alumni-section {
+    background-color: #f7f7f7;
+    padding-top: 60px;
+}
+.alumni-intro {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* Search Bar */
+.alumni-search-bar {
+    text-align: center;
+    margin-bottom: 40px;
+}
+#alumni-search {
+    padding: 12px 20px;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+/* Tabel Alumni */
+.alumni-list-container {
+    overflow-x: auto; /* Penting untuk responsifitas tabel */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.alumni-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.alumni-table th {
+    background-color: #004c99;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.alumni-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.alumni-table tbody tr:hover {
+    background-color: #eaf3ff; /* Highlight saat di-hover */
+}
+
+/* Media Query untuk Foto Grid di Mobile */
+@media screen and (max-width: 600px) {
+    .photo-grid, .infographic-grid {
+        grid-template-columns: 1fr; /* Satu kolom penuh di ponsel */
+    }
+}

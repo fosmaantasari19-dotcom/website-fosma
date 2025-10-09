@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program & Kegiatan - FOSMA UIN Antasari</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header>
+        <nav>
+            <h1>FOSMA UIN Antasari</h1>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Tentang Kami</a></li>
+                <li><a href="programs.html" class="active">Program & Kegiatan</a></li>
+                <li><a href="articles.html">Berita & Artikel</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    <section id="contact-info" class="content-section">
+        <h1 class="text-center">Kontak & Informasi FOSMA</h1>
+        
+        <div class="contact-grid">
+            
+            <div class="contact-detail-col">
+                <h2>Hubungi Kami</h2>
+                
+                <div class="info-item">
+                    <h3>Alamat Sekretariat</h3>
+                    <p>Gedung DEMA UIN Antasari Banjarmasin, Lantai 2<br>Jl. A. Yani, Km. 4.5, Banjarmasin, Kalimantan Selatan</p>
+                    </div>
+
+                <div class="info-item">
+                    <h3>Nomor Telepon & Email</h3>
+                    <p>Telepon (Admin): <strong>0812-XXXX-XXXX</strong></p>
+                    <p>Email Resmi: <strong>info@fosmauinantasari.com</strong></p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>Media Sosial Resmi</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank">Instagram</a> |
+                        <a href="#" target="_blank">Youtube</a> |
+                        <a href="#" target="_blank">Twitter</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-col">
+                <h2>Kirim Pesan</h2>
+                <form action="submit_form.php" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Aktif</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subjek</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan Anda</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section id="faq" class="content-section faq-section">
+        <h2 class="text-center">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+        
+        <div class="faq-list">
+            
+            <div class="faq-item">
+                <button class="faq-question">Apakah FOSMA hanya untuk Mahasiswa Baru?</button>
+                <div class="faq-answer">
+                    <p>Ya. FOSMA secara khusus dibentuk sebagai organisasi pembinaan dan kepemimpinan bagi Mahasiswa Baru UIN Antasari untuk mempersiapkan kader pemimpin kampus di masa depan.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Bagaimana mekanisme kerja sama dengan FOSMA?</button>
+                <div class="faq-answer">
+                    <p>Silakan kirimkan proposal kegiatan atau surat pengajuan kerjasama resmi ke email kami di <a href="mailto:info@fosmauinantasari.com">info@fosmauinantasari.com</a>. Tim Sekretariat akan menindaklanjuti dalam waktu 3x24 jam kerja.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Apakah FOSMA memiliki iuran anggota?</button>
+                <div class="faq-answer">
+                    <p>FOSMA tidak membebankan iuran bulanan yang bersifat wajib. Sumber dana utama berasal dari Dana Usaha (DU) dan sumbangan yang tidak mengikat. Kegiatan pembinaan dasar bersifat gratis.</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+</main>
+
+    <footer>
+        <div class="footer-container">
+            </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 FOSMA UIN Antasari. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>

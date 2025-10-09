@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program & Kegiatan - FOSMA UIN Antasari</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header>
+        <nav>
+            <h1>FOSMA UIN Antasari</h1>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Tentang Kami</a></li>
+                <li><a href="programs.html" class="active">Program & Kegiatan</a></li>
+                <li><a href="articles.html">Berita & Artikel</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="program-list" class="content-section">
+            <h1 class="text-center">Program Kerja & Kegiatan FOSMA</h1>
+            
+            <div class="tab-navigation">
+                <button class="tab-button active" data-divisi="all">Semua Program</button>
+                <button class="tab-button" data-divisi="Pendidikan">Divisi Pendidikan</button>
+                <button class="tab-button" data-divisi="Kominfo">Divisi Kominfo</button>
+                <button class="tab-button" data-divisi="Kreatif">Divisi Kreatif</button>
+                </div>
+
+            <div class="program-grid-list">
+                
+                <div class="program-card-item" data-divisi="Pendidikan">
+                    <h4>Kelas Mentoring Akademik</h4>
+                    <p><strong>Divisi:</strong> Pendidikan</p>
+                    <p>Program bimbingan belajar rutin untuk Mahasiswa Baru dengan mata kuliah yang dianggap sulit, bertujuan meningkatkan indeks prestasi.</p>
+                    <span class="proker-status ongoing">Ongoing</span>
+                </div>
+
+                <div class="program-card-item" data-divisi="Kominfo">
+                    <h4>Podcast "FOSMA Talk"</h4>
+                    <p><strong>Divisi:</strong> Kominfo</p>
+                    <p>Diskusi rutin yang disiarkan melalui platform digital (Spotify/Youtube) membahas isu-isu kampus dan kepemimpinan.</p>
+                    <span class="proker-status finished">Finished</span>
+                </div>
+                
+                <div class="program-card-item" data-divisi="Kreatif">
+                    <h4>Pelatihan Desain Grafis</h4>
+                    <p><strong>Divisi:</strong> Kreatif</p>
+                    <p>Workshop intensif untuk anggota FOSMA dalam penguasaan perangkat lunak desain (seperti Canva/Figma) untuk kebutuhan publikasi.</p>
+                    <span class="proker-status planning">Planning</span>
+                </div>
+                
+                </div>
+        </section>
+        
+        <section id="kalender-kegiatan" class="content-section timeline-section">
+            <h2 class="text-center">Kalender Kegiatan (Timeline)</h2>
+            <div class="timeline-container">
+                <ul class="timeline-list">
+                    <li class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Rapat Kerja FOSMA</h4>
+                            <span class="timeline-date">10 November 2025</span>
+                            <p>Pembahasan dan penetapan program kerja semua divisi untuk satu periode.</p>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Dies Natalis FOSMA</h4>
+                            <span class="timeline-date">17 September 2025</span>
+                            <p>Perayaan ulang tahun organisasi dengan serangkaian acara.</p>
+                        </div>
+                    </li>
+                    </ul>
+            </div>
+        </section>
+        
+        <section id="dokumentasi" class="content-section">
+            <h2 class="text-center">Dokumentasi & Event Unggulan</h2>
+            <div class="dokumentasi-grid">
+                <div class="dokumentasi-card">
+                    <img src="doc-1.jpg" alt="Foto Event Unggulan">
+                    <h5>Latihan Dasar Kepemimpinan (LDK)</h5>
+                </div>
+                <div class="dokumentasi-card">
+                    <img src="doc-2.jpg" alt="Video FOSMA Talk">
+                    <h5>Video: FOSMA Talk #3</h5>
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 FOSMA UIN Antasari. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>
