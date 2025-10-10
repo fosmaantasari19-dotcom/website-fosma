@@ -42,12 +42,12 @@ h1, h2, h3 {
 /* ================================== */
 
 header {
-    background-color: var(--color-primary);
-    color: white;
-    padding: 10px 5%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 10px 0;
+    position: sticky; /* KODE UTAMA: Membuat navbar tetap di atas */
+    top: 0; /* Menempel di bagian paling atas */
+    z-index: 1000; /* Memastikan navbar berada di atas konten lain */
 }
 
 nav {
@@ -248,25 +248,28 @@ nav a:hover, nav a.active {
 /* ================================== */
 
 footer {
-    background-color: #222;
-    color: #bbb;
-    padding: 40px 5% 10px;
+    background-color: #2c3e50; /* Biru Tua/Gelap untuk Kontras */
+    color: white;
+    padding: 40px 20px;
     font-size: 0.9em;
+    text-align: center;
+    border-top: 5px solid var(--color-primary); /* Garis Kuning di atas footer */
 }
 
 .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
+    margin-bottom: 10px;
+}
+
+.footer-container a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
 }
 
 .footer-bottom {
-    border-top: 1px solid #444;
+    opacity: 0.8; /* Membuat teks copyright sedikit transparan */
     padding-top: 10px;
-    margin-top: 20px;
-    text-align: center;
 }
-
 
 /* ================================== */
 /* 7. ANIMASI SCROLL (FADE-IN) */
@@ -354,7 +357,6 @@ footer {
 
 /* ================================== */
 /* GAYA UNTUK ARTICLES.HTML */
-/* style.css (Modifikasi di bagian .article-card) */
 
 .article-card {
     background-color: white;
@@ -407,10 +409,22 @@ footer {
     background-color: #0088ff; /* Default: Biru Terang */
 }
 
-.article-tag.event {
-    background-color: #4caf50; /* Hijau untuk Kegiatan */
-}
+/* style.css (Di bagian GAYA KARTU ARTIKEL) */
+
+/* GAYA UNTUK TAG KHUSUS (Tambahkan ini) */
 
 .article-tag.opini {
-    background-color: #ff9800; /* Oranye untuk Opini */
+    background-color: #fce3a7; /* Kuning/Oranye Muda */
+    color: #e67e22;
+}
+
+.article-tag.event {
+    background-color: #c7ecc8; /* Hijau Muda */
+    color: #27ae60;
+}
+
+/* GAYA BARU UNTUK RAJA AMPAT */
+.article-tag.kajian-sosial {
+    background-color: #a7c7f7; /* Biru Muda */
+    color: #3498db;
 }
