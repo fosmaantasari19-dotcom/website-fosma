@@ -354,62 +354,45 @@ footer {
 
 /* ================================== */
 /* GAYA UNTUK ARTICLES.HTML */
-/* ================================== */
-
-.article-grid {
-    display: grid;
-    /* Membuat 3 kolom pada layar lebar, menyesuaikan pada HP */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
+/* style.css (Modifikasi di bagian .article-card) */
 
 .article-card {
     background-color: white;
     border-radius: 8px;
-    overflow: hidden; /* Penting agar gambar tidak keluar dari batas */
+    overflow: hidden; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     transition: box-shadow 0.3s, transform 0.3s;
-}
-
-.article-card:hover {
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    transform: translateY(-5px); /* Animasi hover */
-}
-
-.article-image {
-    width: 100%;
-    height: 200px; /* Atur ketinggian gambar */
-    object-fit: cover;
+    
+    /* MODIFIKASI Wajib 1: Pastikan kartu bisa menampung konten */
+    display: flex; 
+    flex-direction: column;
 }
 
 .card-body {
     padding: 20px;
+    
+    /* MODIFIKASI Wajib 2: Konten teks akan memenuhi ruang */
+    flex-grow: 1; 
+    
+    /* MODIFIKASI Wajib 3: Pastikan semua elemen (termasuk p) terlihat */
+    display: flex; 
+    flex-direction: column;
 }
 
-.card-body h3 {
-    margin-top: 0;
-    font-size: 1.3em;
-}
-
-.read-more {
-    display: inline-block;
-    color: var(--color-secondary); /* Warna Aksen */
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 10px;
-    transition: color 0.3s;
-}
-
-.read-more:hover {
-    color: var(--color-primary);
+.card-body p {
+    /* MODIFIKASI Wajib 4: Teks ringkasan akan mengambil semua ruang sebelum tombol */
+    flex-grow: 1; 
+    
+    /* Batasi paragraf hanya 3 baris */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Tampilkan maksimal 3 baris */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 10px; /* Jarak dari tombol/tanggal */
 }
 
 .article-date {
-    display: block;
-    font-size: 0.8em;
-    color: #888;
-    margin-top: 10px;
+    margin-top: 5px; /* Kurangi jarak dari tombol */
 }
 
 /* Styling Tags (Label Kategori) */
