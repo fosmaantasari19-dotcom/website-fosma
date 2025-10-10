@@ -119,6 +119,19 @@ nav a {
     /* ... */
 }
 
+/* style.css (Di bagian HEADER & NAVIGATION) */
+
+nav a {
+    color: var(--color-primary); 
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s;
+    text-transform: uppercase; /* Ganti ke uppercase agar lebih kuat/jelas */
+    letter-spacing: 0.5px; /* Sedikit spasi antar huruf */
+}
+/* ... */
+
 /* ================================== */
 /* 2. BUTTONS & CTA */
 /* ================================== */
@@ -251,13 +264,50 @@ nav a {
 /* 6. FOOTER (Rapi) */
 /* ================================== */
 
+/* style.css (Di bagian FOOTER) */
+
 footer {
-    background-color: #2c3e50; 
+    background-color: #1a237e; /* Ganti warna background footer ke biru sangat gelap */
     color: white;
-    padding: 40px 20px;
+    padding: 60px 20px 20px 20px; /* Padding lebih besar */
     font-size: 0.9em;
     text-align: center;
-    border-top: 5px solid var(--color-secondary); /* Border Footer ganti ke Orange */
+    border-top: 5px solid var(--color-secondary); 
+}
+
+.footer-main { /* Tambahkan kelas baru ini di HTML nanti */
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr; /* Kolom untuk Logo, Links, dan Kontak */
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    text-align: left;
+    gap: 30px;
+}
+
+.footer-column h4 {
+    color: var(--color-secondary);
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: white;
 }
 
 /* ... Kode footer lainnya tetap ... */
