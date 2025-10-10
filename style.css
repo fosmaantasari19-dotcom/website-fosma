@@ -100,6 +100,24 @@ nav a:hover, nav a.active {
     color: var(--color-secondary);
 }
 
+/* style.css (Di bagian HEADER & NAVIGATION) */
+
+/* GAYA LOGO GABUNGAN */
+/* ... */
+
+.brand-text {
+    /* UBAH DARI 'white' KE VAR(--color-primary) */
+    color: var(--color-primary); 
+    /* ... */
+}
+
+/* ... */
+
+nav a {
+    /* UBAH DARI 'white' KE VAR(--color-primary) */
+    color: var(--color-primary); 
+    /* ... */
+}
 
 /* ================================== */
 /* 2. BUTTONS & CTA */
@@ -265,6 +283,22 @@ footer {
 /* ================================== */
 /* GAYA KHUSUS: ARTICLES.HTML & DETAIL */
 /* ================================== */
+
+.card-body {
+    padding: 20px;
+    flex-grow: 1; 
+    /* WAJIB: Memastikan tata letak item tidak tumpang tindih */
+    position: relative; /* PASTIKAN INI ADA */
+    display: flex; 
+    flex-direction: column;
+}
+
+.read-more {
+    /* WAJIB: Pastikan tombol link berada di lapisan atas */
+    position: relative; 
+    z-index: 5; /* PASTIKAN INI ADA */
+    /* ... kode lain ... */
+}
 
 /* ... Gaya article.html & detail tetap ... */
 
