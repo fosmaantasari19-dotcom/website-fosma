@@ -1153,3 +1153,92 @@ blockquote {
         grid-template-columns: 1fr; /* Satu kolom penuh di ponsel */
     }
 }
+
+/* style.css */
+
+/* ... GAYA HEADER LAMA ... */
+
+/* GAYA BARU UNTUK LOGO GABUNGAN */
+.brand-logo {
+    display: flex; /* Mengaktifkan Flexbox untuk penyejajaran */
+    align-items: center; /* Menyejajarkan item di tengah vertikal */
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    gap: 10px; /* Memberi jarak 10px antara gambar dan teks */
+}
+
+.brand-logo img {
+    height: 40px; /* Atur ketinggian logo gambar */
+    width: auto;
+}
+
+.brand-text {
+    color: white; /* Atur warna teks, sesuaikan dengan header Anda */
+    font-size: 1.5em; /* Ukuran teks yang besar */
+    font-weight: bold;
+    margin: 0;
+    /* Tambahkan efek transisi (opsional, untuk sentuhan profesional) */
+    transition: color 0.3s; 
+}
+
+/* Efek hover untuk teks (opsional) */
+.brand-logo:hover .brand-text {
+    color: #ff9900; /* Ganti warna teks saat di-hover */
+}
+
+/* style.css (Tambahkan atau modifikasi di bagian .btn-primary) */
+
+.btn-primary {
+    /* WAJIB: Atur transisi agar perubahan tidak terjadi tiba-tiba */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* ... kode lama lainnya ... */
+}
+
+.btn-primary:hover {
+    background-color: #003366;
+    /* Efek: Membesar sedikit saat kursor mendekat */
+    transform: scale(1.05); 
+}
+
+/* style.css (Tambahkan atau modifikasi di bagian .program-card-item atau .position) */
+
+/* Untuk Kartu Program / Divisi */
+.program-card-item, .position {
+    /* WAJIB: Atur transisi agar pergerakan mulus */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+    /* ... kode lama lainnya ... */
+}
+
+.program-card-item:hover, .position:hover {
+    /* Efek: Kartu bergeser sedikit ke atas */
+    transform: translateY(-5px);
+    /* Efek: Bayangan menjadi lebih jelas */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15); 
+}
+
+/* style.css (Tambahkan atau modifikasi di bagian .photo-item, .info-item) */
+
+.photo-item:hover, .info-item:hover {
+    /* Efek: Gambar membesar sedikit */
+    transform: scale(1.03); 
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* style.css */
+
+/* ================================== */
+/* GAYA UNTUK ANIMASI SCROLL (FADE-IN) */
+/* ================================== */
+
+/* Gaya Awal: Elemen disembunyikan dan digeser sedikit ke bawah */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px); /* Geser 30px ke bawah */
+    /* Atur transisi agar animasi munculnya mulus (0.6 detik) */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Gaya Akhir: Elemen muncul (diberikan oleh JavaScript) */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0); /* Kembali ke posisi aslinya */
+}

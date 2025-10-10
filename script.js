@@ -221,3 +221,33 @@ faqQuestions.forEach(question => {
         }
     });
 });
+
+// script.js (Tambahkan di bagian paling bawah fungsi DOMContentLoaded)
+
+// ===========================================
+// 6. LOGIKA ANIMASI SCROLL FADE-IN
+// ===========================================
+// 1. Ambil semua elemen yang memiliki kelas 'fade-in'
+const fadeElements = document.querySelectorAll(".fade-in");
+
+// 2. Buat objek yang akan mendeteksi perpotongan (IntersectionObserver)
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        // Cek apakah elemen sudah terlihat (isIntersecting = true)
+        if (entry.isIntersecting) {
+            // Tambahkan kelas 'visible' (yang membuat elemen muncul)
+            entry.target.classList.add("visible");
+            
+            // Setelah muncul, kita tidak perlu mengamatinya lagi
+            observer.unobserve(entry.target); 
+        }
+    });
+}, {
+    // Threshold 0.2: Mulai animasi ketika 20% elemen terlihat di viewport
+    threshold: 0.2 
+});
+
+// 3. Mulai mengamati setiap elemen 'fade-in'
+fadeElements.forEach(element => {
+    observer.observe(element);
+});
