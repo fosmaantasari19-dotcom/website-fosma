@@ -1,7 +1,4 @@
-/*
- * FOSMA UIN Antasari - Style Sheet FINAL
- * Versi: Modular, Responsif Total, dan Animasi (Mirip BEM FEB UI)
- */
+/* FOSMA UIN Antasari - Style Sheet FINAL Versi: Modular, Responsif Total, dan Animasi*/
 
 /* ================================== */
 /* 0. GLOBAL STYLES & TYPOGRAPHY */
@@ -69,130 +66,46 @@ h3 { font-size: 1.8em; }
 
 
 /* ================================== */
-/* 1. HEADER & NAVIGATION */
+/* 1. GLOBAL & RESET */
+/* ================================== */
+
+:root {
+    --color-primary: #0066cc; /* Biru FOSMA (Dominan) */
+    --color-secondary: #ff9900; /* Oranye/Kuning (Aksen) */
+    --color-dark: #333333; /* Warna Teks Utama (Hitam) */
+    --color-light: #f9f9f9; /* Latar Belakang Terang */
+    --color-dark-blue: #004d99; /* Biru Gelap untuk Showcase */
+    --header-height: 80px; /* Tentukan tinggi header */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--color-dark); /* Pastikan teks utama berwarna gelap */
+    margin: 0;
+    padding-top: var(--header-height); /* TAMBAHKAN INI: Jarak agar konten tidak tertutup header */
+    background-color: white;
+}
+
+/* ================================== */
+/* 2. HEADER & NAV */
 /* ================================== */
 
 header {
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-    padding: 15px 0; 
-    position: sticky; 
-    top: 0; 
-    z-index: 1000; 
-}
-
-.main-nav {
+    background-color: white; /* HARUS ADA LATAR BELAKANG PUTIH */
+    color: var(--color-dark);
+    padding: 0 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 3%;
+    height: var(--header-height); /* Terapkan tinggi yang sudah ditentukan */
+    position: fixed; /* Header mengambang */
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* PENTING: Pastikan header selalu di atas konten lain */
+    box-sizing: border-box; /* Agar padding/width tidak melebihi 100% */
 }
-
-.brand-logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    gap: 10px;
-}
-
-.brand-logo img {
-    height: 45px; /* Sedikit lebih kecil */
-    width: auto;
-}
-
-.brand-text {
-    color: var(--color-primary); 
-    font-size: 1.5em; 
-    font-weight: bold;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 10px; /* Jarak sangat rapat untuk desktop */
-    margin: 0;
-    padding: 0;
-}
-
-.nav-item {
-    color: var(--color-primary); 
-    text-decoration: none;
-    font-weight: 600; 
-    padding: 5px 8px; /* Padding minimal */
-    transition: color 0.3s;
-    text-transform: uppercase; 
-    letter-spacing: 0.5px; 
-    font-size: 0.8em; /* Ukuran sangat kecil agar muat */
-}
-
-.nav-item:hover, .nav-item.active {
-    color: var(--color-secondary);
-}
-
-.nav-menu-toggle {
-    display: none; /* Sembunyikan di desktop */
-    cursor: pointer;
-    z-index: 1100;
-}
-
-/* Tombol CTA di Header */
-.btn-cta {
-    background-color: var(--color-secondary);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: 600;
-}
-.btn-cta:hover {
-    background-color: var(--color-primary);
-    color: white;
-}
-
-
-/* ================================== */
-/* 2. BUTTONS & CTA */
-/* ================================== */
-
-.btn {
-    display: inline-block;
-    padding: 14px 30px; 
-    border-radius: 8px; 
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    margin: 8px; 
-    font-size: 1.05em;
-    text-transform: uppercase;
-}
-
-.btn-primary {
-    background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
-    color: white;
-    border: none; 
-    box-shadow: 0 4px 15px rgba(0, 76, 153, 0.2); 
-}
-
-.btn-primary:hover {
-    background-image: linear-gradient(to right, var(--color-gradient-end), var(--color-gradient-start));
-    transform: translateY(-3px); 
-    box-shadow: 0 6px 20px rgba(0, 76, 153, 0.3);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
-}
-
-.btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-}
-
 
 /* ================================== */
 /* 3. HERO SECTION DENGAN ANIMASI */
@@ -253,38 +166,9 @@ header {
 /* 4. GRID LAYOUTS & COMPONENTS */
 /* ================================== */
 
-/* --- Tiga Kolom (Digunakan di Intro Beranda & Daftar Ketua Umum) --- */
-.three-column-grid {
-    display: grid;
-    /* Akan menjadi 3 kolom di desktop, dan 1 kolom di mobile (didefinisikan di media query) */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.grid-item {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.grid-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-.grid-item img {
-    height: 60px; 
-    margin-bottom: 20px;
-}
-
-/* --- Sorotan Video Tunggal (Digunakan di Beranda) --- */
 #youtube-showcase {
     background-color: var(--color-dark-blue); 
-    color: white;
+    color: white; /* PENTING: Teks putih di latar belakang biru gelap */
 }
 
 #youtube-showcase h2 {
@@ -292,31 +176,6 @@ header {
 }
 #youtube-showcase .lead-text {
     color: #eee;
-}
-
-.single-video-container {
-    max-width: 900px; /* Batasi lebar maksimal kotak video */
-    margin: 40px auto;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    background-color: #2c3e50; 
-}
-
-.single-video-container iframe {
-    display: block;
-    width: 100%;
-}
-
-.video-caption {
-    padding: 20px;
-    color: white;
-}
-
-.video-caption h3 {
-    color: var(--color-secondary);
-    margin-top: 0;
-    font-size: 1.5em;
 }
 
 /* Tambahan: Pastikan tinggi video responsif di HP */
