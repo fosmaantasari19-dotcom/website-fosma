@@ -60,6 +60,18 @@ h3 { font-size: 1.8em; }
     margin-bottom: 40px;
 }
 
+p {
+    margin-bottom: 20px;
+}
+
+/* Style khusus untuk list kepengurusan di halaman About */
+.struktur-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.05em; /* Teks lebih besar */
+    line-height: 1.8; /* Jarak baris lebih lega */
+}
+
 /* ================================== */
 /* 1. HEADER & NAVIGATION */
 /* ================================== */
@@ -109,15 +121,26 @@ nav ul {
     padding: 0;
 }
 
+/* style.css (Di bagian 1. HEADER & NAVIGATION) */
+
+nav ul {
+    /* ... kode lainnya ... */
+    gap: 15px; /* KECILKAN LAGI dari 20px */
+    /* ... kode lainnya ... */
+}
+
 nav a {
-    color: var(--color-primary); 
-    text-decoration: none;
-    font-weight: 600; 
-    padding: 5px 0;
-    transition: color 0.3s;
-    text-transform: uppercase; /* Gaya modern BEM FEB UI */
-    letter-spacing: 0.8px; 
-    font-size: 0.95em;
+    /* ... kode lainnya ... */
+    letter-spacing: 0.5px; /* KECILKAN LAGI letter-spacing */
+    font-size: 0.8em; /* KECILKAN LAGI DARI 0.85em */
+}
+
+/* style.css (Di bagian 1. HEADER & NAVIGATION) */
+
+nav a {
+    /* ... kode lainnya ... */
+    font-size: 0.85em; /* KECILKAN DARI 0.95em MENJADI 0.85em */
+    /* ... kode lainnya ... */
 }
 
 nav a:hover, nav a.active {
@@ -193,7 +216,8 @@ nav a:hover, nav a.active {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)); 
+    /* PASTIKAN OVERLAY SANGAT GELAP AGAR TEKS TERLIHAT */
+    background: rgba(0,0,0,0.85); 
     z-index: 0;
 }
 
