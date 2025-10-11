@@ -3,25 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabung FOSMA - Pendaftaran Anggota Baru</title>
+    <title>Apa Kata Mereka - FOSMA UIN Antasari</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* CSS Tambahan untuk Checklist */
-        .checklist-grid {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            padding: 0;
-        }
-        .checklist-item {
+        /* CSS Tambahan untuk Testimonial */
+        .testimonial-card {
             background-color: white;
-            padding: 15px 25px;
-            border-left: 5px solid var(--color-primary);
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            font-weight: 500;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            text-align: left;
+            height: 100%; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Container untuk Foto dan Kutipan */
+        .testimonial-card .testi-header {
+            display: flex;
+            align-items: flex-start; 
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Gaya Foto Bundar */
+        .testimonial-card .testi-photo {
+            width: 70px; 
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--color-secondary);
+            flex-shrink: 0; 
+        }
+        
+        .testimonial-card blockquote {
+            font-size: 1.05em;
+            font-style: italic;
+            margin: 0; 
+            line-height: 1.6;
+            color: #333;
+        }
+        .testimonial-card cite {
+            display: block;
+            margin-top: auto; 
+            font-weight: 600;
+            color: var(--color-primary);
+            border-top: 1px solid var(--color-bg-contrast);
+            padding-top: 15px;
+        }
+        .testimonial-card cite span {
+            display: block;
+            font-weight: 400;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        /* CSS untuk Social Media Hub (Tidak Berubah) */
+        .social-hub {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--color-dark);
+            transition: transform 0.3s;
+            width: 120px;
+        }
+        .social-icon {
+            font-size: 2.5em; 
+            color: var(--color-primary);
+            margin-bottom: 5px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--color-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-icon img {
+            max-width: 70%;
+            height: auto;
+        }
+        
+        /* Responsif Khusus Testimonial Mobile */
+        @media (max-width: 500px) {
+            .testimonial-card .testi-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -37,7 +118,8 @@
             <a href="berita-acara.html" class="nav-item">Berita & Acara</a> 
             <a href="kajian.html" class="nav-item">Kajian</a> 
             <a href="kontak.html" class="nav-item">Kontak</a> 
-            <a href="membership.html" class="nav-item btn btn-primary active">Gabung FOSMA</a> </nav>
+            <a href="membership.html" class="nav-item btn btn-primary active">Apa Kata Mereka</a>
+        </nav>
         <div class="nav-menu-toggle">
             <span></span>
             <span></span>
@@ -48,142 +130,115 @@
     <main>
         
         <section class="content-section about-intro fade-in" style="padding-top: 50px; padding-bottom: 50px;">
-            <h1 class="text-center" style="font-size: 3em;">Siap Menjadi Kader *Karyadharta*?</h1>
+            <h1 class="text-center" style="font-size: 3em;">FOSMA Adalah Rumah</h1>
             <p class="lead-text text-center" style="font-size: 1.3em;">
-                Waktunya tunjukkan peran dan fungsi Anda sebagai mahasiswa! Bergabunglah dengan Forum Silaturahmi Mahasiswa (FOSMA) untuk mengasah kepemimpinan, berintegritas, dan membawa perubahan di kampus.
+                Dengarkan apa kata para tokoh, pimpinan, dan kader FOSMA UIN Antasari tentang peran, fungsi, dan dampak keberadaan organisasi ini.
             </p>
-            <div class="text-center">
+        </section>
+
+        <section class="content-section bg-light">
+            <h2 class="text-center fade-in" style="margin-bottom: 40px;">Cerita Mereka Tentang FOSMA</h2>
+            
+            <div class="three-column-grid">
+                
+                <div class="testimonial-card fade-in">
+                    <div>
+                        <div class="testi-header">
+                            <img src="assets/foto-arif.jpg" alt="Foto Arif Rahman Heriansyah" class="testi-photo">
+                            <blockquote>
+                                "Fosma adalah organisasi pertama saya ketika kuliah. Dari Fosma inilah saya banyak menempa soft skill, belajar kepemimpinan, dan membangun relasi dengan orang-orang hebat yang hingga kini terus memberi inspirasi. Bekal yang saya peroleh dari Fosma tidak berhenti di masa kuliah saja, tetapi bisa saya implementasikan dalam kehidupan hingga detik sekarang."
+                            </blockquote>
+                        </div>
+                    </div>
+                    <cite>
+                        Arif Rahman Heriansyah, S.Pd.I., M.A.,Gr.
+                        <span>ASN Dinas Pendidikan & Kebudayaan Prov. Kalsel (Wakil Ketua Umum FOSMA 2011-2012)</span>
+                    </cite>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div>
+                        <div class="testi-header">
+                            <img src="assets/foto-nurhalisa.jpg" alt="Foto Nurhalisa Fariyanti" class="testi-photo">
+                            <blockquote>
+                                "Fosma merupakan rumah pertama saya di dunia organisasi sebagai mahasiswa. Forum merupakan pengalaman pertama saya saat sebelum memiliki apa pun tentang arti itu organisasi... Saya menemukan nilai-nilai yang lebih dalam tentang bagaimana cara mendengar, memahami, menyayangi, hingga memimpin tanpa harus mendominasi."
+                            </blockquote>
+                        </div>
+                    </div>
+                    <cite>
+                        Nurhalisa Fariyanti
+                        <span>Bendahara Umum DEMA UIN Antasari 2025-2026 (Anggota Bidang Isu dan Aksi FOSMA 2022-2023)</span>
+                    </cite>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div>
+                        <div class="testi-header">
+                            <img src="assets/foto-radifa.jpg" alt="Foto Radifa Nazhma Muntazhira" class="testi-photo">
+                            <blockquote>
+                                "Bagi saya FOSMA UIN Antasari Banjarmasin bukan sekadar forum, melainkan rumah yang merangkul dengan hangatnya kekeluargaan dan membimbing dengan tertatanya manajemen. Di sini kita belajar, tumbuh bersama, jatuh bangun bersama, dan menemukan makna kebersamaan yang tak tergantikan."
+                            </blockquote>
+                        </div>
+                    </div>
+                    <cite>
+                        Radifa Nazhma Muntazhira
+                        <span>Wakil 1 Puteri Antasari 2024 (Sekretaris Bidang Pemberdayaan Kemahasiswaan FOSMA 2023-2024)</span>
+                    </cite>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div>
+                        <div class="testi-header">
+                            <img src="assets/foto-firdaus.jpg" alt="Foto Muhammad Firdaus" class="testi-photo">
+                            <blockquote>
+                                "FOSMA adalah salah satu organisasi perkaderan atau organisasi yang diperuntukkan khusus untuk mahasiswa baru yang berada di tingkat universitas sebuah jawaban konkrit untuk mahasiswa baru yang mau memulai berorganisasi di kampus. FOSMA akan mencari kader selanjutnya untuk meneruskan estafet kepemimpinan yang ada di FOSMA."
+                            </blockquote>
+                        </div>
+                    </div>
+                    <cite>
+                        Muhammad Firdaus
+                        <span>Wakil Ketua Umum DEMA Fakultas Syariah 2025-2026 (Wakil Ketua Umum FOSMA 2023-2024 Kabinet Ziyora)</span>
+                    </cite>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div>
+                        <div class="testi-header">
+                            <img src="assets/foto-sauqi.jpg" alt="Foto Muhammad Sauqi Anshari" class="testi-photo">
+                            <blockquote>
+                                "Fosma merupakan organisasi yang dikhususkan bagi mahasiswa/i baru yang ada di UIN Antasari. Sebagai organisasi perkaderan tentunya Fosma telah melahirkan pemimpin-pemimpin hebat diberbagai sektor lini. Saya mengajak seluruh mahasiswa/i baru UIN Antasari untuk menapaki awal organisasi di dunia kampus dengan bergabung menjadi keluarga besar FOSMA."
+                            </blockquote>
+                        </div>
+                    </div>
+                    <cite>
+                        Muhammad Sauqi Anshari
+                        <span>Ketua Umum HMJ Hukum Tata Negara (Ketua Umum FOSMA 2024-2025 Kabinet Narsena)</span>
+                    </cite>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div>
+                        <div class="testi-header">
+                            <img src="assets/foto-risa.jpg" alt="Foto Risa Madina" class="testi-photo">
+                            <blockquote>
+                                "Forum Silaturahmi Mahasiswa (FOSMA) Antasari bagi saya bukan sekedar organisasi pertama yang saya pilih di kampus Pahlawan UIN Antasari, tapi di Fosma kita belajar, bertumbuh, dan berkembang bersama dari 'integritas sampai terciptanya seorang pemimpin yang berkualitas'. Harapannya semoga dengan terlaksananya Training of Cadre (TOC) 2025 ini terus menghadirkan calon-calon pemimpin terbaik."
+                            </blockquote>
+                        </div>
+                    </div>
+                    <cite>
+                        Risa Madina
+                        <span>Anggota Pemberdayaan Perlindungan Perempuan (P3) Dema UIN Antasari 2025 (Bendahara Bidang Minat dan Bakat FOSMA 2024-2025 Kabinet Narsena)</span>
+                    </cite>
+                </div>
+                
+            </div>
+            
+            <div class="text-center fade-in" style="margin-top: 50px;">
+                <h3 style="margin-bottom: 20px; color: var(--color-secondary);">Siap Menjadi Bagian dari Keluarga Besar FOSMA?</h3>
                 <a href="#" class="btn btn-primary" style="padding: 15px 50px; font-size: 1.1em;">DAFTAR SEKARANG →</a>
             </div>
         </section>
 
-        <section class="content-section bg-light fade-in">
-            <h2 class="text-center">Alur Pendaftaran *Open Recruitment*</h2>
-            <p class="lead-text text-center">Pahami langkah-langkah mudah untuk menjadi bagian dari keluarga besar FOSMA UIN Antasari.</p>
-
-            <div class="timeline">
-                
-                <div class="timeline-item left fade-in">
-                    <span class="timeline-date">Tahap 1: Pengisian Formulir</span>
-                    <div class="timeline-content">
-                        <h3>Pendaftaran Online</h3>
-                        <p>Isi seluruh data diri dan motivasi Anda melalui Google Form yang tersedia pada tombol pendaftaran. Pastikan data yang dimasukkan akurat dan sesuai.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item right fade-in">
-                    <span class="timeline-date">Tahap 2: Seleksi Berkas</span>
-                    <div class="timeline-content">
-                        <h3>Administrasi dan Portofolio</h3>
-                        <p>Tim PSDM FOSMA akan menyeleksi berkas dan portofolio (jika ada) yang Anda lampirkan untuk menilai kesesuaian minat dan bakat Anda.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item left fade-in">
-                    <span class="timeline-date">Tahap 3: Wawancara (Interview)</span>
-                    <div class="timeline-content">
-                        <h3>Sesi Tatap Muka/Daring</h3>
-                        <p>Calon anggota yang lolos seleksi berkas akan diundang untuk wawancara guna mendalami visi, komitmen, dan penempatan bidang.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item right fade-in">
-                    <span class="timeline-date">Tahap 4: Pengumuman & Pengukuhan</span>
-                    <div class="timeline-content">
-                        <h3>Diterima sebagai Fungsionaris</h3>
-                        <p>Peserta yang lolos wawancara resmi diangkat menjadi Fungsionaris FOSMA dan akan mengikuti proses pengukuhan (Pelantikan).</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        
         <section class="content-section fade-in">
-            <h2 class="text-center">Apa yang Anda Dapatkan di FOSMA?</h2>
-            <p class="lead-text text-center">Lebih dari sekadar organisasi, FOSMA adalah rumah pengembangan diri dan karir kemahasiswaan Anda.</p>
-            
-            <div class="two-column-grid">
-                
-                <ul class="checklist-grid">
-                    <li class="checklist-item fade-in">Jaringan (Networking) Mahasiswa Se-Universitas.</li>
-                    <li class="checklist-item fade-in">Pelatihan Kepemimpinan (YLT) dan *Soft Skill* Gratis.</li>
-                    <li class="checklist-item fade-in">Kesempatan Berpartisipasi dalam Isu & Aksi Kampus.</li>
-                </ul>
-                <ul class="checklist-grid">
-                    <li class="checklist-item fade-in">Sertifikat dan Pengalaman Organisasi Resmi.</li>
-                    <li class="checklist-item fade-in">Pembekalan *Public Speaking* dan Intelektual.</li>
-                    <li class="checklist-item fade-in">Wadah Pengembangan Minat dan Bakat (Seni/Olahraga).</li>
-                </ul>
-                
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="footer-main">
-            <div class="footer-col footer-contact fade-in">
-                <img src="assets/logo-fosma-putih.png" alt="Logo FOSMA"> 
-                <h4>FOSMA UIN Antasari</h4>
-                <p>Jl. A. Yani Km. 4,5 Komp. UIN Antasari Banjarmasin Gedung Student Center Lt. II</p>
-                <p>Email: fosmaantasari@gmail.com</p>
-                <p>CP: Siti Hasna (082295493674)</p>
-            </div>
-            <div class="footer-col footer-links fade-in">
-                <h4>Navigasi</h4>
-                <a href="index.html">Beranda</a>
-                <a href="about.html">Selayang Pandang</a>
-                <a href="programs.html">Program Kerja</a>
-            </div>
-            <div class="footer-col footer-links fade-in">
-                <h4>Aktivitas</h4>
-                <a href="berita-acara.html">Berita & Acara</a>
-                <a href="kajian.html">Kajian Isu</a>
-                <a href="kontak.html">Kontak Kami</a>
-            </div>
-            <div class="footer-col fade-in">
-                <h4>Ikuti Kami</h4>
-                <p>Sosial Media resmi FOSMA UIN Antasari</p>
-            </div>
-        </div>
-        <div class="footer-bottom text-center">
-            © 2025 FOSMA UIN Antasari. Kabinet Karyadharta.
-        </div>
-    </footer>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Navigasi Mobile
-            const navToggle = document.querySelector('.nav-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-
-            if (navToggle && navLinks) {
-                navToggle.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                });
-            }
-            
-            // 2. Animasi Fade-In saat Scroll (Hyper Active)
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); 
-                    }
-                });
-            }, { threshold: 0.1 }); 
-
-            document.querySelectorAll('.fade-in').forEach(element => {
-                observer.observe(element);
-            });
-            
-            // 3. Logic untuk Program Kerja Accordion (kosong di membership.html)
-            const headers = document.querySelectorAll('.accordion-header');
-            if (headers.length > 0) {
-                // Kode accordion diabaikan karena tidak ada di halaman ini
-            }
-        });
-    </script>
-    
-</body>
-</html>
+            <h2 class="text-center">Kanal Informasi Resmi FOSMA</h2>
+            <p class="lead-text text-center">Ikuti semua kegiatan, kajian, dan pengumuman kami di media sosial resmi FOSMA UIN Antasari.</p>
