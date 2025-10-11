@@ -1,7 +1,6 @@
 /*
- * FOSMA UIN Antasari - Style Sheet Utama
- * Versi: Final (Menggabungkan perbaikan Responsif dan Desain Modern)
- * Dibuat: 2025
+ * FOSMA UIN Antasari - Style Sheet FINAL
+ * Versi: Modular, Responsif Total, dan Animasi (Mirip BEM FEB UI)
  */
 
 /* ================================== */
@@ -15,12 +14,12 @@
     --color-light: #f4f4f4;
     --color-gradient-start: #0056b3; 
     --color-gradient-end: #003366;   
-    --color-dark-blue: #1a237e; /* Biru Sangat Gelap untuk Footer/Section */
+    --color-dark-blue: #1a237e; /* Biru Sangat Gelap */
 }
 
-/* Reset Box Model untuk Layout Responsif yang Akurat */
 *, *::before, *::after {
     box-sizing: border-box;
+    transition: all 0.3s ease; /* Transisi halus untuk semua elemen */
 }
 
 body {
@@ -30,11 +29,11 @@ body {
     color: var(--color-text);
     line-height: 1.6;
     background-color: #fff;
-    overflow-x: hidden; /* Mencegah overflow horizontal */
+    overflow-x: hidden;
 }
 
 .content-section {
-    padding: 80px 5%; /* Padding lebih besar */
+    padding: 80px 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -60,17 +59,14 @@ h3 { font-size: 1.8em; }
     margin-bottom: 40px;
 }
 
-p {
-    margin-bottom: 20px;
-}
-
-/* Style khusus untuk list kepengurusan di halaman About */
+/* Style untuk Daftar Kepengurusan di about.html */
 .struktur-list {
     list-style: none;
     padding: 0;
-    font-size: 1.05em; /* Teks lebih besar */
-    line-height: 1.8; /* Jarak baris lebih lega */
+    font-size: 1.05em; 
+    line-height: 1.8; 
 }
+
 
 /* ================================== */
 /* 1. HEADER & NAVIGATION */
@@ -85,13 +81,13 @@ header {
     z-index: 1000; 
 }
 
-nav {
+.main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 5%;
+    padding: 0 3%;
 }
 
 .brand-logo {
@@ -102,49 +98,56 @@ nav {
 }
 
 .brand-logo img {
-    height: 55px; 
+    height: 45px; /* Sedikit lebih kecil */
     width: auto;
 }
 
 .brand-text {
     color: var(--color-primary); 
-    font-size: 1.6em; 
+    font-size: 1.5em; 
     font-weight: bold;
-    transition: color 0.3s;
 }
 
-nav ul {
+.nav-links {
     list-style: none;
     display: flex;
-    gap: 30px; 
+    gap: 10px; /* Jarak sangat rapat untuk desktop */
     margin: 0;
     padding: 0;
 }
 
-/* style.css (Di bagian 1. HEADER & NAVIGATION) */
-
-nav ul {
-    /* ... kode lainnya ... */
-    gap: 15px; /* KECILKAN LAGI dari 20px */
-    /* ... kode lainnya ... */
+.nav-item {
+    color: var(--color-primary); 
+    text-decoration: none;
+    font-weight: 600; 
+    padding: 5px 8px; /* Padding minimal */
+    transition: color 0.3s;
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+    font-size: 0.8em; /* Ukuran sangat kecil agar muat */
 }
 
-nav a {
-    /* ... kode lainnya ... */
-    letter-spacing: 0.5px; /* KECILKAN LAGI letter-spacing */
-    font-size: 0.8em; /* KECILKAN LAGI DARI 0.85em */
-}
-
-/* style.css (Di bagian 1. HEADER & NAVIGATION) */
-
-nav a {
-    /* ... kode lainnya ... */
-    font-size: 0.85em; /* KECILKAN DARI 0.95em MENJADI 0.85em */
-    /* ... kode lainnya ... */
-}
-
-nav a:hover, nav a.active {
+.nav-item:hover, .nav-item.active {
     color: var(--color-secondary);
+}
+
+.nav-menu-toggle {
+    display: none; /* Sembunyikan di desktop */
+    cursor: pointer;
+    z-index: 1100;
+}
+
+/* Tombol CTA di Header */
+.btn-cta {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.btn-cta:hover {
+    background-color: var(--color-primary);
+    color: white;
 }
 
 
@@ -152,7 +155,7 @@ nav a:hover, nav a.active {
 /* 2. BUTTONS & CTA */
 /* ================================== */
 
-.btn-primary, .btn-secondary {
+.btn {
     display: inline-block;
     padding: 14px 30px; 
     border-radius: 8px; 
@@ -161,6 +164,7 @@ nav a:hover, nav a.active {
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     margin: 8px; 
     font-size: 1.05em;
+    text-transform: uppercase;
 }
 
 .btn-primary {
@@ -189,13 +193,20 @@ nav a:hover, nav a.active {
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
+
 /* ================================== */
-/* 3. HERO SECTION DENGAN GAMBAR STATIS */
+/* 3. HERO SECTION DENGAN ANIMASI */
 /* ================================== */
 
 #hero-static {
-    /* Pastikan gambar hero-bg.jpg ada di folder assets/ */
-    background: url('assets/hero-bg.jpg') no-repeat center center/cover; 
+    /* Gunakan warna solid sebagai fallback agar tidak abu-abu polos */
+    background-color: #333; 
+    /* PATH ASLI: Pastikan gambar hero-bg.jpg ada di folder assets/ */
+    background-image: url('assets/hero-bg.jpg'); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    
     position: relative;
     width: 100%;
     height: 90vh; 
@@ -205,10 +216,10 @@ nav a:hover, nav a.active {
     text-align: center;
     color: white;
     z-index: 1; 
-    background-attachment: fixed; 
+    background-attachment: fixed; /* Efek Parallax Ringan */
 }
 
-/* Overlay gelap */
+/* Overlay gelap (Wajib agar teks putih terlihat) */
 #hero-static::before {
     content: "";
     position: absolute;
@@ -216,34 +227,30 @@ nav a:hover, nav a.active {
     left: 0;
     right: 0;
     bottom: 0;
-    /* PASTIKAN OVERLAY SANGAT GELAP AGAR TEKS TERLIHAT */
-    background: rgba(0,0,0,0.85); 
+    background: rgba(0,0,0,0.85); /* Sangat Gelap */
     z-index: 0;
 }
 
-.hero-static-content {
+.hero-content {
     position: relative;
     z-index: 1; 
     max-width: 800px;
     padding: 20px;
 }
 
-.hero-static-content h1 {
+.hero-content h1 {
     font-size: 4em; 
-    margin-bottom: 25px;
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9); 
     color: white; 
+    margin-bottom: 25px;
 }
 
-.hero-static-content p {
+.hero-content p {
     font-size: 1.3em; 
     margin-bottom: 40px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
 }
 
-
 /* ================================== */
-/* 4. THREE COLUMN GRID (Beranda: Ikon/Sekilas) */
+/* 4. GRID LAYOUTS & COMPONENTS */
 /* ================================== */
 
 .three-column-grid {
@@ -263,18 +270,218 @@ nav a:hover, nav a.active {
 }
 
 .grid-item:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .grid-item img {
-    height: 70px; 
+    height: 60px; 
     margin-bottom: 20px;
 }
 
-.grid-item h3 {
-    font-size: 1.5em;
-    color: var(--color-primary);
+/* Youtube Showcase / Article Grid */
+#youtube-showcase {
+    background-color: var(--color-dark-blue); 
+    color: white;
 }
 
-.grid
+#youtube-showcase h2 {
+    color: white;
+}
+#youtube-showcase .lead-text {
+    color: #eee;
+}
+
+.youtube-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.youtube-item {
+    background-color: #2c3e50; 
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.youtube-item h3 {
+    color: white;
+}
+
+.article-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; 
+}
+
+.card-body {
+    padding: 15px;
+}
+
+
+/* ================================== */
+/* 5. FOOTER */
+/* ================================== */
+
+footer {
+    background-color: var(--color-dark-blue); 
+    color: white;
+    padding: 60px 20px 20px 20px; 
+    font-size: 0.9em;
+    text-align: center;
+    border-top: 5px solid var(--color-secondary); 
+}
+
+.footer-main { 
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr; 
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    text-align: left;
+    gap: 30px;
+}
+
+.footer-column h4 {
+    color: var(--color-secondary);
+}
+
+.footer-column a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+
+/* ================================== */
+/* 6. ANIMASI SCROLL (Mirip BEM FEB UI) */
+/* ================================== */
+
+/* Semua elemen yang akan dianimasikan dimulai dengan status tersembunyi */
+.fade-in, .fade-in-up {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Efek Fade In */
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* Efek Fade In Up (Bergerak dari bawah ke atas) */
+.fade-in-up {
+    transform: translateY(20px);
+}
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Terapkan delay pada elemen yang berulang */
+.fade-in-up[style*="--delay"] {
+    transition-delay: var(--delay);
+}
+
+
+/* ================================== */
+/* 7. MEDIA QUERIES (Responsif Total) */
+/* ================================== */
+
+/* Tablet View (max-width 992px) */
+@media (max-width: 992px) { 
+    h1 { font-size: 3em; }
+    h2 { font-size: 2em; }
+    .hero-content h1 { font-size: 3.2em; }
+    .hero-content p { font-size: 1.1em; }
+    
+    .footer-main {
+        grid-template-columns: 1fr 1fr; 
+    }
+}
+
+
+/* Smartphone View (max-width 768px) */
+@media (max-width: 768px) { 
+    
+    /* --- Navigasi Mobile (Hamburger Menu) --- */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-primary); /* Latar belakang menu penuh */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transform: translateX(100%); /* Sembunyikan ke kanan */
+    }
+
+    .nav-links.active {
+        transform: translateX(0); /* Munculkan */
+    }
+    
+    .nav-menu-toggle {
+        display: block; /* Tampilkan Hamburger */
+        width: 30px;
+        height: 25px;
+        position: relative;
+    }
+    .nav-menu-toggle span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: var(--color-primary);
+        margin-bottom: 5px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links .nav-item {
+        font-size: 1.5em; /* Font besar di menu mobile */
+        color: white;
+        padding: 10px 20px;
+    }
+    .nav-links .nav-item:hover, .nav-links .nav-item.active {
+        color: var(--color-secondary);
+    }
+    
+    /* --- Ukuran Teks dan Hero --- */
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.8em; }
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+    #hero-static {
+        height: 70vh; 
+    }
+    
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 90%; 
+        padding: 10px 20px;
+    }
+    
+    /* --- Semua Grid jadi Kolom Tunggal --- */
+    .three-column-grid, 
+    .youtube-grid,
+    .footer-main { 
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
