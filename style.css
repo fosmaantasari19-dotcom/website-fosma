@@ -485,3 +485,84 @@ footer {
         gap: 20px;
     }
 }
+
+/* ================================== */
+/* 8. PROGRAM KERJA ACCORDION STYLE */
+/* ================================== */
+
+.accordion-container {
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.accordion-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    background-color: var(--color-primary); /* Biru Utama FOSMA */
+    color: white;
+    padding: 15px 20px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header:hover {
+    background-color: #004d99; /* Biru yang sedikit lebih gelap saat di-hover */
+}
+
+.accordion-header h3 {
+    margin: 0;
+    font-size: 1em; /* Ukuran yang lebih kecil dari H2 */
+    color: inherit;
+}
+
+/* Tanda panah (opsional, jika Anda ingin menunjukkan status buka/tutup)
+   Namun, kita akan mengandalkan JavaScript di bawah. */
+
+
+.accordion-content {
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    /* Mulai tersembunyi. JS akan mengubahnya menjadi display: block */
+    display: none; 
+}
+
+.accordion-content h4 {
+    color: var(--color-dark);
+    margin-top: 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+.program-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.program-list li {
+    /* Mengganti bullet point bawaan dengan ikon yang lebih menarik */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="%230066cc"/></svg>') no-repeat left center;
+    background-size: 8px;
+    padding: 5px 0 5px 20px; /* Jarak dari kiri */
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Responsif untuk program list di HP */
+@media (max-width: 768px) {
+    .accordion-header {
+        padding: 10px 15px;
+    }
+}
