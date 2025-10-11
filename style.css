@@ -392,6 +392,20 @@ footer {
     transition-delay: var(--delay);
 }
 
+/* style.css (Tambahkan di bagian 6. TYPOGRAPHY & TEXT UTILITIES) */
+
+.read-more {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.read-more:hover {
+    color: var(--color-secondary);
+}
 
 /* ================================== */
 /* 7. MEDIA QUERIES (Responsif Total) */
