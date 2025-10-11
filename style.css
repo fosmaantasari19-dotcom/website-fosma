@@ -469,14 +469,11 @@ footer {
 }
 
 
+/* style.css (Di bagian MEDIA QUERIES, sekitar baris 700-an) */
+
 @media (max-width: 768px) { /* Smartphone */
     
-    .hero-video-content h1 {
-        font-size: 2.5em;
-    }
-    .hero-video-content p {
-        font-size: 1em;
-    }
+    /* ... kode sebelumnya ... */
 
     nav {
         flex-direction: column;
@@ -486,26 +483,44 @@ footer {
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px; /* Jarak antar menu di HP */
+        gap: 15px; 
+    }
+    
+    /* Tambahkan ini untuk membatasi ukuran logo di HP */
+    .brand-logo img {
+        height: 45px;
+    }
+    
+    .brand-text {
+        font-size: 1.4em;
     }
 
-    .program-cards, .three-column-grid, .youtube-grid {
-        flex-direction: column;
-        display: flex; /* Kembali ke flex untuk kolom tunggal */
+    /* style.css (Di bagian MEDIA QUERIES, sekitar baris 700-an) */
+
+@media (max-width: 768px) { /* Smartphone */
+
+    /* Atur Ulang Ukuran Heading */
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; }
+    
+    /* Atur Ulang Hero Section (jika menggunakan gambar statis) */
+    #hero-static {
+        height: 80vh; /* Sedikit lebih pendek di HP */
     }
 
-    .footer-main {
-        grid-template-columns: 1fr; /* Footer jadi 1 kolom */
-        text-align: center;
+    .hero-static-content h1 {
+        font-size: 2.8em; /* Teks Hero lebih kecil */
     }
-    .footer-column.footer-logo {
-        grid-column: span 1; 
+    
+    .hero-buttons {
+        display: flex; /* Tambahkan flex agar tombol berdampingan */
+        justify-content: center;
+        flex-wrap: wrap;
     }
-    .brand-logo {
-        justify-content: center; /* Logo di tengah footer HP */
-    }
+
 }
 
+}
 /* ================================== */
 /* GAYA KHUSUS: PROGRAMS.HTML (tetap) */
 /* ================================== */
