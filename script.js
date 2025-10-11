@@ -60,3 +60,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// 4. Logic untuk Baca Selengkapnya/Expand Testimonial
+    const readMoreButtons = document.querySelectorAll('.read-more-btn');
+
+    readMoreButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const card = button.closest('.testimonial-card'); 
+            const isExpanded = card.classList.toggle('expanded');
+            
+            // Ubah teks tombol
+            button.textContent = isExpanded ? 'Sembunyikan' : 'Baca Selengkapnya';
+        });
+    });

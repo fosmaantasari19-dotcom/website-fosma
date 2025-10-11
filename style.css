@@ -505,3 +505,59 @@ footer {
         padding: 10px 25px;
     }
 }
+
+/* --- Tambahan CSS di style.css untuk testimonial baru --- */
+
+/* Gaya baru untuk foto di tengah dan tata letak vertikal */
+.testimonial-card {
+    text-align: center; /* Pusatkan semua elemen di kartu */
+}
+
+/* Memastikan Foto berada di tengah dan berbentuk bundar */
+.testimonial-card .testi-photo {
+    width: 90px; /* Ukuran foto diperbesar sedikit */
+    height: 90px;
+    margin: 0 auto 15px auto; /* Margin atas bawah, tengah horizontal */
+    border: 3px solid var(--color-secondary);
+    display: block; /* Agar margin auto bekerja */
+}
+
+/* Hapus tata letak flex lama di header */
+.testimonial-card .testi-header {
+    display: block; 
+    margin-bottom: 20px;
+}
+
+/* Tata letak untuk nama/jabatan */
+.testimonial-card cite {
+    padding-top: 10px;
+    border-top: none; /* Hapus garis pemisah di atas nama */
+    margin-top: 15px; /* Jarak antara kutipan dan nama */
+}
+
+/* Konten Kutipan (Untuk Hyperaktif/Expand) */
+.testimonial-card .quote-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    max-height: 100px; /* Batasan awal teks (sekitar 3-4 baris) */
+}
+
+/* Tombol Baca Selengkapnya */
+.read-more-btn {
+    display: block;
+    margin-top: 10px;
+    color: var(--color-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    font-size: 0.9em;
+}
+
+/* Kelas saat kutipan diperluas */
+.testimonial-card.expanded .quote-content {
+    max-height: 1000px; /* Nilai besar agar semua teks terlihat */
+    transition: max-height 0.5s ease-in;
+}

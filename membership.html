@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* CSS DARI LANGKAH SEBELUMNYA AKAN BERADA DI SINI */
+
         /* CSS Tambahan untuk Testimonial */
         .testimonial-card {
             background-color: white;
@@ -14,7 +16,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             position: relative;
-            text-align: left;
+            text-align: center; /* DIUBAH: Pusatkan semua elemen di kartu */
             height: 100%; 
             display: flex;
             flex-direction: column;
@@ -23,20 +25,19 @@
 
         /* Container untuk Foto dan Kutipan */
         .testimonial-card .testi-header {
-            display: flex;
-            align-items: flex-start; 
-            gap: 20px;
+            display: block; /* DIUBAH: Dibuat blok agar foto di tengah */
             margin-bottom: 20px;
         }
 
         /* Gaya Foto Bundar */
         .testimonial-card .testi-photo {
-            width: 70px; 
-            height: 70px;
+            width: 90px; /* DIUBAH: Ukuran foto diperbesar sedikit */
+            height: 90px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--color-secondary);
-            flex-shrink: 0; 
+            display: block;
+            margin: 0 auto 15px auto; /* DIUBAH: Margin otomatis agar di tengah */
         }
         
         .testimonial-card blockquote {
@@ -51,7 +52,7 @@
             margin-top: auto; 
             font-weight: 600;
             color: var(--color-primary);
-            border-top: 1px solid var(--color-bg-contrast);
+            border-top: none; /* DIUBAH: Hapus garis */
             padding-top: 15px;
         }
         .testimonial-card cite span {
@@ -61,7 +62,34 @@
             color: #777;
         }
 
-        /* CSS untuk Social Media Hub */
+        /* NEW: Gaya untuk konten kutipan yang disembunyikan */
+        .testimonial-card .quote-content {
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            max-height: 100px; 
+        }
+
+        /* NEW: Tombol Baca Selengkapnya */
+        .read-more-btn {
+            display: block;
+            margin-top: 10px;
+            color: var(--color-secondary);
+            font-weight: 600;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            text-decoration: underline;
+            font-size: 0.9em;
+        }
+
+        /* NEW: Kelas saat kutipan diperluas */
+        .testimonial-card.expanded .quote-content {
+            max-height: 1000px; 
+            transition: max-height 0.5s ease-in;
+        }
+
+        /* CSS untuk Social Media Hub (Tidak Berubah) */
         .social-hub {
             display: flex;
             justify-content: center;
@@ -129,10 +157,10 @@
     
     <main>
         
-        <section class="content-section about-intro fade-in" style="padding-top: 50px; padding-bottom: 50px;">
-            <h1 class="text-center" style="font-size: 3em;">FOSMA Adalah Keluarga</h1>
+        <section class="content-section about-intro fade-in" style="padding-top: 50px; padding-bottom: 50px; background-color: var(--color-primary); color: white;">
+            <h1 class="text-center" style="font-size: 3em;">FOSMA Adalah Rumah</h1>
             <p class="lead-text text-center" style="font-size: 1.3em;">
-                Dengarkan apa kata mereka tentang FOSMA UIN Antasari Banjarmasin.
+                Dengarkan apa kata para tokoh, pimpinan, dan kader FOSMA UIN Antasari tentang peran, fungsi, dan dampak keberadaan organisasi ini.
             </p>
         </section>
 
@@ -142,93 +170,103 @@
             <div class="three-column-grid">
                 
                 <div class="testimonial-card fade-in">
-                    <div>
-                        <div class="testi-header">
-                            <img src="assets/foto-arif.jpg" alt="Foto Arif Rahman Heriansyah" class="testi-photo">
-                            <blockquote>
-                                "Fosma adalah organisasi pertama saya ketika kuliah. Dari Fosma inilah saya banyak menempa soft skill, belajar kepemimpinan, dan membangun relasi dengan orang-orang hebat yang hingga kini terus memberi inspirasi. Bekal yang saya peroleh dari Fosma tidak berhenti di masa kuliah saja, tetapi bisa saya implementasikan dalam kehidupan hingga detik sekarang."
-                            </blockquote>
-                        </div>
-                    </div>
                     <cite>
+                        <img src="assets/foto-arif.jpg" alt="Foto Arif Rahman Heriansyah" class="testi-photo">
                         Arif Rahman Heriansyah, S.Pd.I., M.A.,Gr.
                         <span>ASN Dinas Pendidikan & Kebudayaan Prov. Kalsel (Wakil Ketua Umum FOSMA 2011-2012)</span>
                     </cite>
+                    
+                    <div>
+                        <div class="quote-content"> <blockquote>
+                                "Fosma adalah organisasi pertama saya ketika kuliah. Dari Fosma inilah saya banyak menempa soft skill, belajar kepemimpinan, dan membangun relasi dengan orang-orang hebat yang hingga kini terus memberi inspirasi. Bekal yang saya peroleh dari Fosma tidak berhenti di masa kuliah saja, tetapi bisa saya implementasikan dalam kehidupan hingga detik sekarang."
+                            </blockquote>
+                        </div>
+                        <button class="read-more-btn" data-target="quote1">Baca Selengkapnya</button> </div>
                 </div>
                 
                 <div class="testimonial-card fade-in">
+                    <cite>
+                        <img src="assets/foto-nurhalisa.jpg" alt="Foto Nurhalisa Fariyanti" class="testi-photo">
+                        Nurhalisa Fariyanti
+                        <span>Bendahara Umum DEMA UIN Antasari 2025-2026 (Anggota Bidang Isu dan Aksi FOSMA 2022-2023)</span>
+                    </cite>
+                    
                     <div>
-                        <div class="testi-header">
-                            <img src="assets/foto-nurhalisa.jpg" alt="Foto Nurhalisa Fariyanti" class="testi-photo">
+                        <div class="quote-content">
                             <blockquote>
                                 "Fosma merupakan rumah pertama saya di dunia organisasi sebagai mahasiswa. Forum merupakan pengalaman pertama saya saat sebelum memiliki apa pun tentang arti itu organisasi... Saya menemukan nilai-nilai yang lebih dalam tentang bagaimana cara mendengar, memahami, menyayangi, hingga memimpin tanpa harus mendominasi."
                             </blockquote>
                         </div>
+                        <button class="read-more-btn" data-target="quote2">Baca Selengkapnya</button>
                     </div>
-                    <cite>
-                        Nurhalisa Fariyanti
-                        <span>Bendahara Umum DEMA UIN Antasari 2025-2026 (Anggota Bidang Isu dan Aksi FOSMA 2022-2023)</span>
-                    </cite>
                 </div>
 
                 <div class="testimonial-card fade-in">
+                    <cite>
+                        <img src="assets/foto-radifa.jpg" alt="Foto Radifa Nazhma Muntazhira" class="testi-photo">
+                        Radifa Nazhma Muntazhira
+                        <span>Wakil 1 Puteri Antasari 2024 (Sekretaris Bidang Pemberdayaan Kemahasiswaan FOSMA 2023-2024)</span>
+                    </cite>
+                    
                     <div>
-                        <div class="testi-header">
-                            <img src="assets/foto-radifa.jpg" alt="Foto Radifa Nazhma Muntazhira" class="testi-photo">
+                        <div class="quote-content">
                             <blockquote>
                                 "Bagi saya FOSMA UIN Antasari Banjarmasin bukan sekadar forum, melainkan rumah yang merangkul dengan hangatnya kekeluargaan dan membimbing dengan tertatanya manajemen. Di sini kita belajar, tumbuh bersama, jatuh bangun bersama, dan menemukan makna kebersamaan yang tak tergantikan."
                             </blockquote>
                         </div>
+                        <button class="read-more-btn" data-target="quote3">Baca Selengkapnya</button>
                     </div>
-                    <cite>
-                        Radifa Nazhma Muntazhira
-                        <span>Wakil 1 Puteri Antasari 2024 (Sekretaris Bidang Pemberdayaan Kemahasiswaan FOSMA 2023-2024)</span>
-                    </cite>
                 </div>
 
                 <div class="testimonial-card fade-in">
+                    <cite>
+                        <img src="assets/foto-firdaus.jpg" alt="Foto Muhammad Firdaus" class="testi-photo">
+                        Muhammad Firdaus
+                        <span>Wakil Ketua Umum DEMA Fakultas Syariah 2025-2026 (Wakil Ketua Umum FOSMA 2023-2024 Kabinet Ziyora)</span>
+                    </cite>
+                    
                     <div>
-                        <div class="testi-header">
-                            <img src="assets/foto-firdaus.jpg" alt="Foto Muhammad Firdaus" class="testi-photo">
+                        <div class="quote-content">
                             <blockquote>
                                 "FOSMA adalah salah satu organisasi perkaderan atau organisasi yang diperuntukkan khusus untuk mahasiswa baru yang berada di tingkat universitas sebuah jawaban konkrit untuk mahasiswa baru yang mau memulai berorganisasi di kampus. FOSMA akan mencari kader selanjutnya untuk meneruskan estafet kepemimpinan yang ada di FOSMA."
                             </blockquote>
                         </div>
+                        <button class="read-more-btn" data-target="quote4">Baca Selengkapnya</button>
                     </div>
-                    <cite>
-                        Muhammad Firdaus
-                        <span>Wakil Ketua Umum DEMA Fakultas Syariah 2025-2026 (Wakil Ketua Umum FOSMA 2023-2024 Kabinet Ziyora)</span>
-                    </cite>
                 </div>
 
                 <div class="testimonial-card fade-in">
+                    <cite>
+                        <img src="assets/foto-sauqi.jpg" alt="Foto Muhammad Sauqi Anshari" class="testi-photo">
+                        Muhammad Sauqi Anshari
+                        <span>Ketua Umum HMJ Hukum Tata Negara (Ketua Umum FOSMA 2024-2025 Kabinet Narsena)</span>
+                    </cite>
+                    
                     <div>
-                        <div class="testi-header">
-                            <img src="assets/foto-sauqi.jpg" alt="Foto Muhammad Sauqi Anshari" class="testi-photo">
+                        <div class="quote-content">
                             <blockquote>
                                 "Fosma merupakan organisasi yang dikhususkan bagi mahasiswa/i baru yang ada di UIN Antasari. Sebagai organisasi perkaderan tentunya Fosma telah melahirkan pemimpin-pemimpin hebat diberbagai sektor lini. Saya mengajak seluruh mahasiswa/i baru UIN Antasari untuk menapaki awal organisasi di dunia kampus dengan bergabung menjadi keluarga besar FOSMA."
                             </blockquote>
                         </div>
+                        <button class="read-more-btn" data-target="quote5">Baca Selengkapnya</button>
                     </div>
-                    <cite>
-                        Muhammad Sauqi Anshari
-                        <span>Ketua Umum HMJ Hukum Tata Negara (Ketua Umum FOSMA 2024-2025 Kabinet Narsena)</span>
-                    </cite>
                 </div>
                 
                 <div class="testimonial-card fade-in">
+                    <cite>
+                        <img src="assets/foto-risa.jpg" alt="Foto Risa Madina" class="testi-photo">
+                        Risa Madina
+                        <span>Anggota Pemberdayaan Perlindungan Perempuan (P3) Dema UIN Antasari 2025 (Bendahara Bidang Minat dan Bakat FOSMA 2024-2025 Kabinet Narsena)</span>
+                    </cite>
+                    
                     <div>
-                        <div class="testi-header">
-                            <img src="assets/foto-risa.jpg" alt="Foto Risa Madina" class="testi-photo">
+                        <div class="quote-content">
                             <blockquote>
                                 "Forum Silaturahmi Mahasiswa (FOSMA) Antasari bagi saya bukan sekedar organisasi pertama yang saya pilih di kampus Pahlawan UIN Antasari, tapi di Fosma kita belajar, bertumbuh, dan berkembang bersama dari 'integritas sampai terciptanya seorang pemimpin yang berkualitas'. Harapannya semoga dengan terlaksananya Training of Cadre (TOC) 2025 ini terus menghadirkan calon-calon pemimpin terbaik."
                             </blockquote>
                         </div>
+                        <button class="read-more-btn" data-target="quote6">Baca Selengkapnya</button>
                     </div>
-                    <cite>
-                        Risa Madina
-                        <span>Anggota Pemberdayaan Perlindungan Perempuan (P3) Dema UIN Antasari 2025 (Bendahara Bidang Minat dan Bakat FOSMA 2024-2025 Kabinet Narsena)</span>
-                    </cite>
                 </div>
                 
             </div>
