@@ -3,107 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOSMA UIN Antasari - Forum Silaturahmi Mahasiswa</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css"> 
+    <title>Gabung FOSMA - Pendaftaran Anggota Baru</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Tambahan untuk Checklist */
+        .checklist-grid {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            padding: 0;
+        }
+        .checklist-item {
+            background-color: white;
+            padding: 15px 25px;
+            border-left: 5px solid var(--color-primary);
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <nav class="main-nav">
-            <a href="index.html" class="brand-logo">
-                <img src="assets/logo.png" alt="Logo FOSMA">
-                <span class="brand-text">FOSMA UIN Antasari</span>
-            </a>
-            <div class="nav-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-item active">Beranda</a></li>
-                <li><a href="about.html" class="nav-item">Selayang Pandang</a></li>
-                <li><a href="programs.html" class="nav-item">Program & Kegiatan</a></li>
-                <li><a href="articles.html" class="nav-item">Berita & Artikel</a></li>
-                <li><a href="membership.html" class="nav-item">Keanggotaan</a></li>
-                <li><a href="contact.html" class="nav-item btn-cta">Kontak</a></li>
-            </ul>
-        </nav>
+        <a href="index.html" class="logo">
+            <img src="assets/logo-fosma.png" alt="Logo FOSMA"> 
+        </a>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-item">Beranda</a>
+            <a href="about.html" class="nav-item">Selayang Pandang</a>
+            <a href="berita-acara.html" class="nav-item">Berita & Acara</a> 
+            <a href="kajian.html" class="nav-item">Kajian</a> 
+            <a href="kontak.html" class="nav-item">Kontak</a> 
+            <a href="membership.html" class="nav-item btn btn-primary active">Gabung FOSMA</a> </nav>
+        <div class="nav-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
-
-<body>
-
+    
     <main>
-    
-    <section class="content-section text-center fade-in">
-        <h1>Jadwal dan Informasi Pendaftaran FOSMA</h1>
-        <p class="lead-text">Siapapun Anda, kami mengundang Anda untuk mengasah potensi kepemimpinan dan bergabung menjadi kader terbaik UIN Antasari.</p>
-    </section>
+        
+        <section class="content-section about-intro fade-in" style="padding-top: 50px; padding-bottom: 50px;">
+            <h1 class="text-center" style="font-size: 3em;">Siap Menjadi Kader *Karyadharta*?</h1>
+            <p class="lead-text text-center" style="font-size: 1.3em;">
+                Waktunya tunjukkan peran dan fungsi Anda sebagai mahasiswa! Bergabunglah dengan Forum Silaturahmi Mahasiswa (FOSMA) untuk mengasah kepemimpinan, berintegritas, dan membawa perubahan di kampus.
+            </p>
+            <div class="text-center">
+                <a href="#" class="btn btn-primary" style="padding: 15px 50px; font-size: 1.1em;">DAFTAR SEKARANG →</a>
+            </div>
+        </section>
 
-    <section id="statistics" class="content-section fade-in" style="background-color: var(--color-light);">
-        <h2 class="text-center">Fakta Singkat FOSMA</h2>
-        <div class="program-cards">
-            
-            <div class="program-card-item fade-in"> 
-                <h3>150+</h3>
-                <p>Alumni tersebar di berbagai sektor profesional dan pemerintahan.</p>
+        <section class="content-section bg-light fade-in">
+            <h2 class="text-center">Alur Pendaftaran *Open Recruitment*</h2>
+            <p class="lead-text text-center">Pahami langkah-langkah mudah untuk menjadi bagian dari keluarga besar FOSMA UIN Antasari.</p>
+
+            <div class="timeline">
+                
+                <div class="timeline-item left fade-in">
+                    <span class="timeline-date">Tahap 1: Pengisian Formulir</span>
+                    <div class="timeline-content">
+                        <h3>Pendaftaran Online</h3>
+                        <p>Isi seluruh data diri dan motivasi Anda melalui Google Form yang tersedia pada tombol pendaftaran. Pastikan data yang dimasukkan akurat dan sesuai.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right fade-in">
+                    <span class="timeline-date">Tahap 2: Seleksi Berkas</span>
+                    <div class="timeline-content">
+                        <h3>Administrasi dan Portofolio</h3>
+                        <p>Tim PSDM FOSMA akan menyeleksi berkas dan portofolio (jika ada) yang Anda lampirkan untuk menilai kesesuaian minat dan bakat Anda.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left fade-in">
+                    <span class="timeline-date">Tahap 3: Wawancara (Interview)</span>
+                    <div class="timeline-content">
+                        <h3>Sesi Tatap Muka/Daring</h3>
+                        <p>Calon anggota yang lolos seleksi berkas akan diundang untuk wawancara guna mendalami visi, komitmen, dan penempatan bidang.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right fade-in">
+                    <span class="timeline-date">Tahap 4: Pengumuman & Pengukuhan</span>
+                    <div class="timeline-content">
+                        <h3>Diterima sebagai Fungsionaris</h3>
+                        <p>Peserta yang lolos wawancara resmi diangkat menjadi Fungsionaris FOSMA dan akan mengikuti proses pengukuhan (Pelantikan).</p>
+                    </div>
+                </div>
+
             </div>
-            
-            <div class="program-card-item fade-in">
-                <h3>8 Divisi Aktif</h3>
-                <p>Kesempatan berorganisasi dan belajar langsung di bidang yang Anda minati.</p>
-            </div>
-            
-            <div class="program-card-item fade-in">
-                <h3>100%</h3>
-                <p>Kader FOSMA mendapatkan pelatihan *Public Speaking* intensif.</p>
-            </div>
-            
-        </div>
-    </section>
-    
-    <section id="oprec-info" class="content-section fade-in">
-        <h2 class="text-center">Pendaftaran Anggota Baru 2026</h2>
+        </section>
         
-        <div class="prosedur-langkah">
+        <section class="content-section fade-in">
+            <h2 class="text-center">Apa yang Anda Dapatkan di FOSMA?</h2>
+            <p class="lead-text text-center">Lebih dari sekadar organisasi, FOSMA adalah rumah pengembangan diri dan karir kemahasiswaan Anda.</p>
             
-            <div class="langkah-item" style="border-bottom-color: #e67e22;">
-                <span class="langkah-nomor" style="background-color: #e67e22;">1</span>
-                <h3>Jadwal Pembukaan</h3>
-                <p><strong>Dibuka: 1 Februari 2026</strong><br>Ditutup: 20 Februari 2026</p>
+            <div class="two-column-grid">
+                
+                <ul class="checklist-grid">
+                    <li class="checklist-item fade-in">Jaringan (Networking) Mahasiswa Se-Universitas.</li>
+                    <li class="checklist-item fade-in">Pelatihan Kepemimpinan (YLT) dan *Soft Skill* Gratis.</li>
+                    <li class="checklist-item fade-in">Kesempatan Berpartisipasi dalam Isu & Aksi Kampus.</li>
+                </ul>
+                <ul class="checklist-grid">
+                    <li class="checklist-item fade-in">Sertifikat dan Pengalaman Organisasi Resmi.</li>
+                    <li class="checklist-item fade-in">Pembekalan *Public Speaking* dan Intelektual.</li>
+                    <li class="checklist-item fade-in">Wadah Pengembangan Minat dan Bakat (Seni/Olahraga).</li>
+                </ul>
+                
             </div>
-            
-            <div class="langkah-item" style="border-bottom-color: #27ae60;">
-                <span class="langkah-nomor" style="background-color: #27ae60;">2</span>
-                <h3>Syarat Umum</h3>
-                <p>Mahasiswa/i UIN Antasari Banjarmasin aktif (Minimal Semester 2) dengan komitmen tinggi.</p>
-            </div>
-            
-            <div class="langkah-item" style="border-bottom-color: var(--color-primary);">
-                <span class="langkah-nomor" style="background-color: var(--color-primary);">3</span>
-                <h3>Download Panduan</h3>
-                <p>Unduh berkas panduan lengkap, kurikulum kaderisasi, dan formulir pendaftaran melalui tombol di bawah.</p>
-            </div>
-            
-        </div>
-        
-        <div class="text-center" style="margin-top: 50px;">
-             <a href="#" class="btn-primary">DOWNLOAD PANDUAN LENGKAP</a> 
-             <p style="margin-top: 20px; font-style: italic;">(Link akan aktif saat periode pendaftaran dibuka)</p>
-        </div>
-    </section>
+        </section>
+
     </main>
-    
+
     <footer>
-        <div class="footer-container">
+        <div class="footer-main">
+            <div class="footer-col footer-contact fade-in">
+                <img src="assets/logo-fosma-putih.png" alt="Logo FOSMA"> 
+                <h4>FOSMA UIN Antasari</h4>
+                <p>Jl. A. Yani Km. 4,5 Komp. UIN Antasari Banjarmasin Gedung Student Center Lt. II</p>
+                <p>Email: fosmaantasari@gmail.com</p>
+                <p>CP: Siti Hasna (082295493674)</p>
             </div>
-        <div class="footer-bottom">
-            <p>Copyright &copy; 2024 FOSMA UIN Antasari. All rights reserved.</p>
+            <div class="footer-col footer-links fade-in">
+                <h4>Navigasi</h4>
+                <a href="index.html">Beranda</a>
+                <a href="about.html">Selayang Pandang</a>
+                <a href="programs.html">Program Kerja</a>
+            </div>
+            <div class="footer-col footer-links fade-in">
+                <h4>Aktivitas</h4>
+                <a href="berita-acara.html">Berita & Acara</a>
+                <a href="kajian.html">Kajian Isu</a>
+                <a href="kontak.html">Kontak Kami</a>
+            </div>
+            <div class="footer-col fade-in">
+                <h4>Ikuti Kami</h4>
+                <p>Sosial Media resmi FOSMA UIN Antasari</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            © 2025 FOSMA UIN Antasari. Kabinet Karyadharta.
         </div>
     </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Navigasi Mobile
+            const navToggle = document.querySelector('.nav-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
 
-    <script src="script.js"></script> 
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // 2. Animasi Fade-In saat Scroll (Hyper Active)
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.1 }); 
+
+            document.querySelectorAll('.fade-in').forEach(element => {
+                observer.observe(element);
+            });
+            
+            // 3. Logic untuk Program Kerja Accordion (kosong di membership.html)
+            const headers = document.querySelectorAll('.accordion-header');
+            if (headers.length > 0) {
+                // Kode accordion diabaikan karena tidak ada di halaman ini
+            }
+        });
+    </script>
+    
 </body>
 </html>

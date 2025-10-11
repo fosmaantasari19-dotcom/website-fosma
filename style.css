@@ -1,16 +1,16 @@
-/* ================================== */
-/* FOSMA UIN ANTASARI - STYLING SHEET */
-/* ================================== */
-
+/* ================================================= */
+/* FOSMA UIN ANTASARI - STYLING SHEET (Gaya BEM FEB UI) */
+/* ================================================= */
 
 /* 1. GLOBAL & RESET */
 :root {
-    --color-primary: #0066cc; /* Biru FOSMA (Dominan) */
-    --color-secondary: #ff9900; /* Oranye/Kuning (Aksen) */
-    --color-dark: #333333; /* Warna Teks Utama (Hitam) */
-    --color-light: #f9f9f9; /* Latar Belakang Terang */
-    --color-dark-blue: #004d99; /* Biru Gelap untuk Showcase */
-    --header-height: 80px; /* Tentukan tinggi header */
+    /* Palet Warna BEM FEB UI - Modern dan Bold */
+    --color-primary: #004d99; /* Biru Gelap (Dominan) */
+    --color-secondary: #ff9900; /* Oranye/Kuning (Aksen Cerah) */
+    --color-dark: #222222; /* Warna Teks Utama */
+    --color-light: #f7f7f7; /* Latar Belakang Terang */
+    --color-bg-contrast: #e8e8e8; /* Latar Belakang Kontras Ringan */
+    --header-height: 70px;
 }
 
 * {
@@ -22,10 +22,11 @@
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: var(--color-dark); /* Mengatasi masalah teks tidak terlihat (kontras) */
+    color: var(--color-dark);
     margin: 0;
-    padding-top: var(--header-height); /* PENTING: Jarak agar konten tidak tertutup header */
+    padding-top: var(--header-height);
     background-color: white;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
 }
 
 img {
@@ -36,28 +37,27 @@ img {
 a {
     text-decoration: none;
     color: var(--color-primary);
+    transition: color 0.3s;
 }
 
-
-/* 2. HEADER & NAV */
+/* 2. HEADER & NAV (Minimalis dan Fixed) */
 header {
-    background-color: white; /* Mengatasi masalah link tidak bisa diklik */
-    color: var(--color-dark);
-    padding: 0 5%;
+    background-color: white;
+    padding: 0 4%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: var(--header-height);
-    position: fixed; /* Header mengambang */
+    position: fixed;
     top: 0;
     width: 100%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* PENTING: Memastikan header selalu di atas */
-    box-sizing: border-box;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
 }
 
 .logo img {
-    height: 40px;
+    height: 35px;
+    transition: transform 0.3s;
 }
 
 .nav-links {
@@ -71,19 +71,30 @@ header {
     font-weight: 500;
     color: var(--color-dark);
     padding: 5px 0;
-    transition: color 0.3s;
+    position: relative;
 }
 
-.nav-item:hover, .nav-item.active {
-    color: var(--color-primary);
-    border-bottom: 2px solid var(--color-primary);
+/* Garis Bawah saat Hover/Aktif */
+.nav-item::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.nav-item:hover::after, .nav-item.active::after {
+    width: 100%;
 }
 
 .nav-menu-toggle {
-    display: none; /* Sembunyikan tombol hamburger di desktop */
+    display: none;
     cursor: pointer;
 }
-
 
 /* 3. TYPOGRAPHY & TEXT UTILITIES */
 h1, h2, h3, h4, h5 {
@@ -91,370 +102,153 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 15px;
 }
 
-h1 { font-size: 3.5em; font-weight: 800; }
-h2 { font-size: 2.5em; font-weight: 700; color: var(--color-primary); }
-h3 { font-size: 1.5em; font-weight: 600; }
-h4 { font-size: 1.2em; font-weight: 600; }
+h1 { font-size: 3.8em; font-weight: 800; line-height: 1.1; }
+h2 { font-size: 2.2em; font-weight: 700; color: var(--color-primary); }
+h3 { font-size: 1.6em; font-weight: 600; }
 
 .lead-text {
-    font-size: 1.2em;
-    color: #666;
-    margin-bottom: 40px;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .text-center {
     text-align: center;
 }
 
-/* UTILITY LINK STYLE */
 .read-more {
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 10px;
     color: var(--color-primary);
     font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .read-more:hover {
     color: var(--color-secondary);
+    transform: translateX(5px);
 }
-
 
 /* 4. SECTIONS & HERO */
 .content-section {
-    padding: 80px 5%;
+    padding: 100px 4%; 
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.bg-light {
-    background-color: var(--color-light);
-}
+.bg-light { background-color: var(--color-light); }
+.bg-contrast { background-color: var(--color-bg-contrast); }
 
-.bg-white {
-    background-color: white;
-}
-
-/* Hero Section */
 #hero-static {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/hero-bg.jpg') no-repeat center center/cover;
+    background-color: var(--color-primary);
     color: white;
-    height: 85vh; 
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: left;
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 1000px;
+    padding-left: 5%;
 }
 
 .hero-content h1 {
     color: white;
-    font-size: 4em;
+    font-size: 4.5em;
     margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-size: 1.3em;
-    margin-bottom: 30px;
+    font-size: 1.4em;
+    margin-bottom: 40px;
+    max-width: 700px;
 }
 
-
-/* 5. BUTTONS */
+/* 5. BUTTONS (Gaya Modern) */
 .btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 12px 35px;
     border-radius: 5px;
     font-weight: 600;
     text-transform: uppercase;
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s;
     border: 2px solid transparent;
 }
 
 .btn-primary {
-    background-color: var(--color-primary);
-    color: white;
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+    border-color: var(--color-secondary);
 }
 
 .btn-primary:hover {
-    background-color: #004d99;
-    border-color: #004d99;
+    background-color: #ffb74d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: white;
-    border-color: white;
+    color: var(--color-secondary);
+    border-color: var(--color-secondary);
 }
 
 .btn-secondary:hover {
-    background-color: white;
-    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+    transform: translateY(-2px);
 }
 
-
-/* 6. GRID LAYOUTS & COMPONENTS */
-
-/* Tiga Kolom (Digunakan di Intro Beranda & Fokus Program) */
-.three-column-grid {
+/* 6. GRID LAYOUTS & CARDS */
+.three-column-grid, .two-column-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 50px;
 }
+.three-column-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.two-column-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
 
-.grid-item {
+.grid-item, .card {
     background-color: white;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.grid-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+.grid-item:hover, .card:hover {
+    transform: translateY(-8px); /* Efek Hyper Active pada hover */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 .grid-item img {
-    height: 60px; 
+    height: 60px;
     margin-bottom: 20px;
 }
 
-/* --- Sorotan Video Tunggal (Beranda) --- */
-#youtube-showcase {
-    background-color: var(--color-dark-blue); 
-    color: white;
-}
-
-#youtube-showcase h2 {
-    color: white;
-}
-#youtube-showcase .lead-text {
-    color: #eee;
-}
-
-.single-video-container {
-    max-width: 900px; 
-    margin: 40px auto;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    background-color: #2c3e50; 
-}
-
-.single-video-container iframe {
-    display: block;
-    width: 100%;
-}
-
-.video-caption {
-    padding: 20px;
-    color: white;
-}
-
-.video-caption h3 {
-    color: var(--color-secondary);
-    margin-top: 0;
-    font-size: 1.5em;
-}
-
-
-/* 7. FOOTER */
-footer {
-    background-color: var(--color-dark-blue);
-    color: white;
-    padding: 50px 5%;
-}
-
-.footer-main {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 2fr;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 40px;
-}
-
-.footer-col h4 {
-    color: var(--color-secondary);
-    margin-bottom: 20px;
-    font-size: 1.1em;
-}
-
-.footer-contact img {
-    height: 50px;
-    margin-bottom: 10px;
-}
-
-.footer-contact h4 {
-    margin-top: 0;
-    color: white;
-}
-
-.footer-links a {
-    display: block;
-    color: #ccc;
-    margin-bottom: 10px;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: var(--color-secondary);
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #0066cc;
-    font-size: 0.9em;
-    color: #ccc;
-}
-
-
-/* 8. PROGRAM KERJA ACCORDION STYLE */
-
-.accordion-container {
-    max-width: 900px;
-    margin: 20px auto;
-}
-
-.accordion-item {
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.accordion-header {
-    background-color: var(--color-primary); 
-    color: white;
-    padding: 15px 20px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    cursor: pointer;
-    font-size: 1.1em;
-    font-weight: 600;
-    transition: background-color 0.3s;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.accordion-header:hover {
-    background-color: #004d99; 
-}
-
-.accordion-header h3 {
-    margin: 0;
-    font-size: 1em; 
-    color: inherit;
-}
-
-.accordion-content {
-    padding: 15px 20px;
-    background-color: #f9f9f9;
-    display: none; 
-}
-
-.program-list {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.program-list li {
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="%230066cc"/></svg>') no-repeat left center;
-    background-size: 8px;
-    padding: 5px 0 5px 20px; 
-    margin-bottom: 8px;
-    line-height: 1.5;
-}
-
-
-/* 9. VISI/MISI CARD & STRUKTUR LIST STYLE (about.html) */
-
-/* Visi Misi Card Grid */
-.program-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.program-card-item {
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    background-color: #f7f7f7;
+.post-card {
     border-top: 5px solid var(--color-primary);
 }
 
-.program-card-item h3 {
-    color: var(--color-primary);
-    text-align: center;
-    margin-top: 0;
-    font-size: 1.3em;
+.post-card img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
 }
 
-.program-card-item ul {
-    list-style: none;
-    padding-left: 0;
-    text-align: left;
-}
-
-.program-card-item ul li {
-    padding-left: 20px;
-    position: relative;
-    margin-bottom: 10px;
-    line-height: 1.4;
-}
-
-.program-card-item ul li::before {
-    content: "✓"; 
-    color: var(--color-secondary);
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-}
-
-/* Struktur List (Daftar Ketua Umum) */
-.struktur-list {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.struktur-list li {
-    padding: 8px 0;
-    border-bottom: 1px dashed #eee;
-    color: var(--color-dark);
-}
-
-.struktur-list li:last-child {
-    border-bottom: none;
-}
-
-
-/* 10. STRUKTUR KEPENGURUSAN CARDS (about.html) */
-
-.struktur-kepengurusan-grid {
-    max-width: 1200px;
-    margin: 30px auto;
-}
-
-.bidang-container {
-    margin-bottom: 40px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
+/* 7. STRUKTUR KEPENGURUSAN CARDS */
 .bidang-container h4 {
     color: var(--color-dark);
     text-align: center;
@@ -467,42 +261,20 @@ footer {
 .member-grid {
     display: grid;
     gap: 15px;
-    padding: 0 10px;
 }
 
-.member-grid-2 {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-.member-grid-3 {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
+.member-grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.member-grid-3 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 
 .member-card {
-    background-color: #f0f8ff; 
+    background-color: #f0f8ff;
     padding: 15px;
-    border-radius: 8px;
     border-left: 5px solid var(--color-primary);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    transition: transform 0.3s ease;
 }
 
 .member-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.member-card h5 {
-    font-size: 1.1em;
-    margin: 0 0 5px 0;
-    color: var(--color-dark);
-}
-
-.member-card p {
-    font-size: 0.9em;
-    margin: 0;
-    color: #555;
-    font-weight: 500;
+    transform: translateX(5px);
 }
 
 .member-card.main-position {
@@ -510,102 +282,152 @@ footer {
     background-color: #ffe8d6;
 }
 
+/* 8. FOOTER */
+footer {
+    background-color: var(--color-dark);
+    color: white;
+    padding: 50px 4%;
+}
 
-/* ================================== */
-/* 11. MEDIA QUERIES (Responsif Total) */
-/* ================================== */
+.footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+.footer-col h4 {
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+}
 
-/* Tablet View (max-width 992px) */
-@media (max-width: 992px) { 
-    h1 { font-size: 3em; }
-    h2 { font-size: 2em; }
-    .hero-content h1 { font-size: 3.2em; }
-    .hero-content p { font-size: 1.1em; }
-    
+.footer-links a {
+    color: #ccc;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+/* 9. ANIMASI (Fade-In Saat Scroll - Hyper Active) */
+/* Efek yang membuat elemen muncul saat di-scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 10. TIMELINE COMPONENT (Vertical Timeline) */
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: #ddd;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+    z-index: 1;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: white;
+    border: 4px solid var(--color-primary);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: var(--color-light);
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.left { left: 0; }
+.right { left: 50%; }
+.left::before {
+    content: " "; height: 0; width: 0; position: absolute; top: 22px; z-index: 1; right: 30px;
+    border: medium solid var(--color-light); border-width: 10px 0 10px 10px; border-color: transparent transparent transparent var(--color-light);
+}
+
+.right::before {
+    content: " "; height: 0; width: 0; position: absolute; top: 22px; z-index: 1; left: 30px;
+    border: medium solid var(--color-light); border-width: 10px 10px 10px 0; border-color: transparent var(--color-light) transparent transparent;
+}
+
+.right::after { left: -16px; }
+
+.timeline-date {
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+    display: block;
+    font-size: 1.1em;
+}
+
+/* 11. MEDIA QUERIES (Responsif) */
+@media (max-width: 992px) {
     .footer-main {
-        grid-template-columns: 1fr 1fr; /* Footer menjadi 2 kolom */
+        grid-template-columns: 1fr 1fr;
     }
 }
 
-
-/* Smartphone View (max-width 768px) */
-@media (max-width: 768px) { 
-    
-    /* --- Navigasi Mobile (Hamburger Menu) --- */
+@media (max-width: 768px) {
+    /* Navigasi Mobile */
     .nav-links {
-        position: fixed;
-        top: var(--header-height); /* Mulai dari bawah header */
-        left: 0;
-        width: 100%;
-        height: calc(100vh - var(--header-height)); /* Sesuaikan tinggi agar tidak menutupi header */
-        background-color: var(--color-primary); 
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        transform: translateX(100%); 
-        transition: transform 0.3s ease-in-out;
-        z-index: 999; /* Di bawah header, di atas konten */
+        position: fixed; top: var(--header-height); left: 0; width: 100%; height: calc(100vh - var(--header-height));
+        background-color: var(--color-primary); flex-direction: column; justify-content: center;
+        transform: translateX(100%); transition: transform 0.3s ease-in-out;
     }
+    .nav-links.active { transform: translateX(0); }
+    .nav-menu-toggle { display: block; }
+    .nav-menu-toggle span { display: block; width: 100%; height: 3px; background-color: var(--color-dark); margin: 5px 0; }
+    .nav-links .nav-item { font-size: 1.4em; color: white; padding: 10px 0; }
+    .nav-links .nav-item:hover::after { background: var(--color-secondary); }
 
-    .nav-links.active {
-        transform: translateX(0); 
-    }
-    
-    .nav-menu-toggle {
-        display: block; 
-        cursor: pointer;
-        z-index: 1001; /* Pastikan tombol di atas menu */
-    }
-
-    .nav-links .nav-item {
-        font-size: 1.5em; 
-        color: white;
-        padding: 10px 20px;
-    }
-    .nav-links .nav-item:hover, .nav-links .nav-item.active {
-        color: var(--color-secondary);
-        border-bottom: none;
-    }
-    
-    /* --- Ukuran Teks dan Hero --- */
+    /* Teks Hero Mobile */
     h1 { font-size: 2.2em; }
-    h2 { font-size: 1.8em; }
-    .hero-content h1 {
-        font-size: 2.5em;
-    }
-    .hero-content p {
-        font-size: 1em;
-    }
-    #hero-static {
-        height: 70vh; 
-    }
-    
-    .hero-buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 90%; 
-        padding: 10px 20px;
-    }
-    
-    /* --- Tata Letak Grid Mobile --- */
-    .three-column-grid, 
-    .footer-main,
-    .program-cards { 
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
+    .hero-content { padding-left: 0; text-align: center; }
+    .hero-content h1 { font-size: 2.8em; }
+    #hero-static { height: 75vh; }
+    .footer-main { grid-template-columns: 1fr; }
 
-    .single-video-container iframe {
-        height: 250px; 
+    /* Timeline Responsif */
+    .timeline::after { left: 31px; }
+    .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+    .left::before, .right::before {
+        left: 60px; border-width: 10px 10px 10px 0; border-color: transparent var(--color-light) transparent transparent;
     }
-
-    .member-grid-2, .member-grid-3 {
-        grid-template-columns: 1fr; 
-    }
+    .left::after, .right::after { left: 15px; }
+    .right { left: 0%; }
 }

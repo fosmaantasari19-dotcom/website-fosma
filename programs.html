@@ -3,177 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOSMA UIN Antasari - Forum Silaturahmi Mahasiswa</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css"> 
+    <title>Program Kerja - FOSMA UIN Antasari</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS KHUSUS UNTUK ACCORDION */
+        .accordion-item {
+            border: 1px solid var(--color-bg-contrast);
+            margin-bottom: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            transition: box-shadow 0.3s;
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .accordion-header {
+            background-color: white;
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.2em;
+            color: var(--color-dark);
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .accordion-header:hover {
+            background-color: var(--color-light);
+            color: var(--color-primary);
+        }
+
+        .accordion-header .icon::after {
+            content: '+';
+            font-size: 1.5em;
+            line-height: 1;
+            transition: transform 0.3s;
+        }
+
+        .accordion-header.open .icon::after {
+            content: '-';
+            color: var(--color-secondary);
+        }
+
+        .accordion-content {
+            padding: 0 25px;
+            background-color: var(--color-light);
+            max-height: 0; /* Awalnya tersembunyi */
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            color: #444;
+        }
+
+        .accordion-content.open {
+            padding: 20px 25px;
+        }
+        
+        .accordion-content ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+        
+        .bidang-nama {
+            color: var(--color-primary);
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <nav class="main-nav">
-            <a href="index.html" class="brand-logo">
-                <img src="assets/logo.png" alt="Logo FOSMA">
-                <span class="brand-text">FOSMA UIN Antasari</span>
-            </a>
-            <div class="nav-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-item active">Beranda</a></li>
-                <li><a href="about.html" class="nav-item">Selayang Pandang</a></li>
-                <li><a href="programs.html" class="nav-item">Program & Kegiatan</a></li>
-                <li><a href="articles.html" class="nav-item">Berita & Artikel</a></li>
-                <li><a href="membership.html" class="nav-item">Keanggotaan</a></li>
-                <li><a href="contact.html" class="nav-item btn-cta">Kontak</a></li>
-            </ul>
+        <a href="index.html" class="logo">
+            <img src="assets/logo-fosma.png" alt="Logo FOSMA"> 
+        </a>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-item">Beranda</a>
+            <a href="about.html" class="nav-item">Selayang Pandang</a>
+            <a href="berita-acara.html" class="nav-item">Berita & Acara</a> 
+            <a href="kajian.html" class="nav-item">Kajian</a> 
+            <a href="kontak.html" class="nav-item">Kontak</a> 
+            <a href="membership.html" class="nav-item btn btn-primary">Gabung FOSMA</a>
         </nav>
+        <div class="nav-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
-
-<body>
-
-    <main>
-    <section class="content-section about-intro">
-        <div class="fade-in">
-            <h1 class="text-center">KALENDER PROGRAM KERJA FOSMA</h1>
-            <h2 class="text-center">Kabinet Karyadharta Periode 2025-2026</h2>
-            <p class="lead-text text-center">Berikut adalah jadwal dan jenis kegiatan utama FOSMA yang dilaksanakan berdasarkan periode waktu, mulai dari agenda tahunan hingga kegiatan rutin mingguan.</p>
-        </div>
-    </section>
-
-    <section class="content-section bg-light">
-        <h2 class="text-center">PROGRAM KERJA RUTIN TAHUNAN</h2>
-        <p class="lead-text text-center">Program utama yang menjadi fondasi keberlanjutan organisasi dan perkaderan.</p>
-        
-        <div class="accordion-container fade-in-up">
-            
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <h3>AGENDA PENGESAHAN & PERKADERAN</h3>
-                </button>
-                <div class="accordion-content" style="display: block;">
-                    <ul class="program-list">
-                        <li><strong>Rapat Kerja (RAKER) FOSMA (BPI):</strong> Merumuskan, menganalisis, dan mengesahkan program kerja seluruh fungsionaris FOSMA.</li>
-                        <li><strong>Pelantikan Calon Fungsionaris (BPI):</strong> Peresmian pengurus baru untuk menguatkan dan meningkatkan kompetensi.</li>
-                        <li><strong>Musyawarah Besar (MUBES) (BPI):</strong> Proses pengambilan keputusan untuk menentukan kebijakan atau pedoman acuan kepengurusan selanjutnya.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <h3>PROGRAM PENGEMBANGAN DIRI DAN KEPEMIMPINAN</h3>
-                </button>
-                <div class="accordion-content">
-                    <ul class="program-list">
-                        <li><strong>Class Materi (Pemberdayaan Kemahasiswaan):</strong> Program perkaderan informal tentang *Public Speaking* dan *Teknik Lobbying* yang diadakan sebulan sekali.</li>
-                        <li><strong>Upgrading Skill FOSMA (Isu dan Aksi):</strong> Mengembangkan kemampuan **berpikir kritis**, **menganalisis masalah**, dan meningkatkan keterampilan **kerja sama**.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <h3>HARI BESAR DAN PELATIHAN SPESIAL</h3>
-                </button>
-                <div class="accordion-content">
-                    <ul class="program-list">
-                        <li><strong>HARLAH FOSMA ke-17 (BPI):</strong> Tasyakuran, pemotongan tumpeng, dan makan bersama untuk memperingati hari lahir FOSMA.</li>
-                        <li><strong>Kelas Editing Foto dan Video (Media dan Informasi):</strong> Pelatihan untuk meningkatkan pemahaman teknik **fotografi**, pengeditan visual, dan kemampuan membuat konten di media sosial.</li>
-                    </ul>
-                </div>
-            </div>
-            
-        </div>
-    </section>
     
-    <section class="content-section">
-        <h2 class="text-center">PROGRAM KERJA BULANAN & MINGGUAN</h2>
-        <p class="lead-text text-center">Kegiatan rutin yang berfokus pada silaturahmi, pengembangan minat, dan aksi sosial.</p>
+    <main>
         
-        <div class="accordion-container fade-in-up">
-            
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <h3>PROGRAM RUTIN BULANAN</h3>
-                </button>
-                <div class="accordion-content">
-                    <ul class="program-list">
-                        <li><strong>Kelas Materi Administrasi (BPI):</strong> Perkaderan informal tentang Surat-menyurat, Sertifikat, dan Proposal (sebulan sekali).</li>
-                        <li><strong>FOSMA TALK (Isu dan Aksi):</strong> Program *podcast* yang membahas **isu-isu yang beredar di lingkungan kampus dan di luar kampus** (bulanan).</li>
-                        <li><strong>Kelas Tari dan Menyanyi (Minat dan Bakat):</strong> Mengembangkan dan menyalurkan bakat serta minat fungsionaris dalam kesenian (sebulan sekali).</li>
-                        <li><strong>FOSMA Peduli Masyarakat (Sosial dan Keagamaan):</strong> Kegiatan bersih-bersih di tempat umum dan tempat ibadah (setiap 2 bulan).</li>
-                    </ul>
-                </div>
-            </div>
+        <section class="content-section about-intro fade-in">
+            <h1 class="text-center">Program Kerja Kabinet Karyadharta 2025-2026</h1>
+            <p class="lead-text text-center">Rancangan program kerja yang berfokus pada pengembangan mahasiswa baru dan penciptaan kader yang berintegritas dan unggul.</p>
+            <p class="lead-text text-center" style="font-style: italic; font-weight: 600; color: var(--color-secondary);">"FOSMA!! KARYADHARTA (Teguhkan Moral Membentuk Kader Membawa Perubahan)"</p>
+        </section>
 
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <h3>PROGRAM RUTIN MINGGUAN</h3>
-                </button>
-                <div class="accordion-content">
-                    <ul class="program-list">
-                        <li><strong>Pengelolaan Keuangan dan Iuran (BPI):</strong> Pengelolaan keuangan organisasi secara transparan (Rutin Mingguan/Bulanan).</li>
-                        <li><strong>FOSMA Activity Sport (FAST) (Minat dan Bakat):</strong> Kegiatan olahraga (futsal, jogging, badminton) sebagai wadah menyalurkan minat dan meningkatkan kesehatan (Dua Minggu Sekali).</li>
-                        <li><strong>Pengelolaan Konten Media Sosial (Media dan Informasi):</strong> Rutin membuat konten untuk *social media* FOSMA (Harian/Mingguan).</li>
-                    </ul>
+        <section class="content-section bg-light fade-in">
+            <div class="accordion-container">
+                
+                <div class="accordion-item fade-in">
+                    <div class="accordion-header">
+                        <span class="bidang-nama">BIDANG PEMBERDAYAAN KEMAHASISWAAN</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="accordion-content">
+                        <p style="font-weight: 600; margin-bottom: 10px;">Program Utama:</p>
+                        <ul>
+                            <li>**Open Recruitment (Open RECRUIT):** Penjaringan Anggota Baru FOSMA.</li>
+                            <li>**Youth Leadership Training (YLT):** Pelatihan Kepemimpinan dan *Soft Skill*.</li>
+                            <li>**Kelas Materi:** Pelatihan Administrasi, Keorganisasian, dan Isu Kampus.</li>
+                            <li>**Rapat Kerja & Rapat Evaluasi:** Evaluasi dan perencanaan program.</li>
+                        </ul>
+                    </div>
                 </div>
+
+                <div class="accordion-item fade-in">
+                    <div class="accordion-header">
+                        <span class="bidang-nama">BIDANG SOSIAL DAN KEAGAMAAN</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="accordion-content">
+                        <p style="font-weight: 600; margin-bottom: 10px;">Program Utama:</p>
+                        <ul>
+                            <li>**FOSMA Berbagi:** Bakti sosial dan pengabdian masyarakat.</li>
+                            <li>**Kajian Keagamaan:** Diskusi rutin tentang isu keislaman dan moral.</li>
+                            <li>**PHBI (Peringatan Hari Besar Islam):** Pelaksanaan kegiatan keagamaan.</li>
+                            <li>**FOSMA Peduli:** Penggalangan dana cepat tanggap bencana.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item fade-in">
+                    <div class="accordion-header">
+                        <span class="bidang-nama">BIDANG ISU DAN AKSI</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="accordion-content">
+                        <p style="font-weight: 600; margin-bottom: 10px;">Program Utama:</p>
+                        <ul>
+                            <li>**Kajian Isu Kampus:** Analisis dan diskusi kritis terhadap kebijakan kampus.</li>
+                            <li>**Aksi Kolaboratif:** Berkolaborasi dengan DEMA/SEMA dalam menyikapi isu.</li>
+                            <li>**Advokasi Mahasiswa:** Menampung dan menyampaikan aspirasi anggota.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item fade-in">
+                    <div class="accordion-header">
+                        <span class="bidang-nama">BIDANG MEDIA DAN INFORMASI</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="accordion-content">
+                        <p style="font-weight: 600; margin-bottom: 10px;">Program Utama:</p>
+                        <ul>
+                            <li>**FOSMA Podcast (PODSMA):** Konten audio/visual edukatif dan informatif.</li>
+                            <li>**Design & Content Creator Class:** Pelatihan desain grafis dan konten media sosial.</li>
+                            <li>**Maintenance Website & Media Sosial:** Pembaruan rutin semua kanal informasi.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item fade-in">
+                    <div class="accordion-header">
+                        <span class="bidang-nama">BIDANG MINAT DAN BAKAT</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="accordion-content">
+                        <p style="font-weight: 600; margin-bottom: 10px;">Program Utama:</p>
+                        <ul>
+                            <li>**FOSMA Sport:** Kompetisi atau agenda olahraga internal.</li>
+                            <li>**FOSMA Art:** Wadah bagi anggota untuk mengembangkan seni dan kreativitas.</li>
+                            <li>**FOSMA Choir/Nasyid:** Latihan rutin untuk penampilan keagamaan dan acara kampus.</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
             
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <h3>AGENDA INSIDENTAL (TIDAK TERJADWAL)</h3>
-                </button>
-                <div class="accordion-content">
-                    <ul class="program-list">
-                        <li><strong>Bukber Keluarga FOSMA (Sosial dan Keagamaan):</strong> Acara mempererat tali silaturahmi antar fungsionaris dan demisioner saat Ramadhan.</li>
-                        <li><strong>Kajian Isu (Isu dan Aksi):</strong> Kajian mendalam tentang isu-isu strategis, diadakan saat ada momentum isu yang relevan.</li>
-                    </ul>
-                </div>
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="#" class="btn btn-secondary">Download Dokumen Raker Lengkap →</a>
             </div>
-            
-        </div>
-    </section>
-</main>
+        </section>
+
+    </main>
 
     <footer>
-        <div class="footer-container">
+        <div class="footer-main">
+            <div class="footer-col footer-contact fade-in">
+                <img src="assets/logo-fosma-putih.png" alt="Logo FOSMA"> 
+                <h4>FOSMA UIN Antasari</h4>
+                <p>Jl. A. Yani Km. 4,5 Komp. UIN Antasari Banjarmasin Gedung Student Center Lt. II</p>
+                <p>Email: fosmaantasari@gmail.com</p>
+                <p>CP: Siti Hasna (082295493674)</p>
             </div>
-        <div class="footer-bottom">
-            <p>Copyright &copy; 2024 FOSMA UIN Antasari. All rights reserved.</p>
+            <div class="footer-col footer-links fade-in">
+                <h4>Navigasi</h4>
+                <a href="index.html">Beranda</a>
+                <a href="about.html">Selayang Pandang</a>
+                <a href="programs.html">Program Kerja</a>
+            </div>
+            <div class="footer-col footer-links fade-in">
+                <h4>Aktivitas</h4>
+                <a href="berita-acara.html">Berita & Acara</a>
+                <a href="kajian.html">Kajian Isu</a>
+                <a href="kontak.html">Kontak Kami</a>
+            </div>
+            <div class="footer-col fade-in">
+                <h4>Ikuti Kami</h4>
+                <p>Sosial Media resmi FOSMA UIN Antasari</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            © 2025 FOSMA UIN Antasari. Kabinet Karyadharta.
         </div>
     </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Navigasi Mobile
+            const navToggle = document.querySelector('.nav-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
 
-    <script src="script.js"></script> 
-</body>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const headers = document.querySelectorAll('.accordion-header');
-        
-        // Loop melalui setiap header (judul program)
-        headers.forEach(header => {
-            // Pasang event listener saat di-klik
-            header.addEventListener('click', () => {
-                const content = header.nextElementSibling; // Ambil konten di bawah header
-                const isOpen = content.style.display === 'block';
-
-                // Tutup semua konten accordion lainnya
-                document.querySelectorAll('.accordion-content').forEach(item => {
-                    item.style.display = 'none';
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
                 });
+            }
+            
+            // 2. Animasi Fade-In saat Scroll (Hyper Active)
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.1 }); 
 
-                // Buka konten yang diklik jika sebelumnya tertutup
-                if (!isOpen) {
-                    content.style.display = 'block';
-                }
+            document.querySelectorAll('.fade-in').forEach(element => {
+                observer.observe(element);
             });
-        });
-    });
-</script>
+            
+            // 3. Logic untuk Program Kerja Accordion (KHUSUS UNTUK programs.html)
+            const headers = document.querySelectorAll('.accordion-header');
+            if (headers.length > 0) {
+                headers.forEach(header => {
+                    header.addEventListener('click', () => {
+                        const content = header.nextElementSibling; 
+                        const isOpen = content.style.maxHeight;
 
+                        // Tutup semua konten accordion lainnya
+                        document.querySelectorAll('.accordion-content').forEach(item => {
+                            item.style.maxHeight = null;
+                            item.parentNode.querySelector('.accordion-header').classList.remove('open');
+                        });
+
+                        // Buka konten yang diklik jika sebelumnya tertutup
+                        if (!isOpen) {
+                            content.style.maxHeight = content.scrollHeight + "px";
+                            header.classList.add('open');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+    
 </body>
 </html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kajian Isu - FOSMA UIN Antasari</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+            <img src="assets/logo-fosma.png" alt="Logo FOSMA"> 
+        </a>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-item">Beranda</a>
+            <a href="about.html" class="nav-item">Selayang Pandang</a>
+            <a href="berita-acara.html" class="nav-item">Berita & Acara</a> 
+            <a href="kajian.html" class="nav-item active">Kajian</a> <a href="kontak.html" class="nav-item">Kontak</a> 
+            <a href="membership.html" class="nav-item btn btn-primary">Gabung FOSMA</a>
+        </nav>
+        <div class="nav-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    
+    <main>
+        
+        <section class="content-section about-intro fade-in">
+            <h1 class="text-center">Kajian Isu & Analisis Kampus</h1>
+            <p class="lead-text text-center">Wadah diskusi kritis yang membahas isu-isu strategis, politik, sosial, dan akademik di lingkungan UIN Antasari dan Nasional.</p>
+        </section>
+
+        <section class="content-section bg-light">
+            <div class="two-column-grid">
+                
+                <div class="card fade-in">
+                    <h3>Kajian 01: Politik Kampus & Dema/Sema</h3>
+                    <p>Analisis mendalam mengenai peran Badan Eksekutif Mahasiswa (DEMA) dan Senat Mahasiswa (SEMA) dalam representasi aspirasi mahasiswa.</p>
+                    <p style="font-size: 0.9em; color: var(--color-primary); margin-top: 15px;">**Bidang Isu dan Aksi** | November 2025</p>
+                    <a href="#" class="read-more">Download Materi Kajian →</a>
+                </div>
+
+                <div class="card fade-in">
+                    <h3>Kajian 02: Peran Mahasiswa dalam Pengabdian Masyarakat</h3>
+                    <p>Diskusi mengenai implementasi Tri Dharma Perguruan Tinggi, fokus pada upaya pengabdian yang berkelanjutan dan tepat sasaran.</p>
+                    <p style="font-size: 0.9em; color: var(--color-primary); margin-top: 15px;">**Bidang Sosial dan Keagamaan** | Desember 2025</p>
+                    <a href="#" class="read-more">Download Materi Kajian →</a>
+                </div>
+                
+                <div class="card fade-in">
+                    <h3>Kajian 03: Masa Depan Kurikulum Kampus Merdeka</h3>
+                    <p>Tinjauan kritis terhadap dampak dan tantangan penerapan Kurikulum Merdeka di lingkungan UIN Antasari.</p>
+                    <p style="font-size: 0.9em; color: var(--color-primary); margin-top: 15px;">**Bidang Pemberdayaan Kemahasiswaan** | Januari 2026</p>
+                    <a href="#" class="read-more">Download Materi Kajian →</a>
+                </div>
+                
+                <div class="card fade-in">
+                    <h3>Kajian 04: Etika Mahasiswa di Era Digital</h3>
+                    <p>Membahas tanggung jawab moral dan etika digital mahasiswa dalam menyikapi informasi dan berinteraksi di ruang publik.</p>
+                    <p style="font-size: 0.9em; color: var(--color-primary); margin-top: 15px;">**Bidang Media dan Informasi** | Februari 2026</p>
+                    <a href="#" class="read-more">Download Materi Kajian →</a>
+                </div>
+                
+            </div>
+            
+            <div class="text-center fade-in" style="margin-top: 50px;">
+                <a href="#" class="btn btn-secondary">Lihat Arsip Kajian Lama →</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-main">
+            <div class="footer-col footer-contact fade-in">
+                <img src="assets/logo-fosma-putih.png" alt="Logo FOSMA"> 
+                <h4>FOSMA UIN Antasari</h4>
+                <p>Jl. A. Yani Km. 4,5 Komp. UIN Antasari Banjarmasin Gedung Student Center Lt. II</p>
+                <p>Email: fosmaantasari@gmail.com</p>
+                <p>CP: Siti Hasna (082295493674)</p>
+            </div>
+            <div class="footer-col footer-links fade-in">
+                <h4>Navigasi</h4>
+                <a href="index.html">Beranda</a>
+                <a href="about.html">Selayang Pandang</a>
+                <a href="programs.html">Program Kerja</a>
+            </div>
+            <div class="footer-col footer-links fade-in">
+                <h4>Aktivitas</h4>
+                <a href="berita-acara.html">Berita & Acara</a>
+                <a href="kajian.html">Kajian Isu</a>
+                <a href="kontak.html">Kontak Kami</a>
+            </div>
+            <div class="footer-col fade-in">
+                <h4>Ikuti Kami</h4>
+                <p>Sosial Media resmi FOSMA UIN Antasari</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            © 2025 FOSMA UIN Antasari. Kabinet Karyadharta.
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Navigasi Mobile
+            const navToggle = document.querySelector('.nav-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // 2. Animasi Fade-In saat Scroll (Hyper Active)
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.1 }); 
+
+            document.querySelectorAll('.fade-in').forEach(element => {
+                observer.observe(element);
+            });
+            
+            // 3. Logic untuk Program Kerja Accordion (kosong di kajian.html)
+            const headers = document.querySelectorAll('.accordion-header');
+            if (headers.length > 0) {
+                // Kode accordion diabaikan karena tidak ada di halaman ini
+            }
+        });
+    </script>
+    
+</body>
+</html>
