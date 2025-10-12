@@ -419,7 +419,7 @@ footer {
 
 
 /* =========== TABLET POTRAIT & MOBILE BESAR (Max 768px) =========== */
-@media (max-width: 768px) {
+@media (max-width: 720px) {
     /* Global */
     body {
         font-size: 15px;
