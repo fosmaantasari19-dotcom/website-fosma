@@ -244,6 +244,21 @@ h3 { font-size: 1.6em; font-weight: 600; }
     display: inline-block;
 }
 
+/* --- GAYA KHUSUS UNTUK SUB-JUDUL KAJIAN ISU (Kotak Biru) --- */
+.lead-highlight {
+    /* Latar Belakang Biru */
+    background-color: var(--color-primary); 
+    /* Warna Teks Putih */
+    color: white; 
+    /* Padding untuk kotak */
+    padding: 10px 20px;
+    border-radius: 5px;
+    /* Margin bawah agar ada jarak dengan konten di bawahnya */
+    margin-bottom: 20px;
+    /* Display inline-block agar kotaknya mengikuti lebar teks dan padding bekerja */
+    display: inline-block; 
+}
+
 /* 4. SECTIONS & HERO */
 .content-section {
     padding: 100px 4%; 
