@@ -561,3 +561,30 @@ footer {
     max-height: 1000px; /* Nilai besar agar semua teks terlihat */
     transition: max-height 0.5s ease-in;
 }
+
+/* --- CSS untuk Video YouTube Responsif --- */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Rasio aspek 16:9 (tinggi/lebar = 9/16 = 0.5625) */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Membatasi lebar maksimum agar tidak terlalu besar di desktop */
+.video-wrapper {
+    max-width: 800px; /* Lebar maksimum yang ideal untuk video */
+    margin: 0 auto;
+}
