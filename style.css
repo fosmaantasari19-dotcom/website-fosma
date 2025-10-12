@@ -175,15 +175,15 @@ header {
     width: 100%;
 }
 
-/* 3. Gaya Tombol Aktif (Kotak Kuning) - FIX UTAMA Masalah Double Box */
+/* 3. Gaya Tombol Aktif (Kotak Biru, Teks Kuning) - FIX BARU */
 .nav-item.active {
-    background-color: var(--color-secondary); /* Warna Kuning Aksen */
-    color: var(--color-dark) !important; /* Teks berwarna gelap */
+    background-color: var(--color-primary); /* Latar Belakang Biru Gelap */
+    color: var(--color-secondary) !important; /* Teks Kuning Aksen */
     padding: 8px 15px; 
     border-radius: 5px;
 }
 
-/* Menonaktifkan Garis Bawah di menu yang aktif */
+/* Menonaktifkan Garis Bawah di menu yang aktif (tetap penting) */
 .nav-item.active::after {
     display: none; 
 }
