@@ -73,3 +73,40 @@ document.addEventListener('DOMContentLoaded', () => {
             button.textContent = isExpanded ? 'Sembunyikan' : 'Baca Selengkapnya';
         });
     });
+
+// 5. Logic untuk Mengirim Formulir Kontak ke WhatsApp
+    const waForm = document.getElementById('whatsapp-form');
+    const waNumber = '6282295493674'; // Nomor WA Siti Hasna (tanpa + dan 0 di depan)
+
+    if (waForm) {
+        waForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Mencegah form dikirim secara tradisional
+
+            // Ambil nilai dari input
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            const subjek = document.getElementById('subjek').value;
+            const pesan = document.getElementById('pesan').value;
+
+            // Format pesan yang akan dikirim ke WhatsApp
+            let waMessage = `*Pesan Baru dari Website FOSMA:*\n\n`;
+            waMessage += `Subjek: ${subjek}\n`;
+            waMessage += `Nama Pengirim: ${nama}\n`;
+            
+            // Tambahkan email/kontak jika diisi
+            if (email) {
+                waMessage += `Kontak: ${email}\n`;
+            }
+            
+            waMessage += `\n*Isi Pesan/Kritik & Saran:*\n${pesan}`;
+            
+            // Encode pesan agar aman untuk URL
+            const encodedMessage = encodeURIComponent(waMessage);
+
+            // Buat link WhatsApp
+            const waLink = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+
+            // Arahkan browser ke link WhatsApp
+            window.open(waLink, '_blank');
+        });
+    }

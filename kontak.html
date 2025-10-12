@@ -6,6 +6,7 @@
     <title>Kontak Kami - FOSMA UIN Antasari</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -18,7 +19,8 @@
             <a href="about.html" class="nav-item">Selayang Pandang</a>
             <a href="berita-acara.html" class="nav-item">Berita & Acara</a> 
             <a href="kajian.html" class="nav-item">Kajian</a> 
-            <a href="kontak.html" class="nav-item active">Kontak</a> <a href="membership.html" class="nav-item btn btn-primary">Gabung FOSMA</a>
+            <a href="kontak.html" class="nav-item btn btn-primary active">Kontak</a> 
+            <a href="membership.html" class="nav-item">Apa Kata Mereka</a>
         </nav>
         <div class="nav-menu-toggle">
             <span></span>
@@ -29,59 +31,91 @@
     
     <main>
         
-        <section class="content-section about-intro fade-in">
-            <h1 class="text-center">Kontak & Aspirasi</h1>
-            <p class="lead-text text-center">Hubungi kami untuk pertanyaan, kerjasama, atau menyampaikan aspirasi Anda kepada FOSMA UIN Antasari.</p>
+        <section class="content-section about-intro fade-in" style="padding-top: 50px; padding-bottom: 50px; background-color: var(--color-primary); color: white;">
+            <h1 class="text-center" style="font-size: 3em; color: var(--color-secondary);">Hubungi Kami</h1>
+            <p class="lead-text text-center" style="font-size: 1.3em; color: white;">
+                Kami siap menjawab pertanyaan, menerima kritik, dan menjalin silaturahmi. Sampaikan pesan Anda melalui form di bawah ini.
+            </p>
         </section>
 
-        <section class="content-section bg-light">
+        <section class="content-section">
             <div class="two-column-grid">
                 
-                <div class="card fade-in">
-                    <h3>Informasi Kontak</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;">
-                            <span style="font-weight: 600;">Sekretariat:</span> Gedung Student Center Lt. II, UIN Antasari Banjarmasin
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <span style="font-weight: 600;">Email Resmi:</span> <a href="mailto:fosmaantasari@gmail.com">fosmaantasari@gmail.com</a>
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <span style="font-weight: 600;">Narahubung (Sekum):</span> Siti Hasna (082295493674)
-                        </li>
-                    </ul>
-                    
-                    <h3 style="margin-top: 30px;">Media Sosial</h3>
-                    <p>Ikuti kami untuk berita dan info terbaru:</p>
-                    </div>
-
-                <div class="card fade-in">
-                    <h3>Formulir Aspirasi</h3>
-                    <form class="contact-form">
-                        <label for="nama">Nama (Opsional):</label>
-                        <input type="text" id="nama" name="nama">
-                        
-                        <label for="email">Email/Kontak WA:</label>
-                        <input type="text" id="email" name="email" required>
-
-                        <label for="subjek">Subjek Aspirasi:</label>
-                        <input type="text" id="subjek" name="subjek" required>
-                        
-                        <label for="pesan">Pesan/Aspirasi Anda:</label>
-                        <textarea id="pesan" name="pesan" rows="5" required></textarea>
-                        
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Aspirasi</button>
+                <div class="contact-form-container fade-in">
+                    <h2 style="margin-top: 0;">Kirim Kritik & Saran via WhatsApp</h2>
+                    <form id="whatsapp-form">
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap</label>
+                            <input type="text" id="nama" name="nama" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email / Nomor HP (Opsional)</label>
+                            <input type="text" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subjek">Subjek Pesan</label>
+                            <input type="text" id="subjek" name="subjek" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pesan">Isi Pesan / Kritik & Saran Anda</label>
+                            <textarea id="pesan" name="pesan" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim via WhatsApp</button>
+                        <p style="font-size: 0.9em; text-align: center; color: #777; margin-top: 10px;">
+                            Pesan akan diteruskan ke WhatsApp Narahubung.
+                        </p>
                     </form>
                 </div>
                 
+                <div class="contact-info-card fade-in">
+                    <h3>Informasi Kontak</h3>
+                    <p>
+                        <i class="fas fa-envelope" style="margin-right: 10px;"></i> 
+                        Email Resmi: 
+                        <a href="mailto:fosmaantasaribjm@gmail.com" style="color: white; text-decoration: underline;">
+                            fosmaantasaribjm@gmail.com
+                        </a>
+                    </p>
+                    <p>
+                        <i class="fas fa-phone-alt" style="margin-right: 10px;"></i> 
+                        Kontak (Siti Hasna): 
+                        <a href="tel:+6282295493674" style="color: white; text-decoration: underline;">
+                            +62 822-9549-3674
+                        </a>
+                    </p>
+                    
+                    <p><i class="fas fa-clock" style="margin-right: 10px;"></i> Jam Operasional Sekretariat: 09:00 - 16:00 WITA (Senin - Jumat)</p>
+                    <p style="margin-top: 20px;">
+                        <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 
+                        Alamat Sekretariat: <br>
+                        Jl. A. Yani Km. 4,5 Komp. UIN Antasari Banjarmasin Gedung Student Center Lt. II
+                    </p>
+                    
+                    <h3 style="margin-top: 30px; color: white;">Akses Cepat</h3>
+                    <a href="https://wa.me/6282295493674" target="_blank" class="btn btn-secondary" style="margin-bottom: 10px; display: block; text-align: center;">
+                        <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Chat via WhatsApp
+                    </a>
+                    <a href="mailto:fosmaantasaribjm@gmail.com" target="_blank" class="btn btn-secondary" style="display: block; text-align: center;">
+                        <i class="fas fa-envelope" style="margin-right: 8px;"></i> Kirim Email Langsung
+                    </a>
+                </div>
             </div>
         </section>
-        
-        <section class="content-section text-center fade-in">
-            <h2>Lokasi Sekretariat</h2>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.189569727581!2d114.60628287413661!3d-3.321853140683057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de42289c049179d%3A0x6a1a1b181e1941d!2sUIN%20Antasari%20Banjarmasin!5e0!3m2!1sid!2sid!4v1699999999999!5m2!1sid!2sid" 
-                width="100%" height="450" style="border:0; margin-top: 30px; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+
+        <section class="content-section bg-light">
+            <h2 class="text-center fade-in">Temukan Lokasi Kami</h2>
+            <p class="lead-text text-center fade-in">
+                Sekretariat FOSMA berada di Gedung Student Center UIN Antasari Banjarmasin.
+            </p>
+            
+            <div class="map-container fade-in">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.337775176143!2d114.6062327756184!3d-3.3218524419985925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de4228913985a11%3A0xc3f0b2a8d5c48b8c!2sUIN%20Antasari%20Banjarmasin!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </section>
 
     </main>
@@ -92,7 +126,7 @@
                 <img src="assets/logo-fosma-putih.png" alt="Logo FOSMA"> 
                 <h4>FOSMA UIN Antasari</h4>
                 <p>Jl. A. Yani Km. 4,5 Komp. UIN Antasari Banjarmasin Gedung Student Center Lt. II</p>
-                <p>Email: fosmaantasari@gmail.com</p>
+                <p>Email: fosmaantasaribjm@gmail.com</p>
                 <p>CP: Siti Hasna (082295493674)</p>
             </div>
             <div class="footer-col footer-links fade-in">
@@ -113,43 +147,11 @@
             </div>
         </div>
         <div class="footer-bottom text-center">
-            &copy; 2025 FOSMA UIN Antasari. Kabinet Karyadharta.
+            © 2025 FOSMA UIN Antasari. Kabinet Karyadharta.
         </div>
     </footer>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Navigasi Mobile
-            const navToggle = document.querySelector('.nav-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-
-            if (navToggle && navLinks) {
-                navToggle.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                });
-            }
-            
-            // 2. Animasi Fade-In saat Scroll (Hyper Active)
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); 
-                    }
-                });
-            }, { threshold: 0.1 }); 
-
-            document.querySelectorAll('.fade-in').forEach(element => {
-                observer.observe(element);
-            });
-            
-            // 3. Logic untuk Program Kerja Accordion (kosong di kontak.html)
-            const headers = document.querySelectorAll('.accordion-header');
-            if (headers.length > 0) {
-                // ... (kode accordion tidak akan dieksekusi karena tidak ada elemen .accordion-header)
-            }
-        });
-    </script>
+    <script src="script.js"></script>
     
 </body>
 </html>

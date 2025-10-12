@@ -588,3 +588,87 @@ footer {
     max-width: 800px; /* Lebar maksimum yang ideal untuk video */
     margin: 0 auto;
 }
+
+/* --- Gaya Khusus Formulir Kontak --- */
+.contact-form-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form-container form {
+    display: grid;
+    gap: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-bg-contrast);
+    border-radius: 5px;
+    box-sizing: border-box; /* Penting agar padding tidak melebarkan input */
+    font-family: inherit;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Tombol Submit menggunakan gaya btn-primary yang sudah ada */
+.contact-form-container button[type="submit"] {
+    margin-top: 15px;
+    width: 100%; 
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+/* Info Kontak dan Maps */
+.contact-info-card {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.contact-info-card h3 {
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+}
+
+.contact-info-card p {
+    margin-bottom: 10px;
+}
+
+.map-container {
+    height: 350px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
