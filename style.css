@@ -229,36 +229,41 @@ h3 { font-size: 1.6em; font-weight: 600; }
     transform: translateX(5px);
 }
 
-/* --- GAYA KHUSUS UNTUK JUDUL KAJIAN ISU --- */
-.kajian-highlight {
-    /* Latar Belakang Biru */
+/* ================================================= */
+/* GAYA KHUSUS KONTEN KAJIAN ISU (KOTAK BIRU DI ATAS) */
+/* ================================================= */
+
+.header-konten-kajian {
+    /* Latar Belakang Kotak Biru (TIDAK BERUBAH) */
     background-color: var(--color-primary); 
-    /* Warna Teks Kuning */
-    color: var(--color-secondary); 
-    /* Padding untuk kotak */
-    padding: 3px 10px;
-    border-radius: 5px;
-    /* Font tetap tebal */
-    font-weight: 700;
-    /* Display inline-block agar padding bekerja */
-    display: inline-block;
+    padding: 60px 4%; 
+    margin-top: var(--header-height); 
+    width: 100%;
 }
 
-/* --- GAYA KHUSUS UNTUK SUB-JUDUL KAJIAN ISU (Kotak Biru) --- */
-.lead-highlight {
-    /* Latar Belakang Biru */
-    background-color: var(--color-primary); 
-    /* Warna Teks Putih */
-    color: white; 
-    /* Padding untuk kotak */
-    padding: 10px 20px;
-    border-radius: 5px;
-    /* Margin bawah agar ada jarak dengan konten di bawahnya */
-    margin-bottom: 20px;
-    /* Display inline-block agar kotaknya mengikuti lebar teks dan padding bekerja */
-    display: inline-block; 
+.inner-header-kajian {
+    max-width: 1200px;
+    margin: 0 auto; 
+    text-align: center;
 }
 
+/* Gaya Teks di Dalam Kotak Biru */
+.inner-header-kajian h1 {
+    color: var(--color-secondary); /* <--- PERUBAHAN: Judul menjadi Kuning */
+    font-size: 2.8em; 
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.inner-header-kajian p.lead-text {
+    color: white; /* <--- PERUBAHAN: Sub-judul menjadi Putih */
+    font-size: 1.1em;
+    font-weight: 500;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ... (Kode CSS lainnya di bawah ini tetap sama) ... */
 /* 4. SECTIONS & HERO */
 .content-section {
     padding: 100px 4%; 
