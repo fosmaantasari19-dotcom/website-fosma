@@ -672,3 +672,21 @@ footer {
     height: 100%;
     border: none;
 }
+
+/* --- Tambahan/Revisi pada style.css --- */
+
+header .logo {
+    display: flex; /* PENTING: Untuk membuat logo dan teks sejajar */
+    align-items: center; /* PENTING: Untuk membuat logo dan teks sejajar vertikal */
+    gap: 10px; /* Jarak antara logo dan teks */
+    text-decoration: none;
+    color: var(--color-dark); /* Warna teks default */
+    font-weight: 700; /* Tebal */
+    font-size: 1.2em;
+}
+
+header .logo img {
+    /* Pastikan gambar logo tidak terlalu besar, misalnya 40px */
+    height: 40px; 
+    width: auto;
+}
