@@ -69,6 +69,71 @@ header {
     transition: transform 0.3s;
 }
 
+/* Gaya Khusus untuk Teks Logo */
+.logo .logo-text {
+    font-size: 1.3em; 
+    font-weight: 700;
+    color: var(--color-primary); 
+    line-height: 1.2;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-item {
+    font-weight: 500;
+    color: var(--color-dark);
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+/* 1. Definisi Garis Bawah (Underline) */
+.nav-item:not(.active)::after { /* Garis bawah TIDAK AKAN MUNCUL di tombol yang sudah aktif (.active) */
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+/* 2. HEADER & NAV (Minimalis dan Fixed) */
+header {
+    background-color: white;
+    padding: 0 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+}
+
+/* FIX: Logo menjadi Flexbox agar gambar dan teks sejajar vertikal */
+.logo {
+    display: flex; 
+    align-items: center; /* Sejajar di tengah vertikal */
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+.logo img {
+    height: 35px;
+    margin-right: 10px; /* Jarak antara logo dan teks */
+    transition: transform 0.3s;
+}
+
 /* Gaya Khusus untuk Teks Logo (Memunculkan Teks FOSMA) */
 .logo .logo-text {
     font-size: 1.3em; 
@@ -110,10 +175,10 @@ header {
     width: 100%;
 }
 
-/* 3. Gaya Tombol Aktif (Kotak Biru-Teks Kuning) - FINAL FIX */
+/* 3. Gaya Tombol Aktif (Kotak Kuning) */
 .nav-item.active {
-    background-color: var(--color-primary); /* Kotak Biru */
-    color: var(--color-secondary) !important; /* Teks Kuning */
+    background-color: var(--color-secondary); /* Warna Kuning Aksen */
+    color: var(--color-dark) !important; /* Teks berwarna gelap */
     padding: 8px 15px; 
     border-radius: 5px;
 }
@@ -123,27 +188,12 @@ header {
     display: none; 
 }
 
-/* Gaya Tombol Button */
-.nav-item.btn.btn-primary {
-    /* Memastikan tombol tetap tampil sebagai tombol utama (Oranye/Kuning) */
-    background-color: var(--color-secondary); 
-    color: var(--color-dark); 
-    padding: 12px 35px;
-    border: 2px solid var(--color-secondary);
-}
-
-.nav-item.btn.btn-primary:hover {
-    background-color: #ffb74d;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-}
-
 .nav-menu-toggle {
     display: none;
     cursor: pointer;
 }
 
-/* 3. TYPOGRAPHY & TEXT UTILITIES */
+/* TYPOGRAPHY & TEXT UTILITIES */
 h1, h2, h3, h4, h5 {
     color: var(--color-dark);
     margin-bottom: 15px;
@@ -179,6 +229,61 @@ h3 { font-size: 1.6em; font-weight: 600; }
     transform: translateX(5px);
 }
 
+/* ================================================= */
+/* GAYA KHUSUS KONTEN KAJIAN ISU (KOTAK BIRU DI ATAS) */
+/* ================================================= */
+
+.header-konten-kajian {
+    background-color: var(--color-primary); 
+    padding: 0 4%; /* Hilangkan padding vertikal agar height: 40vh bekerja */
+    padding-bottom: 50px; /* Padding di bagian bawah kotak biru */
+    
+    /* Menerapkan tinggi dan alignment Hero Section */
+    height: 40vh; /* Tinggi tetap 40% dari viewport height */
+    display: flex; /* Menggunakan Flexbox untuk alignment */
+    align-items: flex-end; /* Konten diletakkan di bagian bawah kotak */
+    justify-content: center; /* Konten di tengah horizontal */
+    
+    margin-top: var(--header-height); 
+    width: 100%;
+}
+
+.inner-header-kajian {
+    max-width: 1200px;
+    margin: 0 auto; 
+    text-align: center;
+    width: 100%; /* Penting untuk flexbox */
+}
+
+/* Gaya Teks: Ukuran disamakan dengan Hero Title di Kontak */
+.inner-header-kajian h1 {
+    color: var(--color-secondary); /* Judul Kuning */
+    font-size: 3.5em; /* Ukuran ditingkatkan */
+    font-weight: 800;
+    margin-bottom: 10px; 
+}
+
+.inner-header-kajian p.lead-text {
+    color: white; /* Sub-judul Putih */
+    font-size: 1.2em; /* Ukuran ditingkatkan */
+    font-weight: 500;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Responsif untuk layar kecil (agar ukuran tidak terlalu besar) */
+@media (max-width: 768px) {
+    .header-konten-kajian {
+        height: 35vh;
+        padding-bottom: 30px;
+    }
+    .inner-header-kajian h1 {
+        font-size: 2.2em;
+    }
+    .inner-header-kajian p.lead-text {
+        font-size: 1em;
+    }
+}
 
 /* 4. SECTIONS & HERO */
 .content-section {
@@ -190,113 +295,32 @@ h3 { font-size: 1.6em; font-weight: 600; }
 .bg-light { background-color: var(--color-light); }
 .bg-contrast { background-color: var(--color-bg-contrast); }
 
-/* GAYA KHUSUS HERO SECTION (Contoh: Halaman Kontak) */
 #hero-static {
     background-color: var(--color-primary);
     color: white;
-    /* Ukuran dan Alignment yang disepakati */
-    height: 40vh; 
+    height: 90vh;
     display: flex;
-    align-items: flex-end; /* Konten di bawah */
-    justify-content: center; /* Konten di tengah */
-    text-align: center; 
-    
-    padding: 0 4%;
-    padding-bottom: 50px; /* Padding bawah konten */
-    margin-top: var(--header-height);
+    align-items: center;
+    justify-content: center;
+    text-align: left;
 }
 
 .hero-content {
     max-width: 1000px;
-    width: 100%; 
-    padding-left: 0;
+    padding-left: 5%;
 }
 
-/* Gaya Teks di Hero Kontak (Hubungi Kami) */
 .hero-content h1 {
     color: white;
-    font-size: 3.5em; /* Ukuran ditingkatkan */
-    margin-bottom: 10px;
+    font-size: 4.5em;
+    margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-size: 1.2em;
-    margin-bottom: 0;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 1.4em;
+    margin-bottom: 40px;
+    max-width: 700px;
 }
-
-
-/* ================================================= */
-/* GAYA KHUSUS KONTEN KAJIAN ISU (KOTAK BIRU HERO) - FINAL FIX SESUAI KONTAK */
-/* ================================================= */
-
-.header-konten-kajian {
-    background-color: var(--color-primary); 
-    padding: 0 4%;
-    padding-bottom: 50px; 
-    
-    /* MENYAMAKAN UKURAN DENGAN #hero-static */
-    height: 40vh; 
-    display: flex;
-    align-items: flex-end; 
-    justify-content: center; 
-    
-    margin-top: var(--header-height); 
-    width: 100%;
-}
-
-.inner-header-kajian {
-    max-width: 1200px;
-    margin: 0 auto; 
-    text-align: center;
-    width: 100%;
-}
-
-/* Gaya Teks di Dalam Kotak Biru Kajian */
-.inner-header-kajian h1 {
-    color: var(--color-secondary); /* Judul Kuning */
-    font-size: 3.5em; /* Ukuran disamakan dengan h1 kontak */
-    font-weight: 800;
-    margin-bottom: 10px; 
-}
-
-.inner-header-kajian p.lead-text {
-    color: white; /* Sub-judul Putih */
-    font-size: 1.2em; /* Ukuran disamakan dengan p kontak */
-    font-weight: 500;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Responsif untuk layar kecil (agar ukuran tidak terlalu besar) */
-@media (max-width: 768px) {
-    /* ... (Aturan Hero Kontak Mobile) ... */
-    #hero-static {
-        height: 70vh; /* Contoh pengaturan yang berbeda di HP */
-        padding-bottom: 30px;
-    }
-    .hero-content h1 {
-        font-size: 2.5em; 
-    }
-    .hero-content p {
-        font-size: 1em;
-    }
-
-    /* Hero Kajian Mobile */
-    .header-konten-kajian {
-        height: 35vh; /* Sedikit lebih kecil dari Kontak di HP */
-        padding-bottom: 30px;
-    }
-    .inner-header-kajian h1 {
-        font-size: 2.2em;
-    }
-    .inner-header-kajian p.lead-text {
-        font-size: 1em;
-    }
-}
-
 
 /* 5. BUTTONS (Gaya Modern) */
 .btn {
@@ -405,7 +429,7 @@ h3 { font-size: 1.6em; font-weight: 600; }
     margin-bottom: 10px;
 }
 
-/* 7. STRUKTUR KEPENGURUSAN CARDS (Tetap) */
+/* 7. STRUKTUR KEPENGURUSAN CARDS */
 .bidang-container h4 {
     color: var(--color-dark);
     text-align: center;
@@ -439,7 +463,7 @@ h3 { font-size: 1.6em; font-weight: 600; }
     background-color: #ffe8d6;
 }
 
-/* 8. FOOTER (Tetap) */
+/* 8. FOOTER */
 footer {
     background-color: var(--color-dark);
     color: white;
@@ -470,7 +494,8 @@ footer {
     margin-top: 30px;
 }
 
-/* 9. ANIMASI (Fade-In Saat Scroll - Hyper Active) - Tetap */
+/* 9. ANIMASI (Fade-In Saat Scroll - Hyper Active) */
+/* Efek yang membuat elemen muncul saat di-scroll */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -482,7 +507,7 @@ footer {
     transform: translateY(0);
 }
 
-/* 10. TIMELINE COMPONENT (Vertical Timeline) - Tetap */
+/* 10. TIMELINE COMPONENT (Vertical Timeline) - Disimpan untuk halaman lain */
 .timeline {
     position: relative;
     max-width: 900px;
@@ -551,28 +576,25 @@ footer {
     font-size: 1.1em;
 }
 
-/* 11. MEDIA QUERIES (Responsif) - Tetap */
+/* 11. MEDIA QUERIES (Responsif) */
 
 /* =========== TABLET LANDSCAPE & DESKTOP KECIL (Max 1024px) =========== */
 @media (max-width: 1024px) {
     .content-section {
-        padding: 80px 3%;
+        padding: 80px 3%; /* Sedikit kurangi padding samping */
     }
 
     /* Hero */
     .hero-content h1 {
-        font-size: 3.5em; 
+        font-size: 3.5em; /* Kurangi ukuran hero H1 */
     }
     .hero-content p {
         font-size: 1.2em;
     }
-    .inner-header-kajian h1 {
-        font-size: 3em; /* Penyesuaian */
-    }
 
     /* Footer */
     .footer-main {
-        grid-template-columns: 1.5fr 1fr 1fr; 
+        grid-template-columns: 1.5fr 1fr 1fr; /* Rubah footer jadi 3 kolom agar tidak terlalu padat */
     }
 }
 
@@ -588,7 +610,7 @@ footer {
 
     /* Header & Navigasi Mobile */
     .logo .logo-text {
-        font-size: 1.1em; 
+        font-size: 1.1em; /* Kecilkan teks logo di HP */
     }
     .nav-links {
         position: fixed; top: var(--header-height); left: 0; width: 100%; height: calc(100vh - var(--header-height));
@@ -597,7 +619,7 @@ footer {
     }
     .nav-links.active { transform: translateX(0); }
     .nav-menu-toggle { 
-        display: flex; 
+        display: flex; /* Jadikan flex untuk mengatur ikon hamburger */
         flex-direction: column;
         justify-content: space-around;
         height: 20px;
@@ -629,27 +651,15 @@ footer {
         text-align: center;
     }
     .btn-secondary {
-        margin-left: 0 !important; 
-    }
-
-    /* Hero Kajian Mobile */
-    .header-konten-kajian {
-        height: 35vh;
-        padding-bottom: 30px;
-    }
-    .inner-header-kajian h1 {
-        font-size: 2.2em;
-    }
-    .inner-header-kajian p.lead-text {
-        font-size: 1em;
+        margin-left: 0 !important; /* Hilangkan margin di antara tombol */
     }
 
     /* Grids & Cards */
     .three-column-grid, .two-column-grid {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr; /* Grid menjadi 1 kolom penuh */
     }
     .footer-main { 
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr; /* Footer menjadi 1 kolom penuh */
         text-align: center;
     }
     .footer-col h4 {
@@ -680,58 +690,168 @@ footer {
     }
 }
 
-/* --- Tambahan CSS untuk Testimonial (Tetap) --- */
-.testimonial-card { text-align: center; }
+/* --- Tambahan CSS di style.css untuk testimonial baru --- */
+/* Gaya baru untuk foto di tengah dan tata letak vertikal */
+.testimonial-card {
+    text-align: center; /* Pusatkan semua elemen di kartu */
+}
+
+/* Memastikan Foto berada di tengah dan berbentuk bundar */
 .testimonial-card .testi-photo {
-    width: 90px; height: 90px; margin: 0 auto 15px auto; border: 3px solid var(--color-secondary); display: block; 
+    width: 90px; /* Ukuran foto diperbesar sedikit */
+    height: 90px;
+    margin: 0 auto 15px auto; /* Margin atas bawah, tengah horizontal */
+    border: 3px solid var(--color-secondary);
+    display: block; /* Agar margin auto bekerja */
 }
-.testimonial-card .testi-header { display: block; margin-bottom: 20px; }
-.testimonial-card cite { padding-top: 10px; border-top: none; margin-top: 15px; }
-.testimonial-card .quote-content { overflow: hidden; transition: max-height 0.3s ease-out; max-height: 100px; }
+
+/* Hapus tata letak flex lama di header */
+.testimonial-card .testi-header {
+    display: block; 
+    margin-bottom: 20px;
+}
+
+/* Tata letak untuk nama/jabatan */
+.testimonial-card cite {
+    padding-top: 10px;
+    border-top: none; /* Hapus garis pemisah di atas nama */
+    margin-top: 15px; /* Jarak antara kutipan dan nama */
+}
+
+/* Konten Kutipan (Untuk Hyperaktif/Expand) */
+.testimonial-card .quote-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    max-height: 100px; /* Batasan awal teks (sekitar 3-4 baris) */
+}
+
+/* Tombol Baca Selengkapnya */
 .read-more-btn {
-    display: block; margin-top: 10px; color: var(--color-secondary); font-weight: 600; cursor: pointer; background: none; border: none; padding: 0; text-decoration: underline; font-size: 0.9em;
+    display: block;
+    margin-top: 10px;
+    color: var(--color-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    font-size: 0.9em;
 }
+
+/* Kelas saat kutipan diperluas */
 .testimonial-card.expanded .quote-content {
-    max-height: 1000px; transition: max-height 0.5s ease-in;
+    max-height: 1000px; /* Nilai besar agar semua teks terlihat */
+    transition: max-height 0.5s ease-in;
 }
 
-/* --- CSS untuk Video YouTube Responsif (Tetap) --- */
+/* --- CSS untuk Video YouTube Responsif --- */
 .video-container {
-    position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 30px auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-bottom: 56.25%; /* Rasio aspek 16:9 (tinggi/lebar = 9/16 = 0.5625) */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+
 .video-container iframe {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
+
+/* Membatasi lebar maksimum agar tidak terlalu besar di desktop */
 .video-wrapper {
-    max-width: 800px; margin: 0 auto;
+    max-width: 800px; /* Lebar maksimum yang ideal untuk video */
+    margin: 0 auto;
 }
 
-/* --- Gaya Khusus Formulir Kontak (Tetap) --- */
+/* --- Gaya Khusus Formulir Kontak --- */
 .contact-form-container {
-    background-color: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
-.contact-form-container form { display: grid; gap: 15px; }
-.form-group label { display: block; margin-bottom: 5px; font-weight: 600; color: var(--color-dark); }
-.form-group input[type="text"], .form-group input[type="email"], .form-group textarea {
-    width: 100%; padding: 12px; border: 1px solid var(--color-bg-contrast); border-radius: 5px; box-sizing: border-box; font-family: inherit; font-size: 1em; transition: border-color 0.3s;
-}
-.form-group input:focus, .form-group textarea:focus { border-color: var(--color-primary); outline: none; }
-.form-group textarea { resize: vertical; min-height: 120px; }
-.contact-form-container button[type="submit"] { margin-top: 15px; width: 100%; padding: 15px; font-size: 1.1em; }
 
-/* Info Kontak dan Maps (Tetap) */
+.contact-form-container form {
+    display: grid;
+    gap: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-bg-contrast);
+    border-radius: 5px;
+    box-sizing: border-box; /* Penting agar padding tidak melebarkan input */
+    font-family: inherit;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Tombol Submit menggunakan gaya btn-primary yang sudah ada */
+.contact-form-container button[type="submit"] {
+    margin-top: 15px;
+    width: 100%; 
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+/* Info Kontak dan Maps */
 .contact-info-card {
-    background-color: var(--color-primary); color: white; padding: 30px; border-radius: 10px;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
 }
+
 .contact-info-card h3 {
-    color: var(--color-secondary); margin-bottom: 20px;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
 }
+
 .contact-info-card p {
     margin-bottom: 10px;
 }
+
 .map-container {
-    height: 350px; width: 100%; border-radius: 10px; overflow: hidden; margin-top: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    height: 350px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+
 .map-container iframe {
-    width: 100%; height: 100%; border: none;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
