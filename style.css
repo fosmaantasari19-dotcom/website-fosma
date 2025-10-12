@@ -193,7 +193,7 @@ header {
     cursor: pointer;
 }
 
-/* 3. TYPOGRAPHY & TEXT UTILITIES */
+/* TYPOGRAPHY & TEXT UTILITIES */
 h1, h2, h3, h4, h5 {
     color: var(--color-dark);
     margin-bottom: 15px;
@@ -227,6 +227,21 @@ h3 { font-size: 1.6em; font-weight: 600; }
 .read-more:hover {
     color: var(--color-secondary);
     transform: translateX(5px);
+}
+
+/* --- GAYA KHUSUS UNTUK JUDUL KAJIAN ISU --- */
+.kajian-highlight {
+    /* Latar Belakang Biru */
+    background-color: var(--color-primary); 
+    /* Warna Teks Kuning */
+    color: var(--color-secondary); 
+    /* Padding untuk kotak */
+    padding: 3px 10px;
+    border-radius: 5px;
+    /* Font tetap tebal */
+    font-weight: 700;
+    /* Display inline-block agar padding bekerja */
+    display: inline-block;
 }
 
 /* 4. SECTIONS & HERO */
