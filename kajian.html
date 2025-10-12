@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kajian Isu & Diskusi Publik - FOSMA UIN Antasari</title>
+    <title>Kajian Isu & Opini - FOSMA UIN Antasari</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -13,15 +13,14 @@
     <header>
         <a href="index.html" class="logo">
             <img src="assets/logo-fosma.png" alt="Logo FOSMA"> 
-            <span class="logo-text">FOSMA ANTASARI</span>
         </a>
         <nav class="nav-links">
             <a href="index.html" class="nav-item">Beranda</a>
             <a href="about.html" class="nav-item">Selayang Pandang</a>
             <a href="berita-acara.html" class="nav-item">Berita & Acara</a> 
-            <a href="kajian.html" class="nav-item btn btn-primary active">Kajian</a> 
+            <a href="kajian.html" class="nav-item active">Kajian</a> 
             <a href="kontak.html" class="nav-item">Kontak</a> 
-            <a href="membership.html" class="nav-item">Apa Kata Mereka</a>
+            <a href="membership.html" class="nav-item btn btn-primary">Daftar TOC</a>
         </nav>
         <div class="nav-menu-toggle">
             <span></span>
@@ -32,71 +31,76 @@
     
     <main>
         
-        <section class="content-section about-intro fade-in" style="padding-top: 50px; padding-bottom: 50px; background-color: var(--color-primary); color: white;">
-            <h1 class="text-center" style="font-size: 3em; color: var(--color-secondary);">Kajian Isu & Diskusi Publik</h1>
-            <p class="lead-text text-center" style="font-size: 1.3em; color: white;">
-                Wadah FOSMA untuk mencerdaskan kader dan membangun kesadaran kritis mahasiswa terhadap isu-isu nasional.
+        <section class="content-section text-center bg-light">
+            <h1 class="fade-in">Kajian Isu dan Opini</h1>
+            <p class="lead-text fade-in">
+                Platform intelektual FOSMA untuk menyikapi isu-isu strategis dan aktual, baik di kampus, daerah, maupun nasional.
             </p>
         </section>
 
         <section class="content-section">
-            <h2 class="text-center fade-in">Rilis Kajian Terbaru</h2>
-            <p class="lead-text text-center fade-in">Analisis mendalam terhadap isu-isu strategis yang memengaruhi publik.</p>
+            <h2 class="text-center fade-in">Terbaru dari FOSMA</h2>
+            
+            <div class="three-column-grid">
+                
+                <div class="post-card fade-in">
+                    <a href="kajian-detail-oplosan-minyak.html">
+                        <img src="assets/poster/oplosan-minyak.jpg" alt="Poster Kajian Oplosan Minyak" class="post-image">
+                        <div class="post-content">
+                            <p class="meta">
+                                <i class="fas fa-calendar-alt"></i> 10 Oktober 2025 | 
+                                <i class="fas fa-tag"></i> Nasional
+                            </p>
+                            <h3>Beli Pertamax Rasa Pertalite: Analisis Kasus Oplosan Minyak Pertamina</h3>
+                            <span class="read-more">Baca Selengkapnya &rarr;</span>
+                        </div>
+                    </a>
+                </div>
 
-            <div class="kajian-grid">
+                <div class="post-card fade-in" style="animation-delay: 0.1s;">
+                    <a href="kajian-detail-hari-anak.html">
+                        <img src="assets/poster/hari-anak-nasional.jpg" alt="Poster Kajian Hari Anak Nasional" class="post-image">
+                        <div class="post-content">
+                            <p class="meta">
+                                <i class="fas fa-calendar-alt"></i> 23 Juli 2025 | 
+                                <i class="fas fa-tag"></i> Pendidikan
+                            </p>
+                            <h3>Hari Anak Nasional: Anak Hebat Menuju Indonesia Emas 2045</h3>
+                            <span class="read-more">Baca Selengkapnya &rarr;</span>
+                        </div>
+                    </a>
+                </div>
 
-                <a href="kajian-detail-hari-anak-nasional.html" class="kajian-card fade-in">
-                    <img src="assets/kajian/hari-anak-nasional-cover.jpg" alt="Ilustrasi Hari Anak Nasional" class="kajian-poster" style="object-fit: contain; max-height: 250px;">
-                    <div class="kajian-body">
-                        <h3>Hari Anak Nasional: Anak Hebat Menuju Indonesia Emas 2045</h3>
-                        <p>Kajian kritis FOSMA mengenai tantangan gizi (stunting) dan mutu pendidikan sebagai prasyarat utama untuk mencapai Visi Indonesia Emas 2045.</p>
-                    </div>
-                    <div class="card-footer">
-                        <i class="fas fa-calendar-alt"></i> Rilis Pers: Juli 2025
-                    </div>
-                </a>
-
-                <a href="kajian-detail-raja-ampat.html" class="kajian-card fade-in">
-                    <img src="assets/kajian/raja-ampat-cover.jpg" alt="Ilustrasi Raja Ampat" class="kajian-poster" style="object-fit: contain; max-height: 250px;">
-                    <div class="kajian-body">
-                        <h3>Save Raja Ampat: Siapa Yang Bertanggung Jawab Atas Kerusakan Lingkungan?</h3>
-                        <p>Kajian FOSMA terkait sejarah perizinan pertambangan nikel di Raja Ampat dan tuntutan agar pemerintah mengevaluasi izin yang mengancam 'Surga Terakhir di Bumi'.</p>
-                    </div>
-                    <div class="card-footer">
-                        <i class="fas fa-calendar-alt"></i> Rilis Pers: Juni 2025
-                    </div>
-                </a>
-
-                <a href="kajian-detail-jumat-kelabu.html" class="kajian-card fade-in">
-                    <img src="assets/kajian/jumat-kelabu-cover.jpg" alt="Ilustrasi Jumat Kelabu" class="kajian-poster" style="object-fit: contain; max-height: 250px;">
-                    <div class="kajian-body">
-                        <h3>Mengenang Tragedi Jumat Kelabu: Pelajaran di Balik Kisah Kelam Banjarmasin 1997</h3>
-                        <p>Kajian historis FOSMA mengenai peristiwa kelam 23 Mei 1997 yang mencerminkan ketegangan sosial politik menjelang Pemilu Orde Baru.</p>
-                    </div>
-                    <div class="card-footer">
-                        <i class="fas fa-calendar-alt"></i> Rilis Pers: Mei 2025
-                    </div>
-                </a>
-
-                <a href="kajian-detail-pertamina.html" class="kajian-card fade-in">
-                    <img src="assets/kajian/bensin-oplosan.jpg" alt="Ilustrasi SPBU Pertamina" class="kajian-poster" style="object-fit: contain; max-height: 250px;">
-                    <div class="kajian-body">
-                        <h3>Beli Pertamax Rasa Pertalite: Tuntutan Masyarakat Atas Dugaan Oplosan BBM</h3>
-                        <p>Analisis FOSMA UIN Antasari terkait perbedaan klaim antara Pertamina Patra Niaga dan temuan Kejaksaan Agung mengenai dugaan *blending* bahan bakar minyak (BBM).</p>
-                    </div>
-                    <div class="card-footer">
-                        <i class="fas fa-calendar-alt"></i> Rilis Pers: 26 Maret 2025
-                    </div>
-                </a>
+                <div class="post-card fade-in" style="animation-delay: 0.2s;">
+                    <a href="kajian-detail-raja-ampat.html">
+                        <img src="assets/poster/raja-ampat.jpg" alt="Poster Kajian Raja Ampat" class="post-image">
+                        <div class="post-content">
+                            <p class="meta">
+                                <i class="fas fa-calendar-alt"></i> 05 Juni 2025 | 
+                                <i class="fas fa-tag"></i> Lingkungan
+                            </p>
+                            <h3>Siapa yang Bertanggung Jawab? Menyoroti Isu Pertambangan di Raja Ampat</h3>
+                            <span class="read-more">Baca Selengkapnya &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="post-card fade-in" style="animation-delay: 0.3s;">
+                    <a href="kajian-detail-jumat-kelabu.html">
+                        <img src="assets/poster/jumat-kelabu.jpg" alt="Poster Kajian Jumat Kelabu" class="post-image">
+                        <div class="post-content">
+                            <p class="meta">
+                                <i class="fas fa-calendar-alt"></i> 23 Mei 2025 | 
+                                <i class="fas fa-tag"></i> Sejarah
+                            </p>
+                            <h3>Mengenang Tragedi Jumat Kelabu: Pelajaran di Balik Kisah Kelam 1997</h3>
+                            <span class="read-more">Baca Selengkapnya &rarr;</span>
+                        </div>
+                    </a>
+                </div>
                 
             </div>
             
-            <div class="text-center fade-in" style="margin-top: 50px;">
-                <h3 style="margin-bottom: 20px; color: var(--color-primary);">Kunjungi Arsip Kajian Kami</h3>
-                <a href="https://fosmaantasaricom.wordpress.com" target="_blank" class="btn btn-primary" style="padding: 15px 50px; font-size: 1.1em;">
-                    BACA SELURUH ARSIP KAJIAN →
-                </a>
-            </div>
         </section>
 
     </main>

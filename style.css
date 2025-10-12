@@ -236,16 +236,45 @@ h3 { font-size: 1.6em; font-weight: 600; }
     margin-bottom: 20px;
 }
 
+/* GAYA KHUSUS KAJIAN/BERITA (POST CARD) */
 .post-card {
     border-top: 5px solid var(--color-primary);
+    padding: 0; /* Hapus padding agar gambar bisa penuh */
+    overflow: hidden; /* Penting untuk gambar meluap */
+    text-align: left;
 }
 
-.post-card img {
+.post-card a {
+    color: var(--color-dark);
+}
+
+.post-card a:hover {
+    color: var(--color-primary);
+}
+
+.post-card .post-image {
     height: 200px;
     width: 100%;
     object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 15px;
+    display: block;
+}
+
+.post-card .post-content {
+    padding: 25px;
+}
+
+.post-card h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    min-height: 3.2em; /* Jaga tinggi judul */
+    overflow: hidden;
+    line-height: 1.3;
+}
+
+.post-card p.meta {
+    font-size: 0.85em;
+    color: #888;
+    margin-bottom: 10px;
 }
 
 /* 7. STRUKTUR KEPENGURUSAN CARDS */
@@ -326,7 +355,7 @@ footer {
     transform: translateY(0);
 }
 
-/* 10. TIMELINE COMPONENT (Vertical Timeline) */
+/* 10. TIMELINE COMPONENT (Vertical Timeline) - Disimpan untuk halaman lain */
 .timeline {
     position: relative;
     max-width: 900px;
@@ -400,12 +429,12 @@ footer {
 /* =========== TABLET LANDSCAPE & DESKTOP KECIL (Max 1024px) =========== */
 @media (max-width: 1024px) {
     .content-section {
-        padding: 80px 3%; /* Sedikit kurangi padding samping */
+        padding: 80px 3%; 
     }
 
     /* Hero */
     .hero-content h1 {
-        font-size: 3.5em; /* Kurangi ukuran hero H1 */
+        font-size: 3.5em; 
     }
     .hero-content p {
         font-size: 1.2em;
@@ -413,7 +442,7 @@ footer {
 
     /* Footer */
     .footer-main {
-        grid-template-columns: 1.5fr 1fr 1fr; /* Rubah footer jadi 3 kolom agar tidak terlalu padat */
+        grid-template-columns: 1.5fr 1fr 1fr; 
     }
 }
 
@@ -435,7 +464,7 @@ footer {
     }
     .nav-links.active { transform: translateX(0); }
     .nav-menu-toggle { 
-        display: flex; /* Jadikan flex untuk mengatur ikon hamburger */
+        display: flex; 
         flex-direction: column;
         justify-content: space-around;
         height: 20px;
@@ -467,15 +496,15 @@ footer {
         text-align: center;
     }
     .btn-secondary {
-        margin-left: 0 !important; /* Hilangkan margin di antara tombol */
+        margin-left: 0 !important; 
     }
 
     /* Grids & Cards */
     .three-column-grid, .two-column-grid {
-        grid-template-columns: 1fr; /* Grid menjadi 1 kolom penuh */
+        grid-template-columns: 1fr; 
     }
     .footer-main { 
-        grid-template-columns: 1fr; /* Footer menjadi 1 kolom penuh */
+        grid-template-columns: 1fr; 
         text-align: center;
     }
     .footer-col h4 {
@@ -507,6 +536,7 @@ footer {
 }
 
 /* --- Tambahan CSS di style.css untuk testimonial baru --- */
+/* (Disertakan di sini untuk kelengkapan, tidak memengaruhi Kajian) */
 
 /* Gaya baru untuk foto di tengah dan tata letak vertikal */
 .testimonial-card {
