@@ -175,15 +175,15 @@ header {
     width: 100%;
 }
 
-/* 3. Gaya Tombol Aktif (Kotak Biru, Teks Kuning) - FIX BARU */
+/* 3. Gaya Tombol Aktif (Kotak Kuning) */
 .nav-item.active {
-    background-color: var(--color-primary); /* Latar Belakang Biru Gelap */
-    color: var(--color-secondary) !important; /* Teks Kuning Aksen */
+    background-color: var(--color-secondary); /* Warna Kuning Aksen */
+    color: var(--color-dark) !important; /* Teks berwarna gelap */
     padding: 8px 15px; 
     border-radius: 5px;
 }
 
-/* Menonaktifkan Garis Bawah di menu yang aktif (tetap penting) */
+/* Menonaktifkan Garis Bawah di menu yang aktif */
 .nav-item.active::after {
     display: none; 
 }
