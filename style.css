@@ -235,57 +235,62 @@ h3 { font-size: 1.6em; font-weight: 600; }
 
 .header-konten-kajian {
     background-color: var(--color-primary); 
-    padding: 0 4%; /* Hilangkan padding vertikal agar height: 40vh bekerja */
-    padding-bottom: 50px; /* Padding di bagian bawah kotak biru */
+    padding: 0 4%; 
     
-    /* Menerapkan tinggi dan alignment Hero Section */
-    height: 40vh; /* Tinggi tetap 40% dari viewport height */
-    display: flex; /* Menggunakan Flexbox untuk alignment */
-    align-items: flex-end; /* Konten diletakkan di bagian bawah kotak */
+    /* KOREKSI: Menerapkan tinggi dan alignment BARU */
+    height: 90vh; /* TINGGI MAKSIMAL (90% viewport height) */
+    display: flex; 
+    align-items: center; /* KONTEN DI TENGAH VERTIKAL */
     justify-content: center; /* Konten di tengah horizontal */
+    text-align: left; /* KONTEN RATA KIRI */
     
     margin-top: var(--header-height); 
     width: 100%;
 }
 
 .inner-header-kajian {
-    max-width: 1200px;
+    max-width: 1000px; /* Batas lebar konten */
+    padding-left: 5%; /* Padding kiri agar konten rata kiri di hero */
     margin: 0 auto; 
-    text-align: center;
-    width: 100%; /* Penting untuk flexbox */
+    text-align: left; /* Pastikan teks rata kiri */
+    width: 100%; 
 }
 
 /* Gaya Teks: Ukuran disamakan dengan Hero Title di Kontak */
 .inner-header-kajian h1 {
     color: var(--color-secondary); /* Judul Kuning */
-    font-size: 3.5em; /* Ukuran ditingkatkan */
+    font-size: 4.5em; /* Ukuran ditingkatkan (Menyusul Kontak) */
     font-weight: 800;
-    margin-bottom: 10px; 
+    margin-bottom: 20px; /* Jarak bawah */
 }
 
 .inner-header-kajian p.lead-text {
     color: white; /* Sub-judul Putih */
-    font-size: 1.2em; /* Ukuran ditingkatkan */
+    font-size: 1.4em; /* Ukuran ditingkatkan (Menyusul Kontak) */
     font-weight: 500;
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 700px;
+    margin: 0; /* Hapus auto margin agar rata kiri */
 }
 
-/* Responsif untuk layar kecil (agar ukuran tidak terlalu besar) */
+/* Responsif untuk layar kecil */
 @media (max-width: 768px) {
     .header-konten-kajian {
-        height: 35vh;
-        padding-bottom: 30px;
+        height: 70vh; /* Turunkan tinggi di HP */
+        text-align: center; /* Rata tengah di HP */
+    }
+    .inner-header-kajian {
+        padding-left: 0;
+        text-align: center;
+        padding: 0 5%;
     }
     .inner-header-kajian h1 {
-        font-size: 2.2em;
+        font-size: 2.5em;
     }
     .inner-header-kajian p.lead-text {
         font-size: 1em;
     }
 }
 
-/* ... (Kode CSS lainnya di bawah ini tetap sama) ... */
 /* 4. SECTIONS & HERO */
 .content-section {
     padding: 100px 4%; 
