@@ -55,7 +55,7 @@ header {
     z-index: 1000;
 }
 
-/* PERBAIKAN: Logo menjadi Flexbox agar gambar dan teks sejajar vertikal */
+/* FIX: Logo menjadi Flexbox agar gambar dan teks sejajar vertikal */
 .logo {
     display: flex; 
     align-items: center; /* Sejajar di tengah vertikal */
@@ -73,10 +73,9 @@ header {
 .logo .logo-text {
     font-size: 1.3em; 
     font-weight: 700;
-    color: var(--color-primary); /* Warna Biru Utama */
+    color: var(--color-primary); 
     line-height: 1.2;
 }
-
 
 .nav-links {
     list-style: none;
@@ -90,11 +89,11 @@ header {
     color: var(--color-dark);
     padding: 5px 0;
     position: relative;
-    transition: color 0.3s, background-color 0.3s; /* Tambah transisi untuk background */
+    transition: color 0.3s, background-color 0.3s;
 }
 
-/* Garis Bawah saat Hover/Aktif */
-.nav-item::after {
+/* 1. Definisi Garis Bawah (Underline) */
+.nav-item:not(.active)::after { /* Garis bawah TIDAK AKAN MUNCUL di tombol yang sudah aktif (.active) */
     content: '';
     display: block;
     width: 0;
@@ -106,24 +105,88 @@ header {
     left: 0;
 }
 
-/* Garis bawah hanya muncul saat hover atau aktif (jika tidak memiliki class .active) */
-.nav-item:hover::after, .nav-item.active:not(.btn)::after {
+/* 2. HEADER & NAV (Minimalis dan Fixed) */
+header {
+    background-color: white;
+    padding: 0 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+}
+
+/* FIX: Logo menjadi Flexbox agar gambar dan teks sejajar vertikal */
+.logo {
+    display: flex; 
+    align-items: center; /* Sejajar di tengah vertikal */
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+.logo img {
+    height: 35px;
+    margin-right: 10px; /* Jarak antara logo dan teks */
+    transition: transform 0.3s;
+}
+
+/* Gaya Khusus untuk Teks Logo (Memunculkan Teks FOSMA) */
+.logo .logo-text {
+    font-size: 1.3em; 
+    font-weight: 700;
+    color: var(--color-primary); 
+    line-height: 1.2;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-item {
+    font-weight: 500;
+    color: var(--color-dark);
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+/* 1. Garis Bawah (Underline) - Hanya untuk item yang TIDAK aktif */
+.nav-item:not(.active)::after { 
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+/* 2. Aktivasi Garis Bawah (Hanya saat hover pada item yang TIDAK aktif) */
+.nav-item:hover:not(.active)::after {
     width: 100%;
 }
 
-/* PERBAIKAN: STYLING UNTUK TOMBOL NAVIGASI YANG AKTIF (WARNA KUNING) */
+/* 3. Gaya Tombol Aktif (Kotak Kuning) - FIX UTAMA Masalah Double Box */
 .nav-item.active {
     background-color: var(--color-secondary); /* Warna Kuning Aksen */
     color: var(--color-dark) !important; /* Teks berwarna gelap */
-    padding: 8px 15px; /* Tambahkan padding agar terlihat seperti tombol */
+    padding: 8px 15px; 
     border-radius: 5px;
 }
 
+/* Menonaktifkan Garis Bawah di menu yang aktif */
 .nav-item.active::after {
-    /* Menonaktifkan garis bawah pada tombol yang sudah memiliki background */
     display: none; 
 }
-
 
 .nav-menu-toggle {
     display: none;
