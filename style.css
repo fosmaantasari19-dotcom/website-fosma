@@ -234,9 +234,16 @@ h3 { font-size: 1.6em; font-weight: 600; }
 /* ================================================= */
 
 .header-konten-kajian {
-    /* Latar Belakang Kotak Biru (TIDAK BERUBAH) */
     background-color: var(--color-primary); 
-    padding: 60px 4%; 
+    padding: 0 4%; /* Hilangkan padding vertikal agar height: 40vh bekerja */
+    padding-bottom: 50px; /* Padding di bagian bawah kotak biru */
+    
+    /* Menerapkan tinggi dan alignment Hero Section */
+    height: 40vh; /* Tinggi tetap 40% dari viewport height */
+    display: flex; /* Menggunakan Flexbox untuk alignment */
+    align-items: flex-end; /* Konten diletakkan di bagian bawah kotak */
+    justify-content: center; /* Konten di tengah horizontal */
+    
     margin-top: var(--header-height); 
     width: 100%;
 }
@@ -245,25 +252,39 @@ h3 { font-size: 1.6em; font-weight: 600; }
     max-width: 1200px;
     margin: 0 auto; 
     text-align: center;
+    width: 100%; /* Penting untuk flexbox */
 }
 
-/* Gaya Teks di Dalam Kotak Biru */
+/* Gaya Teks: Ukuran disamakan dengan Hero Title di Kontak */
 .inner-header-kajian h1 {
-    color: var(--color-secondary); /* <--- PERUBAHAN: Judul menjadi Kuning */
-    font-size: 2.8em; 
+    color: var(--color-secondary); /* Judul Kuning */
+    font-size: 3.5em; /* Ukuran ditingkatkan */
     font-weight: 800;
-    margin-bottom: 15px;
+    margin-bottom: 10px; 
 }
 
 .inner-header-kajian p.lead-text {
-    color: white; /* <--- PERUBAHAN: Sub-judul menjadi Putih */
-    font-size: 1.1em;
+    color: white; /* Sub-judul Putih */
+    font-size: 1.2em; /* Ukuran ditingkatkan */
     font-weight: 500;
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* ... (Kode CSS lainnya di bawah ini tetap sama) ... */
+/* Responsif untuk layar kecil (agar ukuran tidak terlalu besar) */
+@media (max-width: 768px) {
+    .header-konten-kajian {
+        height: 35vh;
+        padding-bottom: 30px;
+    }
+    .inner-header-kajian h1 {
+        font-size: 2.2em;
+    }
+    .inner-header-kajian p.lead-text {
+        font-size: 1em;
+    }
+}
+
 /* 4. SECTIONS & HERO */
 .content-section {
     padding: 100px 4%; 
