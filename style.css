@@ -190,29 +190,32 @@ h3 { font-size: 1.6em; font-weight: 600; }
 .bg-light { background-color: var(--color-light); }
 .bg-contrast { background-color: var(--color-bg-contrast); }
 
-/* HERO SECTIONS UMUM (Digunakan di Kontak) */
+/* GAYA KHUSUS HERO SECTION (Contoh: Halaman Kontak) */
 #hero-static {
     background-color: var(--color-primary);
     color: white;
-    height: 40vh; /* Dikurangi menjadi 40vh */
+    /* Ukuran dan Alignment yang disepakati */
+    height: 40vh; 
     display: flex;
     align-items: flex-end; /* Konten di bawah */
     justify-content: center; /* Konten di tengah */
-    text-align: center; /* Teks di tengah */
+    text-align: center; 
+    
     padding: 0 4%;
-    padding-bottom: 50px;
+    padding-bottom: 50px; /* Padding bawah konten */
     margin-top: var(--header-height);
 }
 
 .hero-content {
     max-width: 1000px;
-    width: 100%; /* Agar center bekerja */
+    width: 100%; 
     padding-left: 0;
 }
 
+/* Gaya Teks di Hero Kontak (Hubungi Kami) */
 .hero-content h1 {
     color: white;
-    font-size: 3.5em; /* Ukuran disesuaikan */
+    font-size: 3.5em; /* Ukuran ditingkatkan */
     margin-bottom: 10px;
 }
 
@@ -224,8 +227,9 @@ h3 { font-size: 1.6em; font-weight: 600; }
     margin-right: auto;
 }
 
+
 /* ================================================= */
-/* GAYA KHUSUS KONTEN KAJIAN ISU (KOTAK BIRU HERO) - FINAL FIX */
+/* GAYA KHUSUS KONTEN KAJIAN ISU (KOTAK BIRU HERO) - FINAL FIX SESUAI KONTAK */
 /* ================================================= */
 
 .header-konten-kajian {
@@ -233,7 +237,7 @@ h3 { font-size: 1.6em; font-weight: 600; }
     padding: 0 4%;
     padding-bottom: 50px; 
     
-    /* Menerapkan tinggi dan alignment Hero Section */
+    /* MENYAMAKAN UKURAN DENGAN #hero-static */
     height: 40vh; 
     display: flex;
     align-items: flex-end; 
@@ -250,20 +254,47 @@ h3 { font-size: 1.6em; font-weight: 600; }
     width: 100%;
 }
 
-/* Gaya Teks di Dalam Kotak Biru */
+/* Gaya Teks di Dalam Kotak Biru Kajian */
 .inner-header-kajian h1 {
-    color: var(--color-secondary); /* Judul Kuning (Sesuai Permintaan) */
-    font-size: 3.5em; 
+    color: var(--color-secondary); /* Judul Kuning */
+    font-size: 3.5em; /* Ukuran disamakan dengan h1 kontak */
     font-weight: 800;
     margin-bottom: 10px; 
 }
 
 .inner-header-kajian p.lead-text {
-    color: white; /* Sub-judul Putih (Sesuai Permintaan) */
-    font-size: 1.2em;
+    color: white; /* Sub-judul Putih */
+    font-size: 1.2em; /* Ukuran disamakan dengan p kontak */
     font-weight: 500;
     max-width: 800px;
     margin: 0 auto;
+}
+
+/* Responsif untuk layar kecil (agar ukuran tidak terlalu besar) */
+@media (max-width: 768px) {
+    /* ... (Aturan Hero Kontak Mobile) ... */
+    #hero-static {
+        height: 70vh; /* Contoh pengaturan yang berbeda di HP */
+        padding-bottom: 30px;
+    }
+    .hero-content h1 {
+        font-size: 2.5em; 
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    /* Hero Kajian Mobile */
+    .header-konten-kajian {
+        height: 35vh; /* Sedikit lebih kecil dari Kontak di HP */
+        padding-bottom: 30px;
+    }
+    .inner-header-kajian h1 {
+        font-size: 2.2em;
+    }
+    .inner-header-kajian p.lead-text {
+        font-size: 1em;
+    }
 }
 
 
