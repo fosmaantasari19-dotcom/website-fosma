@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     // 1. Navigasi Mobile (Hamburger Menu)
     const navToggle = document.querySelector('.nav-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -6,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navToggle && navLinks) {
         navToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            // Opsional: Tutup menu saat link diklik (untuk UX mobile)
+            // Menutup menu saat link diklik (opsional, untuk UX mobile)
             navLinks.querySelectorAll('.nav-item').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         headers.forEach(header => {
             header.addEventListener('click', () => {
                 const content = header.nextElementSibling; 
-                const isOpen = header.classList.contains('open'); // Cek header class
+                const isOpen = header.classList.contains('open'); 
 
                 // Tutup semua konten accordion lainnya
                 document.querySelectorAll('.accordion-content').forEach(item => {
@@ -59,54 +60,110 @@ document.addEventListener('DOMContentLoaded', () => {
             firstHeader.classList.add('open');
         }
     }
-});
 
-// 4. Logic untuk Baca Selengkapnya/Expand Testimonial
+    /* ================================================= */
+    /* 4. Logic Modal Testimonial (POP-UP BARU - MENGGANTIKAN LOGIC EXPAND LAMA) */
+    /* ================================================= */
+
+    const modalOverlay = document.getElementById('testimonial-modal-overlay');
+    const modal = document.getElementById('testimonial-modal');
+    const modalCloseBtn = document.querySelector('.modal-close-btn');
+    
+    // Fungsi untuk membuka modal
+    function openModal(data) {
+        document.getElementById('modal-photo').src = data.photo;
+        document.getElementById('modal-photo').alt = 'Foto ' + data.name;
+        document.getElementById('modal-name').textContent = data.name;
+        document.getElementById('modal-title').textContent = data.title;
+        document.getElementById('modal-quote').textContent = data.quote.trim();
+        
+        modalOverlay.classList.add('active');
+        modal.style.display = 'block';
+        setTimeout(() => modal.style.opacity = '1', 10); 
+        document.body.style.overflow = 'hidden'; // Mencegah scroll body utama
+    }
+
+    // Fungsi untuk menutup modal
+    function closeModal() {
+        modalOverlay.classList.remove('active');
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // Mengaktifkan scroll body lagi
+        }, 300); // Tunggu transisi opacity selesai
+    }
+    
+    // Listener untuk tombol tutup
+    modalCloseBtn.addEventListener('click', closeModal);
+    
+    // Listener untuk overlay (klik area buram)
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target.id === 'testimonial-modal-overlay') {
+            closeModal();
+        }
+    });
+
+    // Listener untuk setiap tombol "Baca Selengkapnya"
     const readMoreButtons = document.querySelectorAll('.read-more-btn');
 
     readMoreButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const card = button.closest('.testimonial-card'); 
-            const isExpanded = card.classList.toggle('expanded');
+        button.addEventListener('click', function() {
+            const card = this.closest('.testimonial-card');
             
-            // Ubah teks tombol
-            button.textContent = isExpanded ? 'Sembunyikan' : 'Baca Selengkapnya';
+            // Mengambil data dari elemen card
+            const photoUrl = card.querySelector('.testi-photo').src;
+            const name = card.querySelector('.testi-name').textContent.trim(); 
+            const title = card.querySelector('.testi-title').textContent.trim(); 
+            const quote = card.querySelector('blockquote').textContent.trim();
+
+            const testimonialData = {
+                photo: photoUrl,
+                name: name,
+                title: title,
+                quote: quote
+            };
+
+            openModal(testimonialData);
         });
     });
 
-// 5. Logic untuk Mengirim Formulir Kontak ke WhatsApp
-    const waForm = document.getElementById('whatsapp-form');
-    const waNumber = '6282295493674'; // Nomor WA Siti Hasna (tanpa + dan 0 di depan)
+}); // End of DOMContentLoaded
 
-    if (waForm) {
-        waForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Mencegah form dikirim secara tradisional
+// 5. Logic untuk Mengirim Formulir Kontak ke WhatsApp (Dibiarkan di luar DOMContentLoaded)
+// Meskipun lebih baik di dalam, form ini berjalan tanpa masalah di luar.
 
-            // Ambil nilai dari input
-            const nama = document.getElementById('nama').value;
-            const email = document.getElementById('email').value;
-            const subjek = document.getElementById('subjek').value;
-            const pesan = document.getElementById('pesan').value;
+const waForm = document.getElementById('whatsapp-form');
+const waNumber = '6282295493674'; // Nomor WA Siti Hasna (tanpa + dan 0 di depan)
 
-            // Format pesan yang akan dikirim ke WhatsApp
-            let waMessage = `*Pesan Baru dari Website FOSMA:*\n\n`;
-            waMessage += `Subjek: ${subjek}\n`;
-            waMessage += `Nama Pengirim: ${nama}\n`;
-            
-            // Tambahkan email/kontak jika diisi
-            if (email) {
-                waMessage += `Kontak: ${email}\n`;
-            }
-            
-            waMessage += `\n*Isi Pesan/Kritik & Saran:*\n${pesan}`;
-            
-            // Encode pesan agar aman untuk URL
-            const encodedMessage = encodeURIComponent(waMessage);
+if (waForm) {
+    waForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Mencegah form dikirim secara tradisional
 
-            // Buat link WhatsApp
-            const waLink = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+        // Ambil nilai dari input
+        const nama = document.getElementById('nama').value;
+        const email = document.getElementById('email').value;
+        const subjek = document.getElementById('subjek').value;
+        const pesan = document.getElementById('pesan').value;
 
-            // Arahkan browser ke link WhatsApp
-            window.open(waLink, '_blank');
-        });
-    }
+        // Format pesan yang akan dikirim ke WhatsApp
+        let waMessage = `*Pesan Baru dari Website FOSMA:*\n\n`;
+        waMessage += `Subjek: ${subjek}\n`;
+        waMessage += `Nama Pengirim: ${nama}\n`;
+        
+        // Tambahkan email/kontak jika diisi
+        if (email) {
+            waMessage += `Kontak: ${email}\n`;
+        }
+        
+        waMessage += `\n*Isi Pesan/Kritik & Saran:*\n${pesan}`;
+        
+        // Encode pesan agar aman untuk URL
+        const encodedMessage = encodeURIComponent(waMessage);
+
+        // Buat link WhatsApp
+        const waLink = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+
+        // Arahkan browser ke link WhatsApp
+        window.open(waLink, '_blank');
+    });
+}
