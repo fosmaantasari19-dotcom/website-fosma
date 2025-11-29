@@ -861,3 +861,135 @@ footer {
     height: 100%;
     border: none;
 }
+
+/* ================================================= */
+/* 12. GAYA MODAL (POP-UP) TESTIMONIAL */
+/* ================================================= */
+
+/* 12.1. Gaya untuk Kartu Testimonial agar Teks Terpotong Rapi */
+
+.testimonial-card {
+    /* Pastikan kartu tingginya fleksibel namun memiliki batas untuk kutipan */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Membatasi teks di kartu hanya 3 baris agar rapi, menggunakan teknik line-clamp */
+.quote-preview blockquote {
+    /* Hapus gaya lama yang menggunakan max-height */
+    /* .testimonial-card .quote-content { max-height: 100px; } akan dihapus atau diabaikan */
+
+    /* Terapkan line-clamp untuk pemotongan yang rapi */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Batasi maksimal 3 baris */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1em;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+    min-height: 3.9em; /* Memastikan ruang tetap ada walaupun teks pendek */
+}
+
+/* Hapus atau nonaktifkan kelas yang menyebabkan kartu meluas (dari implementasi lama) */
+.testimonial-card .quote-content,
+.testimonial-card.expanded .quote-content {
+    /* Anda bisa menghapus blok kode ini di style.css, atau ganti dengan: */
+    max-height: none; /* Nonaktifkan batasan max-height lama */
+    transition: none;
+}
+
+
+/* 12.2. Gaya untuk Pop-up (Modal) */
+
+.modal-overlay {
+    display: none; /* Tersembunyi default */
+    position: fixed;
+    z-index: 9999; /* Pastikan di atas semua elemen lain */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.75); /* Background gelap yang lebih pekat */
+    backdrop-filter: blur(4px); 
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto; /* Posisi vertikal, tengah horizontal */
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 650px; /* Lebar maksimal pop up ditingkatkan */
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    text-align: center;
+    border-top: 5px solid var(--color-primary); /* Garis biru di atas pop-up */
+}
+
+/* Tombol Close (X) */
+.close-modal {
+    color: var(--color-dark);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.close-modal:hover { color: var(--color-secondary); }
+
+/* Gaya konten di dalam Modal */
+.modal-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--color-secondary); /* Border kuning/oranye */
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.modal-role-text {
+    font-size: 0.95em;
+    color: var(--color-primary); /* Role menggunakan warna Biru Utama */
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+#modal-quote {
+    font-size: 1.05em;
+    line-height: 1.7;
+    font-style: italic;
+    color: #333;
+    text-align: left; /* Teks kutipan rata kiri/justify untuk keterbacaan yang baik */
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
+/* Animasi */
+@keyframes slideUp {
+    from {opacity: 0; transform: translateY(50px);} 
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.modal-content {
+    /* ... properti modal-content lainnya ... */
+    animation: slideUp 0.3s ease-out;
+}
+
+/* Responsif untuk Modal di Layar Kecil */
+@media (max-width: 600px) {
+    .modal-content {
+        margin: 20px auto; /* Margin atas bawah lebih kecil di HP */
+        padding: 20px;
+    }
+    #modal-quote {
+        font-size: 1em;
+        text-align: justify;
+    }
+}
